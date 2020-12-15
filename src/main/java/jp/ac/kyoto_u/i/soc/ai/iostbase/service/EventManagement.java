@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.EventRepository;
@@ -68,14 +70,23 @@ public class EventManagement implements EventManagementService{
 
 	@Override
 	public Event[] getEvents(Date lastEventMillis, long timeoutMillis) {
+		return convert(er.findAllByCreatedGreaterThan(lastEventMillis));
+	}
+
+	private Event[] convert(List<jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event> events) {
 		Converter c = new Converter();
 		var ret = new ArrayList<>();
-		for(var ev : er.findAllByCreatedGreaterThan(lastEventMillis)) {
+		for(var ev : events) {
 			var e = c.convert(ev, Event.class);
 			e.setValue(JSON.decode(ev.getValue()));
 			ret.add(e);
 		}
 		return ret.toArray(new Event[] {});
+	}
+
+	@Override
+	public Event[] listEvents(int page, int size) {
+		return convert(er.findAll(PageRequest.of(page, size)).getContent());
 	}
 
 	@Override
