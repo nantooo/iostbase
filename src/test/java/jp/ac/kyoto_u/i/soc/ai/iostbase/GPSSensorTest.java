@@ -1,6 +1,7 @@
 package jp.ac.kyoto_u.i.soc.ai.iostbase;
 
 import java.net.URL;
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,9 +28,9 @@ public class GPSSensorTest {
 		}
 		}
 		 */
-		Event e = new Event("user:gps:1", "LatLng", new LatLng(35.0261389, 135.7806666));
+		Event e = new Event("user:gps:1", "LatLng", new LatLng(35.0261389, 135.7806666), new Date());
 		s.notifyEvent(e);
-		for(Event ev : s.getEvents(0, 1000)) {
+		for(Event ev : s.getEvents(new Date(0), 1000)) {
 			System.out.println(JSON.encode(ev));
 		}
 	}

@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // @formatter:off
     http
       .authorizeRequests()
-        .mvcMatchers("/", "/signup", "/jsServices/**").permitAll()
+        .mvcMatchers("/", "/signup", "/jsServices/**", "/h2-console/**").permitAll()
         .mvcMatchers("/members/user/**").hasRole("USER")
         .mvcMatchers("/members/admin/**").hasRole("ADMIN")
         .anyRequest().authenticated()
@@ -58,6 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .logoutSuccessUrl("/")
     ;
     // @formatter:on
+    http.headers().frameOptions().disable();
+    http.csrf().disable();
   }
 
 	@Bean
