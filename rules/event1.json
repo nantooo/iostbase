@@ -1,0 +1,2 @@
+{ deviceId: "calendar:user:taro", created: "2020-12-16 08:00:00.000", dataType: "Schedule",
+	  value: { targetTime: "2020-12-16 10:00:00.000", location: {latitude: 34.2324, longitude: 128.2453}, action: "meeting"}}

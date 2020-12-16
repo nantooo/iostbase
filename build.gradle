@@ -28,29 +28,30 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.vaadin:vaadin-spring-boot-starter'
-	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
+//	implementation 'com.vaadin:vaadin-spring-boot-starter'
+//	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	implementation group: 'org.langrid', name: 'jp.go.nict.langrid.servicecontainer', version: '1.1-SNAPSHOT'
 	implementation group: 'org.langrid', name: 'jp.go.nict.langrid.client', version: '1.1-SNAPSHOT'
 	implementation group: 'javax.xml.soap', name: 'javax.xml.soap-api', version: '1.4.0'
 	implementation group: 'org.drools', name: 'drools-core', version: '7.47.0.Final'
 	implementation group: 'org.drools', name: 'drools-compiler', version: '7.47.0.Final'
+	implementation group: 'org.drools', name: 'drools-mvel', version: '7.47.0.Final'
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'mysql:mysql-connector-java'
+//	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
-dependencyManagement {
+/*dependencyManagement {
 	imports {
 		mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
 	}
-}
+}*/
 
 test {
 	useJUnitPlatform()
