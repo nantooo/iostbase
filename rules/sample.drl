@@ -1,4 +1,3 @@
-
 /*
 予定はユーザが事前に細かく場所などを設定しているものを想定しています．（現在考えているのはAPIでGoogleカレンダーの情報を持ってくるのです．
 例えば傘の提案の例では，ユーザは事前に研究室（京都大学）に１０時からミーティングがあるとすると，その前の３０分前には自宅（京都市内）から出発する必要があります，
@@ -15,7 +14,6 @@
 天気予報イベント(ユーザの周辺の天気予報がイベントとして通知される):
  { deviceId: "weatherforecast", created: "", dataType: "WeatherForecast",
   value: weather: "rainy"}
-
 */
 import jp.ac.kyoto_u.i.soc.ai.iostbase.event.TimerEvent
 import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event

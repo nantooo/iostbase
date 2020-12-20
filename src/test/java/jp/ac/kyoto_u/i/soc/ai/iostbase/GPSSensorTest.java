@@ -28,10 +28,10 @@ public class GPSSensorTest {
 		}
 		}
 		 */
-		Event e = new Event("user:gps:1", "LatLng", new LatLng(35.0261389, 135.7806666), new Date());
+/*		Event e = new Event("user:gps:1", "LatLng", new LatLng(35.0261389, 135.7806666), new Date());
 		s.notifyEvent(e);
 		for(Event ev : s.getEvents(new Date(0), 1000)) {
 			System.out.println(JSON.encode(ev));
 		}
-	}
+*/	}
 }
