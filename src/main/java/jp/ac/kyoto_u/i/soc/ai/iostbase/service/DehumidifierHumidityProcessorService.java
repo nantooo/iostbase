@@ -4,7 +4,7 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.processor.HumidityProcessor;
 
 public class DehumidifierHumidityProcessorService
 implements HumidityProcessor {
-	public DehumidifierHumidityProcessorService(HumidifierOnOffSwitchActuatorService act,
+	public DehumidifierHumidityProcessorService(DehumidifierOnOffSwitchActuatorService act,
 			double upperThreashold) {
 		this.act = act;
 		this.upperThreashold = upperThreashold;
@@ -18,6 +18,6 @@ implements HumidityProcessor {
 		}
 		return null;
 	}
-	private HumidifierOnOffSwitchActuatorService act;
+	private DehumidifierOnOffSwitchActuatorService act;
 	private double upperThreashold;
 }
