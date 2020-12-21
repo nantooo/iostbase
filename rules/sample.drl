@@ -17,6 +17,9 @@
 */
 import jp.ac.kyoto_u.i.soc.ai.iostbase.event.TimerEvent
 import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event
+import jp.ac.kyoto_u.i.soc.ai.iostbase.EventStore
+
+global EventStore eventStore;
 
 rule "rule01"
 when
@@ -25,7 +28,7 @@ when
   Event(deviceId.contains("placedetector:user:taro") && value == "home.entrance")
   Event(deviceId.contains("weatherforecast") && value == "rainy")
 then
-  System.out.println("傘を持ちましょう");
+  eventStore.insert(new Event("rules:eventdetector:rain:entrance", null, null));
 end
 
 rule "rule02"

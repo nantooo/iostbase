@@ -9,4 +9,5 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
 	List<Event> findAllByCreatedGreaterThan(Date time);
+	List<Event> findAllByDeviceIdEqualsAndCreatedGreaterThan(String deviceId, Date time);
 }

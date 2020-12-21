@@ -26,4 +26,11 @@ public class Event {
 	private String value;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created;
+
+	public Event(String deviceId, String dataType, String value) {
+		this.deviceId = deviceId;
+		this.dataType = dataType;
+		this.value = value;
+		this.created = new Date();
+	}
 }

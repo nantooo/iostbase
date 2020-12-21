@@ -70,18 +70,36 @@ public class EventManagement implements EventManagementService{
 
 	@Override
 	public Event[] getEvents(Date lastEventMillis, long timeoutMillis) {
-		return convert(er.findAllByCreatedGreaterThan(lastEventMillis));
+		long start = System.currentTimeMillis();
+		while(true) {
+			var ret = er.findAllByCreatedGreaterThan(lastEventMillis);
+			long d = System.currentTimeMillis() - start;
+			if(ret.size() == 0 && d < timeoutMillis) {
+				try {
+					Thread.sleep(100);
+					continue;
+				} catch (InterruptedException e) {
+				}
+			}
+			return convert(ret);
+		}
 	}
 
-	private Event[] convert(List<jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event> events) {
-		Converter c = new Converter();
-		var ret = new ArrayList<>();
-		for(var ev : events) {
-			var e = c.convert(ev, Event.class);
-			e.setValue(JSON.decode(ev.getValue()));
-			ret.add(e);
+	@Override
+	public Event[] getEventsOfDevice(String deviceId, Date lastEventMillis, long timeoutMillis) {
+		long start = System.currentTimeMillis();
+		while(true) {
+			var ret = er.findAllByDeviceIdEqualsAndCreatedGreaterThan(deviceId, lastEventMillis);
+			long d = System.currentTimeMillis() - start;
+			if(ret.size() == 0 && d < timeoutMillis) {
+				try {
+					Thread.sleep(100);
+					continue;
+				} catch (InterruptedException e) {
+				}
+			}
+			return convert(ret);
 		}
-		return ret.toArray(new Event[] {});
 	}
 
 	@Override
@@ -102,6 +120,17 @@ public class EventManagement implements EventManagementService{
 	@Override
 	public void deactivateRule(String ruleId) {
 		sessions.getOrDefault(ruleId, new RuleSession()).deactivate();
+	}
+
+	private Event[] convert(List<jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event> events) {
+		Converter c = new Converter();
+		var ret = new ArrayList<>();
+		for(var ev : events) {
+			var e = c.convert(ev, Event.class);
+			e.setValue(JSON.decode(ev.getValue()));
+			ret.add(e);
+		}
+		return ret.toArray(new Event[] {});
 	}
 
 	private Map<String, RuleSession> sessions = new HashMap<>();
