@@ -92,7 +92,6 @@ public class IostbaseApplication {
 
 	private EventStore es = e -> {
 		insertEvent(e);
-		System.out.println("insert: " + JSON.encode(e));
 	};
 
 	public void insertEvent(Object event) {

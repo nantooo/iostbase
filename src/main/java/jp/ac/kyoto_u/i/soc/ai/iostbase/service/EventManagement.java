@@ -23,7 +23,6 @@ public class EventManagement implements EventManagementService{
 	private EventRepository er;
 
 	public EventManagement() {
-		System.out.println("instance created: " + this);
 	}
 
 	@Override
