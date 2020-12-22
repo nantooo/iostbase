@@ -1,4 +1,4 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import jp.ac.kyoto_u.i.soc.ai.iostbase.actuator.ToggleSwitchActuator;
 

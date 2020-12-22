@@ -1,19 +1,19 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import jp.ac.kyoto_u.i.soc.ai.iostbase.actuator.OnOffSwitchActuator;
 
-public class MicOnOffSwitchActuatorService
+public class DehumidifierOnOffSwitchActuatorService
 extends AbstractActuatorService
 implements OnOffSwitchActuator {
 	@Override
 	public void on() {
 		on = true;
-		notifyToSubscribers("mic", "on");
+		notifyToSubscribers("dehumidifier", "on");
 	}
 	@Override
 	public void off() {
 		on = false;
-		notifyToSubscribers("mic", "off");
+		notifyToSubscribers("dehumidifier", "off");
 	}
 	public boolean isOn() {
 		return on;

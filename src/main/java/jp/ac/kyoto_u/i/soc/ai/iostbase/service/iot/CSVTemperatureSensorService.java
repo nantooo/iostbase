@@ -1,4 +1,4 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -8,18 +8,18 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.NoiseSensor;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.TemperatureSensor;
 
-public class CSVNoiseSensorService
+public class CSVTemperatureSensorService
 extends AbstractSensorService
-implements NoiseSensor {
+implements TemperatureSensor {
 	/**
 	 * assume csv has deviceId, timeInMillis, value columns.
 	 * @param reader
 	 * @throws IOException
 	 * @throws CsvValidationException
 	 */
-	public CSVNoiseSensorService(Reader reader) throws IOException, CsvValidationException {
+	public CSVTemperatureSensorService(Reader reader) throws IOException, CsvValidationException {
 		records = new LinkedList<>();
 		try(CSVReader cr = new CSVReader(reader)){
 			records.add(cr.readNext());
@@ -29,7 +29,7 @@ implements NoiseSensor {
 		}
 	}
 	@Override
-	public int getNoise() {
+	public double getTemperature(){
 		String[] row = null;
 		if(records.size() == 1) {
 			row = records.get(0);
@@ -37,7 +37,7 @@ implements NoiseSensor {
 			row = records.remove(0);
 		}
 		notifyToSubscribers(row[2]);
-		return Integer.parseInt(row[2]);
+		return Double.parseDouble(row[2]);
 	}
 
 	private List<String[]> records;

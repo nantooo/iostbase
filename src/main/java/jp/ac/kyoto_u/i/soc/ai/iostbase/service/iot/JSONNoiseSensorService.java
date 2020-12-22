@@ -1,4 +1,4 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -8,12 +8,12 @@ import java.util.Map;
 
 import com.opencsv.exceptions.CsvValidationException;
 
-import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.TemperatureSensor;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.NoiseSensor;
 import jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
 
-public class JSONTemperatureSensorService
+public class JSONNoiseSensorService
 extends AbstractSensorService
-implements TemperatureSensor {
+implements NoiseSensor {
 	/**
 	 * assume json has an array of {"deviceId": string, "timeInMillis": number, value: number}.
 	 * @param reader
@@ -21,7 +21,7 @@ implements TemperatureSensor {
 	 * @throws CsvValidationException
 	 */
 	@SuppressWarnings("unchecked")
-	public JSONTemperatureSensorService(Reader reader) throws IOException, CsvValidationException {
+	public JSONNoiseSensorService(Reader reader) throws IOException, CsvValidationException {
 		records = new LinkedList<>();
 		for(var e : (Map<String, Object>[])JSON.decode(reader)) {
 			records.add(e);
@@ -31,7 +31,7 @@ implements TemperatureSensor {
 		}
 	}
 	@Override
-	public double getTemperature(){
+	public int getNoise() {
 		Map<String, Object> val = null;
 		if(records.size() == 1) {
 			val = records.get(0);
@@ -39,7 +39,7 @@ implements TemperatureSensor {
 			val = records.remove(0);
 		}
 		notifyToSubscribers(val.get("value"));
-		return ((Number)val.get("value")).doubleValue();
+		return ((Number)val.get("value")).intValue();
 	}
 
 	private List<Map<String, Object>> records;

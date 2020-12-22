@@ -1,4 +1,4 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -7,11 +7,11 @@ import java.net.URL;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import jp.ac.kyoto_u.i.soc.ai.iostbase.actuator.Actuator;
-import jp.ac.kyoto_u.i.soc.ai.iostbase.actuator.ActuatorSubscriber;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.Sensor;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.SensorSubscriber;
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
 
-public class AbstractActuatorService implements Actuator{
+public class AbstractSensorService implements Sensor{
 	@Override
 	public void subscribe(String uri) throws URISyntaxException {
 		subscribers.add(new URI(uri));
@@ -24,11 +24,11 @@ public class AbstractActuatorService implements Actuator{
 			e.printStackTrace();
 		}
 	}
-	protected <T> void notifyToSubscribers(String type, String notificationName, Object... parameters) {
+	protected <T> void notifyToSubscribers(T value) {
 		for(URI uri : subscribers) {
 			try{
 				URL url = uri.toURL();
-				new JsonRpcClientFactory().create(ActuatorSubscriber.class, url).accept(type, notificationName, parameters);
+				new JsonRpcClientFactory().create(SensorSubscriber.class, url).accept(value);
 			} catch(MalformedURLException e) {
 			}
 		}

@@ -1,4 +1,4 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -8,18 +8,18 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.TemperatureSensor;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.HumiditySensor;
 
-public class CSVTemperatureSensorService
+public class CSVHumiditySensorService
 extends AbstractSensorService
-implements TemperatureSensor {
+implements HumiditySensor {
 	/**
 	 * assume csv has deviceId, timeInMillis, value columns.
 	 * @param reader
 	 * @throws IOException
 	 * @throws CsvValidationException
 	 */
-	public CSVTemperatureSensorService(Reader reader) throws IOException, CsvValidationException {
+	public CSVHumiditySensorService(Reader reader) throws IOException, CsvValidationException {
 		records = new LinkedList<>();
 		try(CSVReader cr = new CSVReader(reader)){
 			records.add(cr.readNext());
@@ -29,7 +29,7 @@ implements TemperatureSensor {
 		}
 	}
 	@Override
-	public double getTemperature(){
+	public double getHumidity() {
 		String[] row = null;
 		if(records.size() == 1) {
 			row = records.get(0);

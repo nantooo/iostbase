@@ -1,19 +1,19 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import jp.ac.kyoto_u.i.soc.ai.iostbase.actuator.OnOffSwitchActuator;
 
-public class HeaterOnOffSwitchActuatorService
+public class LightOnOffSwitchActuatorService
 extends AbstractActuatorService
 implements OnOffSwitchActuator {
 	@Override
 	public void on() {
 		on = true;
-		notifyToSubscribers("heater", "on");
+		notifyToSubscribers("light", "on");
 	}
 	@Override
 	public void off() {
 		on = false;
-		notifyToSubscribers("heater", "off");
+		notifyToSubscribers("light", "off");
 	}
 	public boolean isOn() {
 		return on;

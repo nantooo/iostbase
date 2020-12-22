@@ -1,14 +1,14 @@
-package jp.ac.kyoto_u.i.soc.ai.iostbase.service;
+package jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot;
 
 import jp.ac.kyoto_u.i.soc.ai.iostbase.actuator.VolumeSwitchActuator;
 
-public class LightVolumeSwitchActuatorService
+public class SoundVolumeSwitchActuatorService
 extends AbstractActuatorService
 implements VolumeSwitchActuator {
 	@Override
 	public void setVolume(double volume) {
 		this.volume = volume;
-		notifyToSubscribers("light", "setVolume", volume);
+		notifyToSubscribers("sound", "setVolume", volume);
 	}
 	public double getVolume() {
 		return volume;
