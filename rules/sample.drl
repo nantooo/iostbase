@@ -15,9 +15,9 @@
  { deviceId: "weatherforecast", created: "", dataType: "WeatherForecast",
   value: weather: "rainy"}
 */
-import jp.ac.kyoto_u.i.soc.ai.iostbase.event.TimerEvent
-import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event
-import jp.ac.kyoto_u.i.soc.ai.iostbase.EventStore
+import jp.ac.kyoto_u.i.soc.ai.iostbase.event.TimerEvent;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.EventStore;
 
 global EventStore eventStore;
 
@@ -28,7 +28,7 @@ when
   Event(deviceId.contains("placedetector:user:taro") && value == "home.entrance")
   Event(deviceId.contains("weatherforecast") && value == "rainy")
 then
-  eventStore.insert(new Event("rules:eventdetector:rain:entrance", null, null));
+  eventStore.insert(new Event("rules:eventdetector", "event", "rain:entrance"));
 end
 
 rule "rule02"
@@ -36,7 +36,7 @@ when
   $time: TimerEvent()
   $ce: Event(deviceId.contains("calendar:user:taro") && (created.getTime() - $time.getTime()) < 45 * 60 * 1000)
 then
-  System.out.printf("timer:%d, calendar:%d%n", $time.getTime(), $ce.getCreated().getTime());
+  System.out.printf("calendar:%d, calendar:%d%n", $time.getTime(), $ce.getCreated().getTime());
 end
 
 rule "rule03"

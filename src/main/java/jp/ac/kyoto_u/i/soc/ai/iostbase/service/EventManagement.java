@@ -11,9 +11,15 @@ import java.util.Map;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jp.ac.kyoto_u.i.soc.ai.iostbase.EventStore;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.EventRepository;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.event.TimerEvent;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.util.DroolsUtil;
@@ -28,10 +34,20 @@ public class EventManagement implements EventManagementService{
 	@Autowired
 	private EventRepository er;
 
+	@Scheduled(initialDelay = 10000, fixedRate = 10000)
+	public void insertTimerEvent() {
+		es.insert(new TimerEvent(new Date().getTime()));
+	}
+
+	private EventStore es = e -> {
+		insertEvent(e);
+		System.out.println("insert: " + JSON.encode(e));
+	};
+
 	@Data
 	@NoArgsConstructor
 	@AllArgsConstructor
-	static class RuleSession{
+	class RuleSession{
 		public void activate() {
 			if(session != null) active = true;
 		}
@@ -43,13 +59,24 @@ public class EventManagement implements EventManagementService{
 				session.destroy();
 			}
 			try {
+				if(!ruleId.endsWith(".drl")) ruleId += ".drl";
 				session = DroolsUtil.createSessionFromResource(new ByteArrayInputStream(body.getBytes("UTF-8")), ruleId);
+				session.setGlobal("eventStore", es);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		public void insert(jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event e) {
-			if(session != null && active) session.insert(e);
+		public void insert(Event e) {
+			if(session != null && active) {
+				session.insert(e);
+				session.fireAllRules();
+			}
+		}
+		public void insert(TimerEvent e) {
+			if(session != null && active) {
+				session.insert(e);
+				session.fireAllRules();
+			}
 		}
 		private boolean active;
 		private KieSession session;
@@ -57,15 +84,32 @@ public class EventManagement implements EventManagementService{
 
 	@Override
 	public void notifyEvent(Event event) {
+		insertEvent(event);
+	}
+
+	private void insertEvent(Object event) {
 		Converter c = new Converter();
-		var ev = new jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event();
-		c.copyProperties(ev, event);
-		if(ev.getCreated() == null) {
-			ev.setCreated(new Date());
+		if(event instanceof Event) {
+			var ev = new jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event();
+			c.copyProperties(ev, event);
+			if(ev.getCreated() == null) {
+				ev.setCreated(new Date());
+			}
+			Object v = ((Event)event).getValue();
+			ObjectMapper m = new ObjectMapper();
+			try {
+				ev.setValue(m.writeValueAsString(v));
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			er.save(ev);
+			sessions.values().forEach(s -> s.insert((Event)event));
+		} else if(event instanceof TimerEvent) {
+			sessions.values().forEach(s -> s.insert((TimerEvent)event));
+		} else {
+			throw new RuntimeException("unknown type of event: " + event.getClass());
 		}
-		ev.setValue(JSON.encode(event.getValue()));
-		er.save(ev);
-		sessions.values().forEach(s -> s.insert(ev));
 	}
 
 	@Override
@@ -123,11 +167,16 @@ public class EventManagement implements EventManagementService{
 	}
 
 	private Event[] convert(List<jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event> events) {
+		ObjectMapper m = new ObjectMapper();
 		Converter c = new Converter();
 		var ret = new ArrayList<>();
 		for(var ev : events) {
 			var e = c.convert(ev, Event.class);
-			e.setValue(JSON.decode(ev.getValue()));
+			try {
+				e.setValue(m.readValue(ev.getValue(), Object.class));
+			} catch (JsonProcessingException e1) {
+				e1.printStackTrace();
+			}
 			ret.add(e);
 		}
 		return ret.toArray(new Event[] {});

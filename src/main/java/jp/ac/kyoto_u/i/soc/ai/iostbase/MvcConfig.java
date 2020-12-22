@@ -23,7 +23,7 @@ public class MvcConfig implements WebMvcConfigurer {
 		configurer.favorPathExtension(false);
 	}
 
-    @Override
+	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 		WebMvcConfigurer.super.extendMessageConverters(converters);
 	}

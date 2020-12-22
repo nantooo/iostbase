@@ -10,6 +10,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {
+	public Event(String deviceId, String dataType, Object value) {
+		this.deviceId = deviceId;
+		this.dataType = dataType;
+		this.value = value;
+		this.created = new Date();
+	}
+
 	private String deviceId;
 	private String dataType;
 	private Object value;

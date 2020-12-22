@@ -1,7 +1,7 @@
 package jp.ac.kyoto_u.i.soc.ai.iostbase;
 
-import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event;
 
 public interface EventStore {
-	void insert(Event event);
+	void insert(Object event);
 }
