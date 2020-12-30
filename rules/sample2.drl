@@ -1,0 +1,36 @@
+/*
+一つの予定につき一回しか提案を行わないルール．
+*/
+import jp.ac.kyoto_u.i.soc.ai.iostbase.event.TimerEvent;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.EventStore;
+
+global EventStore eventStore;
+
+rule "rule01"
+when
+  $time: TimerEvent()
+  Event(deviceId.contains("calendar:user:taro") && (created.getTime() - $time.getTime()) < 45 * 60 * 1000)
+  Event(deviceId.contains("placedetector:user:taro") && value == "home.entrance")
+  Event(deviceId.contains("weatherforecast") && value == "rainy")
+  not Event(deviceId == "rules:eventdetector" && dataType == "event" && value == "rain:entrance" && $time.getTime() - created.getTime() < 45 * 60 * 1000)
+then
+  eventStore.insert(new Event("rules:eventdetector", "event", "rain:entrance"));
+end
+
+rule "rule02"
+when
+  $time: TimerEvent()
+  $ce: Event(deviceId.contains("calendar:user:taro") && (created.getTime() - $time.getTime()) < 45 * 60 * 1000)
+then
+  System.out.printf("[calendar] calendar:%d, calendar:%d%n", $time.getTime(), $ce.getCreated().getTime());
+end
+
+rule "rule03"
+when
+  $time: TimerEvent()
+then
+  System.out.printf("[timer] timer:%d%n", $time.getTime());
+end
+
+
