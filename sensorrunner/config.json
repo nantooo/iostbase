@@ -1,0 +1,13 @@
+{
+	"intervalMillis": 10000,
+	"sensors": [
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.CSVTemperatureSensorService",
+			"deviceId": "device1",
+			"placeTag": "room1",
+			"file": "sensorrunner/kyoto_weather_20210101.csv",
+			"headerRows": 4,
+			"valueColumn": 4
+		}
+	]
+}

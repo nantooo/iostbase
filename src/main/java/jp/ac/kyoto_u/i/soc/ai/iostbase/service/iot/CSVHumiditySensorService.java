@@ -11,7 +11,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.HumiditySensor;
 
 public class CSVHumiditySensorService
-extends AbstractSensorService
+extends AbstractSensorService<Double>
 implements HumiditySensor {
 	/**
 	 * assume csv has deviceId, timeInMillis, value columns.
@@ -28,6 +28,7 @@ implements HumiditySensor {
 			throw new IOException("no records.");
 		}
 	}
+
 	@Override
 	public double getHumidity() {
 		String[] row = null;
@@ -36,8 +37,9 @@ implements HumiditySensor {
 		} else {
 			row = records.remove(0);
 		}
-		notifyToSubscribers(row[2]);
-		return Double.parseDouble(row[2]);
+		Double ret = Double.parseDouble(row[2]);
+		notifyToSubscribers(ret);
+		return ret;
 	}
 
 	private List<String[]> records;

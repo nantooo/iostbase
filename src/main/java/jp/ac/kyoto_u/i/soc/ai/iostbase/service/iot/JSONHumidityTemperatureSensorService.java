@@ -12,7 +12,7 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.HumiditySensor;
 import jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
 
 public class JSONHumidityTemperatureSensorService
-extends AbstractSensorService
+extends AbstractSensorService<Double>
 implements HumiditySensor {
 	/**
 	 * assume json has an array of {"deviceId": string, "timeInMillis": number, value: number}.
@@ -38,8 +38,9 @@ implements HumiditySensor {
 		} else {
 			val = records.remove(0);
 		}
-		notifyToSubscribers(val.get("value"));
-		return ((Number)val.get("value")).doubleValue();
+		Double ret = ((Number)val.get("value")).doubleValue();
+		notifyToSubscribers(ret);
+		return ret;
 	}
 
 	private List<Map<String, Object>> records;

@@ -11,7 +11,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.NoiseSensor;
 
 public class CSVNoiseSensorService
-extends AbstractSensorService
+extends AbstractSensorService<Integer>
 implements NoiseSensor {
 	/**
 	 * assume csv has deviceId, timeInMillis, value columns.
@@ -36,8 +36,9 @@ implements NoiseSensor {
 		} else {
 			row = records.remove(0);
 		}
-		notifyToSubscribers(row[2]);
-		return Integer.parseInt(row[2]);
+		Integer ret = Integer.parseInt(row[2]);
+		notifyToSubscribers(ret);
+		return ret;
 	}
 
 	private List<String[]> records;

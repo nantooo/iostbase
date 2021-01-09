@@ -12,7 +12,7 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.NoiseSensor;
 import jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
 
 public class JSONNoiseSensorService
-extends AbstractSensorService
+extends AbstractSensorService<Integer>
 implements NoiseSensor {
 	/**
 	 * assume json has an array of {"deviceId": string, "timeInMillis": number, value: number}.
@@ -38,8 +38,9 @@ implements NoiseSensor {
 		} else {
 			val = records.remove(0);
 		}
-		notifyToSubscribers(val.get("value"));
-		return ((Number)val.get("value")).intValue();
+		Integer ret = ((Number)val.get("value")).intValue();
+		notifyToSubscribers(ret);
+		return ret;
 	}
 
 	private List<Map<String, Object>> records;
