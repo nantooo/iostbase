@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.Sensor;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.LatLng;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM;
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
 import jp.go.nict.langrid.commons.lang.ObjectUtil;
@@ -55,6 +56,18 @@ public class SensorRunner {
 				}
 				
 				@Override
+				public Event[] getLatestEventsByLatLngAndDataType(LatLng latLng, double r, String dataType,
+						Date lastEventMillis, long timeoutMillis) {
+					return null;
+				}
+				
+				@Override
+				public Event[] getLatestEventsByPlaceTagAndDataType(String placeTagPrefix, String dataType,
+						Date lastEventMillis, long timeoutMillis) {
+					return null;
+				}
+				
+				@Override
 				public Event[] getEvents(Date lastEventMillis, long timeoutMillis) {
 					return null;
 				}
@@ -91,7 +104,10 @@ public class SensorRunner {
 			long start = System.nanoTime();
 			for(Sensor<?> s : sensors) {
 				Object value = s.getValue();
-				Event e = new Event(s.getDeviceId(), s.getDataType(), value);
+				Event e = new Event(s.getDeviceId(), s.getDataType(), s.getPlaceTag(),
+						s.getLatLng() != null ? s.getLatLng().getLatitude() : null,
+						s.getLatLng() != null ? s.getLatLng().getLongitude() : null,
+						value);
 				service.notifyEvent(e);
 			}
 			long d = System.nanoTime() - start;

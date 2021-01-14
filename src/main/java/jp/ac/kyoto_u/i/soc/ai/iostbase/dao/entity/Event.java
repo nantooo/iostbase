@@ -23,13 +23,20 @@ public class Event {
 	private long id;
 	private String deviceId;
 	private String dataType;
+	private String placeTag;
+	private Double latitude;
+	private Double longitude;
 	private String value;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created;
 
-	public Event(String deviceId, String dataType, String value) {
+	public Event(String deviceId, String dataType,
+			String placeTag, Double latitude, Double longitude, String value) {
 		this.deviceId = deviceId;
 		this.dataType = dataType;
+		this.placeTag = placeTag;
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.value = value;
 		this.created = new Date();
 	}

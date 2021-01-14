@@ -9,16 +9,19 @@ import java.util.Set;
 
 import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.Sensor;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.SensorSubscriber;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.LatLng;
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
 
 public abstract class AbstractSensorService<T> implements Sensor<T>{
 	public AbstractSensorService() {
 	}
 
-	public AbstractSensorService(String deviceId, String dataType, String placeTag) {
+	public AbstractSensorService(String deviceId, String dataType,
+			String placeTag, LatLng latLng) {
 		this.deviceId = deviceId;
 		this.dataType = dataType;
 		this.placeTag = placeTag;
+		this.latLng = latLng;
 	}
 
 	@Override
@@ -47,6 +50,15 @@ public abstract class AbstractSensorService<T> implements Sensor<T>{
 	public void setPlaceTag(String placeTag) {
 		this.placeTag = placeTag;
 	}
+	
+	@Override
+	public LatLng getLatLng() {
+		return latLng;
+	}
+
+	public void setLatLng(LatLng latLng) {
+		this.latLng = latLng;
+	}
 
 	@Override
 	public void subscribe(String uri) throws URISyntaxException {
@@ -73,5 +85,6 @@ public abstract class AbstractSensorService<T> implements Sensor<T>{
 	private String deviceId;
 	private String dataType;
 	private String placeTag;
+	private LatLng latLng;
 	private Set<URI> subscribers = new LinkedHashSet<>();
 }
