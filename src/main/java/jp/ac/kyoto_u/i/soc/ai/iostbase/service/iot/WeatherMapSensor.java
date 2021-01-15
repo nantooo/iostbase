@@ -15,6 +15,22 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.sensor.TemperatureSensor;
 public class WeatherMapSensor
 extends AbstractSensorService<Double>
 implements TemperatureSensor{
+	public String getHost() {
+		return host;
+	}
+	
+	public void setHost(String host) {
+		this.host = host;
+	}
+	
+	public String getKey() {
+		return key;
+	}
+	
+	public void setKey(String key) {
+		this.key = key;
+	}
+	
 	@Override
 	public double getTemperature() {
 		return getTemp();
@@ -26,8 +42,8 @@ implements TemperatureSensor{
 					String.format("https://community-open-weather-map.p.rapidapi.com/weather?lat=%f&lon=%f&units=metric&mode=json",
 							getLatLng().getLatitude(), getLatLng().getLongitude())))
 					.GET()
-					.setHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
-					.setHeader("x-rapidapi-key", "a6b5e41dbemsh64fdd31e6faed32p1fb68ajsn21b32340e75e")
+					.setHeader("x-rapidapi-host", host)
+					.setHeader("x-rapidapi-key", key)
 					.setHeader("useQueryString", "true")
 					.timeout(Duration.ofSeconds(10))
 					.build();
@@ -44,4 +60,7 @@ implements TemperatureSensor{
 			return -1;
 		}
 	}
+
+	private String host;
+	private String key;
 }
