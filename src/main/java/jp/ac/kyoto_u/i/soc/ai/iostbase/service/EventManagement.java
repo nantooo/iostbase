@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jp.ac.kyoto_u.i.soc.ai.iostbase.IostbaseApplication;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.dao.EventRepository;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.LatLng;
+import jp.ac.kyoto_u.i.soc.ai.iostbase.util.Geo;
 import jp.go.nict.langrid.commons.beanutils.Converter;
 
 @Component
@@ -28,7 +29,7 @@ public class EventManagement implements EventManagementService{
 
 	@Override
 	public void notifyEvent(Event event) {
-		IostbaseApplication.instance().insertEvent(event);
+		Sessions.instance().insertEvent(event);
 	}
 
 	@Override
@@ -96,7 +97,7 @@ public class EventManagement implements EventManagementService{
 			var ret = new LinkedHashMap<String, jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event>();
 			for(var ev : er.findAllByDataTypeEqualsAndCreatedGreaterThanOrderByCreated(dataType, lastEventMillis)) {
 				if(ev.getLatitude() != null && ev.getLongitude() != null) {
-					if(latLng.distance(ev.getLatitude(), ev.getLongitude()) > r) continue;
+					if(Geo.distMeter(latLng.getLatitude(), latLng.getLongitude(), ev.getLatitude(), ev.getLongitude()) > r) continue;
 				}
 				if(ret.containsKey(ev.getDeviceId())){
 					ret.remove(ev.getDeviceId());
@@ -122,17 +123,17 @@ public class EventManagement implements EventManagementService{
 
 	@Override
 	public void updateRule(String ruleId, String body) {
-		IostbaseApplication.instance().updateRule(ruleId, body);
+		Sessions.instance().updateRule(ruleId, body);
 	}
 
 	@Override
 	public void activateRule(String ruleId) {
-		IostbaseApplication.instance().activateRule(ruleId);
+		Sessions.instance().activateRule(ruleId);
 	}
 
 	@Override
 	public void deactivateRule(String ruleId) {
-		IostbaseApplication.instance().deactivateRule(ruleId);
+		Sessions.instance().deactivateRule(ruleId);
 	}
 
 	private Event[] convert(Iterable<jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event> events) {
