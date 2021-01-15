@@ -31,6 +31,10 @@ public class SOM {
 	public SOM getSOM(String name) {
 		return SOM.of(som.get(name));
 	}
+	
+	public Map<String, Object> getMap(){
+		return som;
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<SOM> getSOMList(String name) {

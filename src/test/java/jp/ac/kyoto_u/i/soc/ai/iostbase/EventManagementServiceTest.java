@@ -16,7 +16,7 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.LatLng;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.util.Geo;
 
 @SpringBootTest
-class IostbaseApplicationTests {
+class EventManagementServiceTest {
 	@SuppressWarnings("unused")
 	@Autowired
 	private Sessions sessions;
@@ -65,8 +65,8 @@ class IostbaseApplicationTests {
 	
 	@Test
 	public void geotest() throws Throwable{
-		System.out.println(Geo.distMeter(カンフォーラ, 時計台));
-		System.out.println(Geo.distMeter(カンフォーラ, 博物館));
+		assertEquals(92.53634346894773, Geo.distMeter(カンフォーラ, 時計台), 0.0001);
+		assertEquals(225.77572181571702, Geo.distMeter(カンフォーラ, 博物館), 0.0001);
 	}
 
 	@Test

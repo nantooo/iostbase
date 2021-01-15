@@ -1,6 +1,7 @@
 package jp.ac.kyoto_u.i.soc.ai.iostbase;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,7 +18,8 @@ import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.LatLng;
 import jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM;
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
-import jp.go.nict.langrid.commons.lang.ObjectUtil;
+import jp.go.nict.langrid.commons.beanutils.Converter;
+import jp.go.nict.langrid.commons.lang.ClassUtil;
 
 public class SensorRunner {
 	private EventManagementService service;
@@ -127,10 +129,12 @@ public class SensorRunner {
 		SOM config = SOM.of(m.reader().readValue(new File(configFile), Map.class));
 		r.setIntervalMillis(config.getInt("intervalMillis", 10000));
 		List<Sensor<?>> sensors = new ArrayList<>();
+		Converter c = new Converter();
 		for(SOM som : config.getSOMList("sensors")) {
 			Sensor<?> s = (Sensor<?>)Class.forName(som.removeString("type")).getConstructor().newInstance();
 			for(String name : som.propertyNames()) {
-				ObjectUtil.setProperty(s, name, som.getObject(name));
+				Method setter = ClassUtil.findSetter(s.getClass(), name);
+				setter.invoke(s, c.convert(som.getObject(name), setter.getParameterTypes()[0]));
 			}
 			sensors.add(s);
 		}
