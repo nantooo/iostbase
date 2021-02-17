@@ -1,0 +1,24 @@
+\hypertarget{_sound_volume_switch_actuator_service_8java}{\section{Sound\-Volume\-Switch\-Actuator\-Service.\-java}
+\label{_sound_volume_switch_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Sound\-Volume\-Switch\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Sound\-Volume\-Switch\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_volume_switch_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.VolumeSwitchActuator}
+      ;
+00004 
+\hypertarget{_sound_volume_switch_actuator_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_sound_volume_switch_actuator_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_sound_volume_switch_actuator_service}{SoundVolumeSwitchActuatorService}
+00006 \textcolor{keyword}{extends} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService}
+00007 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_volume_switch_actuator}{VolumeSwitchActuator} \{
+00008     @Override
+\hypertarget{_sound_volume_switch_actuator_service_8java_source_l00009}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_sound_volume_switch_actuator_service_a20631b0e7e5e8531568d4752cab4940a}{00009}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_sound_volume_switch_actuator_service_a20631b0e7e5e8531568d4752cab4940a}{setVolume}(\textcolor{keywordtype}{double} volume) \{
+00010         this.volume = volume;
+00011         notifyToSubscribers(\textcolor{stringliteral}{"sound"}, \textcolor{stringliteral}{"setVolume"}, volume);
+00012     \}
+\hypertarget{_sound_volume_switch_actuator_service_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_sound_volume_switch_actuator_service_a01d0ca1781f04d29b8032a89f16034b5}{00013}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_sound_volume_switch_actuator_service_a01d0ca1781f04d29b8032a89f16034b5}{getVolume}() \{
+00014         \textcolor{keywordflow}{return} volume;
+00015     \}
+00016     \textcolor{keyword}{private} \textcolor{keywordtype}{double} volume;
+00017 \}
+\end{DoxyCode}

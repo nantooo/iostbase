@@ -1,0 +1,98 @@
+\hypertarget{_abstract_sensor_service_8java}{\section{Abstract\-Sensor\-Service.\-java}
+\label{_abstract_sensor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Abstract\-Sensor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Abstract\-Sensor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} java.net.MalformedURLException;
+00004 \textcolor{keyword}{import} java.net.URI;
+00005 \textcolor{keyword}{import} java.net.URISyntaxException;
+00006 \textcolor{keyword}{import} java.net.URL;
+00007 \textcolor{keyword}{import} java.util.LinkedHashSet;
+00008 \textcolor{keyword}{import} java.util.Set;
+00009 
+00010 \textcolor{keyword}{import} jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.Sensor;
+00011 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_sensor_subscriber}{jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.SensorSubscriber}
+      ;
+00012 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.LatLng}
+      ;
+00013 \textcolor{keyword}{import} jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
+00014 
+\hypertarget{_abstract_sensor_service_8java_source_l00015}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4}{00015} \textcolor{keyword}{public} \textcolor{keyword}{abstract} \textcolor{keyword}{class }AbstractSensorService<T> \textcolor{keyword}{implements} Sensor<T>\{
+\hypertarget{_abstract_sensor_service_8java_source_l00016}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a200e3480e54ee67e4189452c7159fa03}{00016}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a200e3480e54ee67e4189452c7159fa03}{AbstractSensorService}() \{
+00017     \}
+00018 
+\hypertarget{_abstract_sensor_service_8java_source_l00019}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a0385f2bf2aebdfdc9e6b6a60c4eafd0e}{00019}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a0385f2bf2aebdfdc9e6b6a60c4eafd0e}{AbstractSensorService}(String deviceId, String dataType,
+00020             String placeTag, \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} latLng) \{
+00021         this.deviceId = deviceId;
+00022         this.dataType = dataType;
+00023         this.placeTag = placeTag;
+00024         this.latLng = latLng;
+00025     \}
+00026 
+00027     @Override
+\hypertarget{_abstract_sensor_service_8java_source_l00028}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a4dd536fe22336d489f47e47fb602c246}{00028}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a4dd536fe22336d489f47e47fb602c246}{getDeviceId}() \{
+00029         \textcolor{keywordflow}{return} deviceId;
+00030     \}
+00031 
+\hypertarget{_abstract_sensor_service_8java_source_l00032}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ad559c9b13050847b99d80fe2e9bcaa3e}{00032}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ad559c9b13050847b99d80fe2e9bcaa3e}{setDeviceId}(String deviceId) \{
+00033         this.deviceId = deviceId;
+00034     \}
+00035 
+00036     @Override
+\hypertarget{_abstract_sensor_service_8java_source_l00037}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_adedf9ca99aed3619dd7b9a0a5e2e3423}{00037}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_adedf9ca99aed3619dd7b9a0a5e2e3423}{getDataType}() \{
+00038         \textcolor{keywordflow}{return} dataType;
+00039     \}
+00040 
+\hypertarget{_abstract_sensor_service_8java_source_l00041}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a4f9168167300b4626837fcfb6329688c}{00041}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a4f9168167300b4626837fcfb6329688c}{setDataType}(String dataType) \{
+00042         this.dataType = dataType;
+00043     \}
+00044 
+00045     @Override
+\hypertarget{_abstract_sensor_service_8java_source_l00046}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ab97f6413ae27d8256dd71a2104207872}{00046}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ab97f6413ae27d8256dd71a2104207872}{getPlaceTag}() \{
+00047         \textcolor{keywordflow}{return} placeTag;
+00048     \}
+00049 
+\hypertarget{_abstract_sensor_service_8java_source_l00050}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a1ec50072ef28869ac98fa9f2d9a21e10}{00050}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a1ec50072ef28869ac98fa9f2d9a21e10}{setPlaceTag}(String placeTag) \{
+00051         this.placeTag = placeTag;
+00052     \}
+00053     
+00054     @Override
+\hypertarget{_abstract_sensor_service_8java_source_l00055}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a0f70a4ce63265412ac7684d5e899d354}{00055}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a0f70a4ce63265412ac7684d5e899d354}{getLatLng}() \{
+00056         \textcolor{keywordflow}{return} latLng;
+00057     \}
+00058 
+\hypertarget{_abstract_sensor_service_8java_source_l00059}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a2207577d097d0647e7762240102fb387}{00059}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a2207577d097d0647e7762240102fb387}{setLatLng}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} latLng) \{
+00060         this.latLng = latLng;
+00061     \}
+00062 
+00063     @Override
+\hypertarget{_abstract_sensor_service_8java_source_l00064}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ae33308b2c4808c4d19ea1c3347821c46}{00064}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ae33308b2c4808c4d19ea1c3347821c46}{subscribe}(String uri) \textcolor{keywordflow}{throws} URISyntaxException \{
+00065         subscribers.add(\textcolor{keyword}{new} URI(uri));
+00066     \}
+00067     @Override
+\hypertarget{_abstract_sensor_service_8java_source_l00068}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a4dfb830f1e18d663e93072ae301eed05}{00068}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_a4dfb830f1e18d663e93072ae301eed05}{unsubscribe}(String uri) \{
+00069         \textcolor{keywordflow}{try} \{
+00070             subscribers.remove(\textcolor{keyword}{new} URI(uri));
+00071         \} \textcolor{keywordflow}{catch}(URISyntaxException e) \{
+00072             e.printStackTrace();
+00073         \}
+00074     \}
+\hypertarget{_abstract_sensor_service_8java_source_l00075}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ae78894908f05db2479808c955c88a554}{00075}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4_ae78894908f05db2479808c955c88a554}{notifyToSubscribers}(T value) \{
+00076         \textcolor{keywordflow}{for}(URI uri : subscribers) \{
+00077             \textcolor{keywordflow}{try}\{
+00078                 URL url = uri.toURL();
+00079                 \textcolor{keyword}{new} JsonRpcClientFactory().create(SensorSubscriber.class, url).accept(value);
+00080             \} \textcolor{keywordflow}{catch}(MalformedURLException e) \{
+00081             \}
+00082         \}
+00083     \}
+00084 
+00085     \textcolor{keyword}{private} String deviceId;
+00086     \textcolor{keyword}{private} String dataType;
+00087     \textcolor{keyword}{private} String placeTag;
+00088     \textcolor{keyword}{private} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} latLng;
+00089     \textcolor{keyword}{private} Set<URI> subscribers = \textcolor{keyword}{new} LinkedHashSet<>();
+00090 \}
+\end{DoxyCode}

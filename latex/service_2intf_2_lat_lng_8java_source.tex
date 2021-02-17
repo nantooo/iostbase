@@ -1,0 +1,30 @@
+\hypertarget{service_2intf_2_lat_lng_8java}{\section{Lat\-Lng.\-java}
+\label{service_2intf_2_lat_lng_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\-Lat\-Lng.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\-Lat\-Lng.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf;
+00002 
+00003 \textcolor{keyword}{import} lombok.AllArgsConstructor;
+00004 \textcolor{keyword}{import} lombok.Data;
+00005 \textcolor{keyword}{import} lombok.NoArgsConstructor;
+00006 
+00007 @Data
+00008 @NoArgsConstructor
+00009 @AllArgsConstructor
+\hypertarget{service_2intf_2_lat_lng_8java_source_l00010}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{00010} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} \{
+00011     \textcolor{keyword}{private} \textcolor{keywordtype}{double} latitude;
+00012     \textcolor{keyword}{private} \textcolor{keywordtype}{double} longitude;
+\hypertarget{service_2intf_2_lat_lng_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng_a0b95b93eaf78844ce1cb93178b685419}{00013}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng_a0b95b93eaf78844ce1cb93178b685419}{distance}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} target) \{
+00014         \textcolor{keywordflow}{return} Math.sqrt(
+00015                 Math.pow(latitude - target.latitude, 2) +
+00016                 Math.pow(longitude - target.longitude, 2));
+00017     \}
+00018 
+\hypertarget{service_2intf_2_lat_lng_8java_source_l00019}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng_afaf1c574369e21264972200cdffdaf6d}{00019}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng_afaf1c574369e21264972200cdffdaf6d}{distance}(\textcolor{keywordtype}{double} lat, \textcolor{keywordtype}{double} lon) \{
+00020         \textcolor{keywordflow}{return} Math.sqrt(
+00021                 Math.pow(latitude - lat, 2) +
+00022                 Math.pow(longitude - lon, 2));
+00023     \}
+00024 \}
+\end{DoxyCode}

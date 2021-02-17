@@ -1,0 +1,17 @@
+\hypertarget{_user_repository_8java}{\section{User\-Repository.\-java}
+\label{_user_repository_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/\-User\-Repository.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/\-User\-Repository.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.dao;
+00002 
+00003 \textcolor{keyword}{import} java.util.Optional;
+00004 
+00005 \textcolor{keyword}{import} org.springframework.data.jpa.repository.JpaRepository;
+00006 
+00007 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_user}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity.User};
+00008 
+\hypertarget{_user_repository_8java_source_l00009}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_user_repository}{00009} \textcolor{keyword}{public} \textcolor{keyword}{interface }\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_user_repository}{UserRepository} \textcolor{keyword}{extends} JpaRepository<User, Long> \{
+00010   Optional<User> \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_user_repository_af699a803bd8fd4d26106e2eec1a97d61}{findByEmail}(String email);
+00011 \}
+\end{DoxyCode}

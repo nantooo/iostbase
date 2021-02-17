@@ -1,0 +1,55 @@
+\hypertarget{_rule_sample2_8java}{\section{Rule\-Sample2.\-java}
+\label{_rule_sample2_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/sample/\-Rule\-Sample2.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/sample/\-Rule\-Sample2.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.sample;
+00002 
+00003 \textcolor{keyword}{import} java.io.FileInputStream;
+00004 \textcolor{keyword}{import} java.text.SimpleDateFormat;
+00005 \textcolor{keyword}{import} java.util.Calendar;
+00006 
+00007 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_event_store}{jp.ac.kyoto\_u.i.soc.ai.iostbase.EventStore};
+00008 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.event.TimerEvent};
+00009 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.Event}
+      ;
+00010 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util}{jp.ac.kyoto\_u.i.soc.ai.iostbase.util.DroolsUtil};
+00011 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{jp.ac.kyoto\_u.i.soc.ai.iostbase.util.SOM};
+00012 \textcolor{keyword}{import} jp.go.nict.langrid.commons.util.CalendarUtil;
+00013 \textcolor{keyword}{import} jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
+00014 
+\hypertarget{_rule_sample2_8java_source_l00015}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sample_1_1_rule_sample2}{00015} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sample_1_1_rule_sample2}{RuleSample2} \{
+\hypertarget{_rule_sample2_8java_source_l00016}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sample_1_1_rule_sample2_abbef0397849d6742b6e9725880267817}{00016}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sample_1_1_rule_sample2_abbef0397849d6742b6e9725880267817}{main}(String[] args) \textcolor{keywordflow}{throws} Throwable\{
+00017         var df = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"yyyy-MM-dd HH:mm:ss.SSS"});
+00018         \textcolor{keywordflow}{try}(var ruleIs = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/sample2.drl"});
+00019                 var event1Is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/event1.json"});
+00020                 var event2Is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/event2.json"});
+00021                 var event3Is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/event3.json"})
+00022                 )\{
+00023             var session = DroolsUtil.createSessionFromResource(ruleIs, \textcolor{stringliteral}{"sample.drl"});
+00024             session.setGlobal(\textcolor{stringliteral}{"eventStore"}, (\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_event_store}{EventStore})(e -> \{
+00025                 System.out.println(\textcolor{stringliteral}{"event stored: "} + JSON.encode(e));
+00026                 session.insert(e);
+00027             \}));
+00028             var e1 = JSON.decode(event1Is, Event.class);
+00029             var now = Calendar.getInstance();
+00030             SOM.set(e1.getValue(), \textcolor{stringliteral}{"targetTime"}, df.format(CalendarUtil.cloneAndAdd(now, Calendar.MINUTE, 3
+      0).getTime()));
+00031             session.insert(e1);
+00032             session.insert(JSON.decode(event2Is, Event.class));
+00033             session.insert(JSON.decode(event3Is, Event.class));
+00034             session.insert(\textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{TimerEvent}(Calendar.getInstance().getTimeInMillis()));
+00035             System.out.println(\textcolor{stringliteral}{"-- fireAllRules1 --"});
+00036             session.fireAllRules();
+00037 
+00038             session.insert(\textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{TimerEvent}(Calendar.getInstance().getTimeInMillis()));
+00039             System.out.println(\textcolor{stringliteral}{"-- fireAllRules2 --"});
+00040             session.fireAllRules();
+00041 
+00042             session.insert(\textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{TimerEvent}(Calendar.getInstance().getTimeInMillis()));
+00043             System.out.println(\textcolor{stringliteral}{"-- fireAllRules3 --"});
+00044             session.fireAllRules();
+00045         \}
+00046     \}
+00047 \}
+\end{DoxyCode}

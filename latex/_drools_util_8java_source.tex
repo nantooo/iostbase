@@ -1,0 +1,87 @@
+\hypertarget{_drools_util_8java}{\section{Drools\-Util.\-java}
+\label{_drools_util_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/util/\-Drools\-Util.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/util/\-Drools\-Util.\-java}}
+}
+
+\begin{DoxyCode}
+\hypertarget{_drools_util_8java_source_l00001}{}\hyperlink{namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util}{00001} \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.util;
+00002 
+00003 \textcolor{keyword}{import} java.io.IOException;
+00004 \textcolor{keyword}{import} java.io.InputStream;
+00005 
+00006 \textcolor{keyword}{import} org.kie.api.KieBase;
+00007 \textcolor{keyword}{import} org.kie.api.KieBaseConfiguration;
+00008 \textcolor{keyword}{import} org.kie.api.KieServices;
+00009 \textcolor{keyword}{import} org.kie.api.builder.KieBuilder;
+00010 \textcolor{keyword}{import} org.kie.api.builder.KieFileSystem;
+00011 \textcolor{keyword}{import} org.kie.api.builder.Message;
+00012 \textcolor{keyword}{import} org.kie.api.builder.Results;
+00013 \textcolor{keyword}{import} org.kie.api.conf.EventProcessingOption;
+00014 \textcolor{keyword}{import} org.kie.api.runtime.KieContainer;
+00015 \textcolor{keyword}{import} org.kie.api.runtime.KieSession;
+00016 
+\hypertarget{_drools_util_8java_source_l00017}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util}{00017} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util}{DroolsUtil} \{
+\hypertarget{_drools_util_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4f8a785fcf6c81f66e8507982d2575bb}{00018}     \textcolor{keyword}{public} \textcolor{keyword}{static} KieSession \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4f8a785fcf6c81f66e8507982d2575bb}{createSessionFromResource}(Package pkg, String 
+      ruleClassPath) \textcolor{keywordflow}{throws} IOException\{
+00019         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4f8a785fcf6c81f66e8507982d2575bb}{createSessionFromResource}(
+00020                 \textcolor{stringliteral}{"/"} + pkg.getName().replaceAll(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)."}, \textcolor{stringliteral}{"/"}) + \textcolor{stringliteral}{"/"} + ruleClassPath);
+00021     \}
+00022 
+\hypertarget{_drools_util_8java_source_l00023}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_abd632eaf75a6488c53c80698e378e9d1}{00023}     \textcolor{keyword}{public} \textcolor{keyword}{static} KieSession \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_abd632eaf75a6488c53c80698e378e9d1}{createSessionFromResource}(String ruleClassPath)
+00024     \textcolor{keywordflow}{throws} IOException\{
+00025         \textcolor{keywordflow}{try}(InputStream is = \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util}{DroolsUtil}.class.getResourceAsStream(ruleClassPath))\{
+00026             \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4f8a785fcf6c81f66e8507982d2575bb}{createSessionFromResource}(is, ruleClassPath);
+00027         \}
+00028     \}
+00029 
+\hypertarget{_drools_util_8java_source_l00030}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a60e4d7859c0994c301d31410e15ac6ca}{00030}     \textcolor{keyword}{public} \textcolor{keyword}{static} KieSession \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a60e4d7859c0994c301d31410e15ac6ca}{createSessionFromResource}(InputStream body, String 
+      rulePath)
+00031     \textcolor{keywordflow}{throws} IOException\{
+00032         KieServices kieServices = KieServices.Factory.get();
+00033         KieFileSystem kfs = kieServices.newKieFileSystem();
+00034         \textcolor{keywordflow}{if}(rulePath.length() > 0 && rulePath.charAt(0) != \textcolor{charliteral}{'/'}) \{
+00035             rulePath = \textcolor{stringliteral}{"/"} + rulePath;
+00036         \}
+00037         kfs.write(\textcolor{stringliteral}{"src/main/resources"} + rulePath,
+00038                 kieServices.getResources().newInputStreamResource(body));
+00039         KieBuilder kieBuilder = kieServices.newKieBuilder( kfs ).buildAll();
+00040         Results results = kieBuilder.getResults();
+00041         \textcolor{keywordflow}{if}( results.hasMessages( Message.Level.ERROR ) )\{
+00042             System.out.println( results.getMessages() );
+00043             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"### errors ###"} );
+00044         \}
+00045         KieContainer kieContainer = kieServices.newKieContainer(
+00046                 kieServices.getRepository().getDefaultReleaseId() );
+00047         KieBase kieBase = kieContainer.getKieBase();
+00048         \textcolor{keywordflow}{return} kieBase.newKieSession();
+00049     \}
+00050 
+\hypertarget{_drools_util_8java_source_l00051}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4653939bfd8666717fe8cb4015447962}{00051}     \textcolor{keyword}{public} \textcolor{keyword}{static} KieSession \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4653939bfd8666717fe8cb4015447962}{createStreamSessionFromResource}(Package pkg, 
+      String rulePath) \textcolor{keywordflow}{throws} IOException\{
+00052         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_a4653939bfd8666717fe8cb4015447962}{createStreamSessionFromResource}(
+00053                 \textcolor{stringliteral}{"/"} + pkg.getName().replaceAll(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)."}, \textcolor{stringliteral}{"/"}) + \textcolor{stringliteral}{"/"} + rulePath);
+00054     \}
+\hypertarget{_drools_util_8java_source_l00055}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_ac5190a6852943942f9c24612486f870a}{00055}     \textcolor{keyword}{public} \textcolor{keyword}{static} KieSession \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util_ac5190a6852943942f9c24612486f870a}{createStreamSessionFromResource}(String rulePath
+      )
+00056     \textcolor{keywordflow}{throws} IOException\{
+00057         KieServices kieServices = KieServices.Factory.get();
+00058         KieFileSystem kfs = kieServices.newKieFileSystem();
+00059         \textcolor{keywordflow}{try}(InputStream is = \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util}{DroolsUtil}.class.getResourceAsStream(rulePath))\{
+00060             \textcolor{comment}{// for each DRL file, referenced by a plain old path name:}
+00061             kfs.write(\textcolor{stringliteral}{"src/main/resources"} + rulePath,
+00062                     kieServices.getResources().newInputStreamResource(is));
+00063             KieBuilder kieBuilder = kieServices.newKieBuilder( kfs ).buildAll();
+00064             Results results = kieBuilder.getResults();
+00065             \textcolor{keywordflow}{if}( results.hasMessages( Message.Level.ERROR ) )\{
+00066                 System.out.println( results.getMessages() );
+00067                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"### errors ###"} );
+00068             \}
+00069             KieContainer kieContainer = kieServices.newKieContainer(
+00070                     kieServices.getRepository().getDefaultReleaseId() );
+00071             KieBaseConfiguration config = KieServices.Factory.get().newKieBaseConfiguration();
+00072             config.setOption( EventProcessingOption.STREAM );
+00073             KieBase kieBase = kieContainer.newKieBase(config);
+00074             \textcolor{keywordflow}{return} kieBase.newKieSession();
+00075         \}
+00076     \}
+00077 \}
+\end{DoxyCode}

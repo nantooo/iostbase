@@ -1,0 +1,39 @@
+\hypertarget{_user_8java}{\section{User.\-java}
+\label{_user_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/entity/\-User.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/entity/\-User.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity;
+00002 
+00003 \textcolor{keyword}{import} javax.persistence.Column;
+00004 \textcolor{keyword}{import} javax.persistence.Entity;
+00005 \textcolor{keyword}{import} javax.persistence.GeneratedValue;
+00006 \textcolor{keyword}{import} javax.persistence.GenerationType;
+00007 \textcolor{keyword}{import} javax.persistence.Id;
+00008 
+00009 \textcolor{keyword}{import} lombok.AllArgsConstructor;
+00010 \textcolor{keyword}{import} lombok.Data;
+00011 \textcolor{keyword}{import} lombok.NoArgsConstructor;
+00012 \textcolor{keyword}{import} lombok.ToString;
+00013 
+00014 @Entity
+00015 @Data
+00016 @NoArgsConstructor
+00017 @AllArgsConstructor
+00018 @ToString(exclude = \{ \textcolor{stringliteral}{"email"}, \textcolor{stringliteral}{"password"} \})
+\hypertarget{_user_8java_source_l00019}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_user}{00019} \textcolor{keyword}{public} \textcolor{keyword}{class} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_user}{User} \{
+00020   @Id
+00021   @GeneratedValue(strategy = GenerationType.IDENTITY)
+00022   \textcolor{keyword}{private} Long id;
+00023   @Column(name = \textcolor{stringliteral}{"name"}, length = 60, nullable = \textcolor{keyword}{false})
+00024   \textcolor{keyword}{private} String name;
+00025   @Column(name = \textcolor{stringliteral}{"email"}, length = 120, nullable = \textcolor{keyword}{false}, unique = \textcolor{keyword}{true})
+00026   \textcolor{keyword}{private} String email;
+00027   @Column(name = \textcolor{stringliteral}{"password"}, length = 120, nullable = \textcolor{keyword}{false})
+00028   \textcolor{keyword}{private} String password;
+00029   @Column(name = \textcolor{stringliteral}{"roles"}, length = 120)
+00030   \textcolor{keyword}{private} String roles;
+00031   @Column(name = \textcolor{stringliteral}{"enable\_flag"}, nullable = \textcolor{keyword}{false})
+00032   \textcolor{keyword}{private} Boolean enable;
+00033 \}
+\end{DoxyCode}

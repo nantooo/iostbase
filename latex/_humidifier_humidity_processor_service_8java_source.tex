@@ -1,0 +1,31 @@
+\hypertarget{_humidifier_humidity_processor_service_8java}{\section{Humidifier\-Humidity\-Processor\-Service.\-java}
+\label{_humidifier_humidity_processor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Humidifier\-Humidity\-Processor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Humidifier\-Humidity\-Processor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_humidity_processor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.processor.HumidityProcessor}
+      ;
+00004 
+\hypertarget{_humidifier_humidity_processor_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_humidity_processor_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_humidity_processor_service}{HumidifierHumidityProcessorService}
+00006 \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_humidity_processor}{HumidityProcessor} \{
+\hypertarget{_humidifier_humidity_processor_service_8java_source_l00007}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_humidity_processor_service_ab06d3fb8e86a9a1cd332c948138d8aa8}{00007}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_humidity_processor_service_ab06d3fb8e86a9a1cd332c948138d8aa8}{HumidifierHumidityProcessorService}(
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service}{HumidifierOnOffSwitchActuatorService} act,
+00008             \textcolor{keywordtype}{double} lowerThreashold) \{
+00009         this.act = act;
+00010         this.lowerThreashold = lowerThreashold;
+00011     \}
+00012     @Override
+00013     public <T> T processHumidity(\textcolor{keywordtype}{double} value) \{
+00014         \textcolor{keywordflow}{if}(value < lowerThreashold) \{
+00015             act.on();
+00016         \} \textcolor{keywordflow}{else} \{
+00017             act.off();
+00018         \}
+00019         \textcolor{keywordflow}{return} null;
+00020     \}
+00021     \textcolor{keyword}{private} HumidifierOnOffSwitchActuatorService act;
+00022     \textcolor{keyword}{private} \textcolor{keywordtype}{double} lowerThreashold;
+00023 \}
+\end{DoxyCode}

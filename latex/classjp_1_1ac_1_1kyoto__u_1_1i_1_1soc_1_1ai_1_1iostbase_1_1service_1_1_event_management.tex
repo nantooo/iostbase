@@ -1,0 +1,172 @@
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}{\section{クラス jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management}
+\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}\index{jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management@{jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management}}
+}
+jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Managementに対する継承グラフ\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}
+\end{center}
+\end{figure}
+\subsection*{Public メソッド}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8c9377f214ae009b99593b50a61622e7}{Event\-Management} ()
+\item 
+void \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8eec8a76c492bbb5d891b2ad842d3753}{notify\-Event} (\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} event)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1d637ad8815fff35b303bc5a84072383}{get\-Events} (Date last\-Event\-Millis, long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a7513df51d5996fac8a57f6aa089895cd}{get\-Events\-Of\-Device} (String device\-Id, Date last\-Event\-Millis, long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1fcaa80b727d7728b76d0dd4deeaaf17}{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type} (String place\-Tag\-Prefix, String data\-Type, Date last\-Event\-Millis, long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ababf0fd7241c3cfb1f1009e848eeb594}{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type} (\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{Lat\-Lng} lat\-Lng, double r, String data\-Type, Date last\-Event\-Millis, long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a235d15403651c1e09485c24aecf121f8}{list\-Events} (int page, int size)
+\item 
+void \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ae667f2520d18499d84e8625224e00d16}{update\-Rule} (String rule\-Id, String body)
+\item 
+void \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_af255861f3894c53b1a51f5a59b87d3bc}{activate\-Rule} (String rule\-Id)
+\item 
+void \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a40a1aeb4d5e3173834631604f6f2cd4b}{deactivate\-Rule} (String rule\-Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+
+
+\subsection{コンストラクタとデストラクタ}
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8c9377f214ae009b99593b50a61622e7}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!Event\-Management@{Event\-Management}}
+\index{Event\-Management@{Event\-Management}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{Event\-Management}]{\setlength{\rightskip}{0pt plus 5cm}jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-Event\-Management (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8c9377f214ae009b99593b50a61622e7}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+
+
+\subsection{メソッド}
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_af255861f3894c53b1a51f5a59b87d3bc}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!activate\-Rule@{activate\-Rule}}
+\index{activate\-Rule@{activate\-Rule}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{activate\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-activate\-Rule (
+\begin{DoxyParamCaption}
+\item[{String}]{rule\-Id}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_af255861f3894c53b1a51f5a59b87d3bc}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a40a1aeb4d5e3173834631604f6f2cd4b}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!deactivate\-Rule@{deactivate\-Rule}}
+\index{deactivate\-Rule@{deactivate\-Rule}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{deactivate\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-deactivate\-Rule (
+\begin{DoxyParamCaption}
+\item[{String}]{rule\-Id}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a40a1aeb4d5e3173834631604f6f2cd4b}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1d637ad8815fff35b303bc5a84072383}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!get\-Events@{get\-Events}}
+\index{get\-Events@{get\-Events}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{get\-Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-get\-Events (
+\begin{DoxyParamCaption}
+\item[{Date}]{last\-Event\-Millis, }
+\item[{long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1d637ad8815fff35b303bc5a84072383}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a7513df51d5996fac8a57f6aa089895cd}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!get\-Events\-Of\-Device@{get\-Events\-Of\-Device}}
+\index{get\-Events\-Of\-Device@{get\-Events\-Of\-Device}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{get\-Events\-Of\-Device}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-get\-Events\-Of\-Device (
+\begin{DoxyParamCaption}
+\item[{String}]{device\-Id, }
+\item[{Date}]{last\-Event\-Millis, }
+\item[{long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a7513df51d5996fac8a57f6aa089895cd}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ababf0fd7241c3cfb1f1009e848eeb594}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type@{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type}}
+\index{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type@{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type (
+\begin{DoxyParamCaption}
+\item[{{\bf Lat\-Lng}}]{lat\-Lng, }
+\item[{double}]{r, }
+\item[{String}]{data\-Type, }
+\item[{Date}]{last\-Event\-Millis, }
+\item[{long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ababf0fd7241c3cfb1f1009e848eeb594}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1fcaa80b727d7728b76d0dd4deeaaf17}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type@{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type}}
+\index{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type@{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type (
+\begin{DoxyParamCaption}
+\item[{String}]{place\-Tag\-Prefix, }
+\item[{String}]{data\-Type, }
+\item[{Date}]{last\-Event\-Millis, }
+\item[{long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1fcaa80b727d7728b76d0dd4deeaaf17}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a235d15403651c1e09485c24aecf121f8}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!list\-Events@{list\-Events}}
+\index{list\-Events@{list\-Events}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{list\-Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-list\-Events (
+\begin{DoxyParamCaption}
+\item[{int}]{page, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a235d15403651c1e09485c24aecf121f8}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8eec8a76c492bbb5d891b2ad842d3753}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!notify\-Event@{notify\-Event}}
+\index{notify\-Event@{notify\-Event}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{notify\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-notify\-Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Event}}]{event}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8eec8a76c492bbb5d891b2ad842d3753}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+\hypertarget{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ae667f2520d18499d84e8625224e00d16}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}!update\-Rule@{update\-Rule}}
+\index{update\-Rule@{update\-Rule}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::EventManagement@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::\-Event\-Management}}
+\subsubsection[{update\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-Event\-Management.\-update\-Rule (
+\begin{DoxyParamCaption}
+\item[{String}]{rule\-Id, }
+\item[{String}]{body}
+\end{DoxyParamCaption}
+)}}\label{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ae667f2520d18499d84e8625224e00d16}
+
+
+ \hyperlink{_event_management_8java_source}{Event\-Management.\-java} の  行で定義されています。
+
+
+
+このクラスの説明は次のファイルから生成されました\-:\begin{DoxyCompactItemize}
+\item 
+src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/\hyperlink{_event_management_8java}{Event\-Management.\-java}\end{DoxyCompactItemize}

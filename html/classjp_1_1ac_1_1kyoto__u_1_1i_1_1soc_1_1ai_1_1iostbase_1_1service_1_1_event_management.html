@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.5"/>
+<title>対話エージェントのためのIoTサービス基盤の構築: クラス jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">対話エージェントのためのIoTサービス基盤の構築
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 作成： Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacejp.html">jp</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac.html">ac</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u.html">kyoto_u</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i.html">i</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc.html">soc</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai.html">ai</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase.html">iostbase</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service.html">service</a></li><li class="navelem"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html">EventManagement</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management-members.html">すべてのメンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagementに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.png" usemap="#jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement_map" alt=""/>
+  <map id="jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement_map" name="jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement_map">
+<area href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html" alt="jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService" shape="rect" coords="0,0,402,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr class="memitem:a8c9377f214ae009b99593b50a61622e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a8c9377f214ae009b99593b50a61622e7">EventManagement</a> ()</td></tr>
+<tr class="separator:a8c9377f214ae009b99593b50a61622e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eec8a76c492bbb5d891b2ad842d3753"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a8eec8a76c492bbb5d891b2ad842d3753">notifyEvent</a> (<a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> event)</td></tr>
+<tr class="separator:a8eec8a76c492bbb5d891b2ad842d3753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d637ad8815fff35b303bc5a84072383"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a1d637ad8815fff35b303bc5a84072383">getEvents</a> (Date lastEventMillis, long timeoutMillis)</td></tr>
+<tr class="separator:a1d637ad8815fff35b303bc5a84072383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7513df51d5996fac8a57f6aa089895cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a7513df51d5996fac8a57f6aa089895cd">getEventsOfDevice</a> (String deviceId, Date lastEventMillis, long timeoutMillis)</td></tr>
+<tr class="separator:a7513df51d5996fac8a57f6aa089895cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fcaa80b727d7728b76d0dd4deeaaf17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a1fcaa80b727d7728b76d0dd4deeaaf17">getLatestEventsByPlaceTagAndDataType</a> (String placeTagPrefix, String dataType, Date lastEventMillis, long timeoutMillis)</td></tr>
+<tr class="separator:a1fcaa80b727d7728b76d0dd4deeaaf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababf0fd7241c3cfb1f1009e848eeb594"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#ababf0fd7241c3cfb1f1009e848eeb594">getLatestEventsByLatLngAndDataType</a> (<a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a> latLng, double r, String dataType, Date lastEventMillis, long timeoutMillis)</td></tr>
+<tr class="separator:ababf0fd7241c3cfb1f1009e848eeb594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a235d15403651c1e09485c24aecf121f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a235d15403651c1e09485c24aecf121f8">listEvents</a> (int page, int size)</td></tr>
+<tr class="separator:a235d15403651c1e09485c24aecf121f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae667f2520d18499d84e8625224e00d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#ae667f2520d18499d84e8625224e00d16">updateRule</a> (String ruleId, String body)</td></tr>
+<tr class="separator:ae667f2520d18499d84e8625224e00d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af255861f3894c53b1a51f5a59b87d3bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#af255861f3894c53b1a51f5a59b87d3bc">activateRule</a> (String ruleId)</td></tr>
+<tr class="separator:af255861f3894c53b1a51f5a59b87d3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a1aeb4d5e3173834631604f6f2cd4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management.html#a40a1aeb4d5e3173834631604f6f2cd4b">deactivateRule</a> (String ruleId)</td></tr>
+<tr class="separator:a40a1aeb4d5e3173834631604f6f2cd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service')"><img src="closed.png" alt="-"/>&#160;Public メソッド inherited from <a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService</a></td></tr>
+<tr class="memitem:a829b12a486f5e521e14ddf23d9c93ba7 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a829b12a486f5e521e14ddf23d9c93ba7">notifyEvent</a> (@Parameter(name=&quot;event&quot;, sample=&quot;{\&quot;deviceId\&quot;: \&quot;user:gps:1\&quot;,\&quot;dataType\&quot;: \&quot;LatLng\&quot;,\&quot;value\&quot;: {\&quot;latitude\&quot;:35.0261389,  \&quot;longitude\&quot;: 135.7806666}}&quot;) <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> event)</td></tr>
+<tr class="separator:a829b12a486f5e521e14ddf23d9c93ba7 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4151a56ca77f1c5d9c985b5be55e35b2 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a4151a56ca77f1c5d9c985b5be55e35b2">getEvents</a> (@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</td></tr>
+<tr class="separator:a4151a56ca77f1c5d9c985b5be55e35b2 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b88c46f46145ab5c8ddf33631c56c22 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a8b88c46f46145ab5c8ddf33631c56c22">getEventsOfDevice</a> (@Parameter(name=&quot;deviceId&quot;) String deviceId,@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</td></tr>
+<tr class="separator:a8b88c46f46145ab5c8ddf33631c56c22 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcffbb38a4756b18bee3a22c9dbd0fe inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#adfcffbb38a4756b18bee3a22c9dbd0fe">getLatestEventsByPlaceTagAndDataType</a> (@Parameter(name=&quot;placeTagPrefix&quot;) String placeTagPrefix,@Parameter(name=&quot;dataType&quot;) String dataType,@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</td></tr>
+<tr class="separator:adfcffbb38a4756b18bee3a22c9dbd0fe inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff776e7cc93b1321d7869d6602fea5d inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#aeff776e7cc93b1321d7869d6602fea5d">getLatestEventsByLatLngAndDataType</a> (@Parameter(name=&quot;latLng&quot;) LatLng latLng,@Parameter(name=&quot;r&quot;) double r,@Parameter(name=&quot;dataType&quot;) String dataType,@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</td></tr>
+<tr class="separator:aeff776e7cc93b1321d7869d6602fea5d inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2d72f8be42d38450a68c644226ed220 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#ad2d72f8be42d38450a68c644226ed220">listEvents</a> (@Parameter(name=&quot;page&quot;, sample=&quot;0&quot;) int page,@Parameter(name=&quot;size&quot;, sample=&quot;10&quot;) int size)</td></tr>
+<tr class="separator:ad2d72f8be42d38450a68c644226ed220 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb32b9ef6fa58fbef094d62834dce19f inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#adb32b9ef6fa58fbef094d62834dce19f">updateRule</a> (@Parameter(name=&quot;ruleId&quot;) String ruleId,@Parameter(name=&quot;body&quot;) String body)</td></tr>
+<tr class="separator:adb32b9ef6fa58fbef094d62834dce19f inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0effe63c1f32145090730a6cdf09f62e inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a0effe63c1f32145090730a6cdf09f62e">activateRule</a> (@Parameter(name=&quot;ruleId&quot;) String ruleId)</td></tr>
+<tr class="separator:a0effe63c1f32145090730a6cdf09f62e inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989f340ce1813adba306577617cf19e6 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a989f340ce1813adba306577617cf19e6">deactivateRule</a> (@Parameter(name=&quot;ruleId&quot;) String ruleId)</td></tr>
+<tr class="separator:a989f340ce1813adba306577617cf19e6 inherit pub_methods_interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">説明</h2>
+<div class="textblock">
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00023">23</a> 行で定義されています。</p>
+</div><h2 class="groupheader">コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a8c9377f214ae009b99593b50a61622e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.EventManagement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00027">27</a> 行で定義されています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メソッド</h2>
+<a class="anchor" id="af255861f3894c53b1a51f5a59b87d3bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.activateRule </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruleId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00133">133</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a40a1aeb4d5e3173834631604f6f2cd4b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.deactivateRule </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruleId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00138">138</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d637ad8815fff35b303bc5a84072383"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> [] jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.getEvents </td>
+          <td>(</td>
+          <td class="paramtype">Date&#160;</td>
+          <td class="paramname"><em>lastEventMillis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>timeoutMillis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00036">36</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a7513df51d5996fac8a57f6aa089895cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> [] jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.getEventsOfDevice </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>deviceId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Date&#160;</td>
+          <td class="paramname"><em>lastEventMillis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>timeoutMillis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00053">53</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ababf0fd7241c3cfb1f1009e848eeb594"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> [] jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.getLatestEventsByLatLngAndDataType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a>&#160;</td>
+          <td class="paramname"><em>latLng</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>dataType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Date&#160;</td>
+          <td class="paramname"><em>lastEventMillis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>timeoutMillis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00096">96</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a1fcaa80b727d7728b76d0dd4deeaaf17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> [] jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.getLatestEventsByPlaceTagAndDataType </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>placeTagPrefix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>dataType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Date&#160;</td>
+          <td class="paramname"><em>lastEventMillis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>timeoutMillis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00070">70</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a235d15403651c1e09485c24aecf121f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> [] jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.listEvents </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>page</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00123">123</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a8eec8a76c492bbb5d891b2ad842d3753"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.notifyEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00031">31</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ae667f2520d18499d84e8625224e00d16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.EventManagement.updateRule </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruleId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>body</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_event_management_8java_source.html">EventManagement.java</a> の <a class="el" href="_event_management_8java_source.html#l00128">128</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>src/main/java/jp/ac/kyoto_u/i/soc/ai/iostbase/service/<a class="el" href="_event_management_8java_source.html">EventManagement.java</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+作成： &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.5
+</small></address>
+</body>
+</html>

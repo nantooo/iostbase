@@ -1,0 +1,116 @@
+\hypertarget{_web_security_config_8java}{\section{Web\-Security\-Config.\-java}
+\label{_web_security_config_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Web\-Security\-Config.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Web\-Security\-Config.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase;
+00002 
+00003 \textcolor{keyword}{import} org.springframework.context.annotation.Bean;
+00004 \textcolor{keyword}{import} org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+00005 \textcolor{keyword}{import} org.springframework.security.authentication.AuthenticationProvider;
+00006 \textcolor{keyword}{import} org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+00007 \textcolor{keyword}{import} org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+00008 \textcolor{keyword}{import} org.springframework.security.config.annotation.web.builders.HttpSecurity;
+00009 \textcolor{keyword}{import} org.springframework.security.config.annotation.web.builders.WebSecurity;
+00010 \textcolor{keyword}{import} org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+00011 \textcolor{keyword}{import} org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+00012 \textcolor{keyword}{import} org.springframework.security.core.Authentication;
+00013 \textcolor{keyword}{import} org.springframework.security.core.AuthenticationException;
+00014 \textcolor{keyword}{import} org.springframework.security.core.userdetails.User;
+00015 \textcolor{keyword}{import} org.springframework.security.core.userdetails.UserDetails;
+00016 \textcolor{keyword}{import} org.springframework.security.core.userdetails.UserDetailsService;
+00017 \textcolor{keyword}{import} org.springframework.security.crypto.factory.PasswordEncoderFactories;
+00018 \textcolor{keyword}{import} org.springframework.security.crypto.password.PasswordEncoder;
+00019 \textcolor{keyword}{import} org.springframework.security.provisioning.InMemoryUserDetailsManager;
+00020 
+00021 
+00022 @EnableWebSecurity
+\hypertarget{_web_security_config_8java_source_l00023}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config}{00023} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config}{WebSecurityConfig} \textcolor{keyword}{extends} WebSecurityConfigurerAdapter \{
+00024 
+00025   \textcolor{comment}{// アカウント登録時のパスワードエンコードで利用するためDI管理する。}
+00026   @Bean
+00027   PasswordEncoder passwordEncoder() \{
+00028     \textcolor{keywordflow}{return} PasswordEncoderFactories.createDelegatingPasswordEncoder();
+00029   \}
+00030 
+00031   @Override
+\hypertarget{_web_security_config_8java_source_l00032}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_ab4b1f5d8f510f2a79eed113b2349a05d}{00032}   \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_ab4b1f5d8f510f2a79eed113b2349a05d}{configure}(WebSecurity web) \textcolor{keywordflow}{throws} Exception \{
+00033     \textcolor{comment}{// @formatter:off}
+00034     web
+00035       .debug(\textcolor{keyword}{false})
+00036       .ignoring()
+00037       .antMatchers(\textcolor{stringliteral}{"/images/**"}, \textcolor{stringliteral}{"/js/**"}, \textcolor{stringliteral}{"/css/**"}, \textcolor{stringliteral}{"/jsServices/**"})
+00038     ;
+00039     \textcolor{comment}{// @formatter:on}
+00040   \}
+00041 
+00042   @Override
+\hypertarget{_web_security_config_8java_source_l00043}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_a0c4a8d1719d084f5bd40e51d40ebe7af}{00043}   \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_a0c4a8d1719d084f5bd40e51d40ebe7af}{configure}(HttpSecurity http) \textcolor{keywordflow}{throws} Exception \{
+00044     \textcolor{comment}{// @formatter:off}
+00045     http
+00046       .authorizeRequests()
+00047         .mvcMatchers(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"/signup"}, \textcolor{stringliteral}{"/jsServices/**"}, \textcolor{stringliteral}{"/h2-console/**"}).permitAll()
+00048         .mvcMatchers(\textcolor{stringliteral}{"/members/user/**"}).hasRole(\textcolor{stringliteral}{"USER"})
+00049         .mvcMatchers(\textcolor{stringliteral}{"/members/admin/**"}).hasRole(\textcolor{stringliteral}{"ADMIN"})
+00050         .anyRequest().authenticated()
+00051       .and()
+00052       .formLogin()
+00053         .defaultSuccessUrl(\textcolor{stringliteral}{"/"})
+00054       .and()
+00055       .logout()
+00056         .invalidateHttpSession(\textcolor{keyword}{true})
+00057         .deleteCookies(\textcolor{stringliteral}{"JSESSIONID"})
+00058         .logoutSuccessUrl(\textcolor{stringliteral}{"/"})
+00059     ;
+00060     \textcolor{comment}{// @formatter:on}
+00061     http.headers().frameOptions().disable();
+00062     http.csrf().disable();
+00063   \}
+00064 
+00065     @Bean
+00066     @Override
+\hypertarget{_web_security_config_8java_source_l00067}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_ad70bfccaf9abf03eeaee7b7dc4fcec79}{00067}     \textcolor{keyword}{public} UserDetailsService \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_ad70bfccaf9abf03eeaee7b7dc4fcec79}{userDetailsService}() \{
+00068         UserDetails user =
+00069              User.withDefaultPasswordEncoder()
+00070                 .username(\textcolor{stringliteral}{"user"})
+00071                 .password(\textcolor{stringliteral}{"password"})
+00072                 .roles(\textcolor{stringliteral}{"USER"})
+00073                 .build();
+00074 
+00075         \textcolor{keywordflow}{return} \textcolor{keyword}{new} InMemoryUserDetailsManager(user);
+00076     \}
+00077 
+00078     @Override
+\hypertarget{_web_security_config_8java_source_l00079}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_a4fcaa8831614f824a4ab0629e6bd8037}{00079}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_a4fcaa8831614f824a4ab0629e6bd8037}{configure}(AuthenticationManagerBuilder auth) \textcolor{keywordflow}{throws} Exception \{
+00080         \textcolor{comment}{// (7) Basic認証の実装を指定}
+00081         auth.authenticationProvider(\textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider}{BasicAuthenticationProvider}());
+00082     \}
+00083 
+00084     \textcolor{comment}{// (8) 認証処理の実装クラス}
+\hypertarget{_web_security_config_8java_source_l00085}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider}{00085}     \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider}{BasicAuthenticationProvider} \textcolor{keyword}{implements} AuthenticationProvider \{
+00086 
+00087         \textcolor{comment}{// (9) 認証チェック}
+00088         @Override
+\hypertarget{_web_security_config_8java_source_l00089}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_abd72fb0a43b3f714b1cb77a5bba4d325}{00089}         \textcolor{keyword}{public} Authentication \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_abd72fb0a43b3f714b1cb77a5bba4d325}{authenticate}(Authentication authentication) \textcolor{keywordflow}{throws} 
+      AuthenticationException \{
+00090 
+00091             String name = authentication.getName();
+00092             String password = authentication.getCredentials().toString();
+00093 
+00094             \textcolor{comment}{//  入力された name / password をチェックする}
+00095             \textcolor{keywordflow}{if}( name.equals(\textcolor{stringliteral}{"user"}) && password.equals(\textcolor{stringliteral}{"password"}) )\{
+00096                \textcolor{keywordflow}{return} \textcolor{keyword}{new} UsernamePasswordAuthenticationToken(name,password,authentication.getAuthorities()
+      );
+00097             \}
+00098 
+00099             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} AuthenticationCredentialsNotFoundException(\textcolor{stringliteral}{"basic auth error"});
+00100         \}
+00101 
+00102         \textcolor{comment}{// (10) 処理すべきAuthenticationクラスのチェック}
+00103         @Override
+\hypertarget{_web_security_config_8java_source_l00104}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_a3dbe290e14048fd0161507c956fe4289}{00104}         \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_a3dbe290e14048fd0161507c956fe4289}{supports}(Class<?> authentication) \{
+00105             \textcolor{keywordflow}{return} UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
+00106         \}
+00107     \}
+00108 \}
+\end{DoxyCode}

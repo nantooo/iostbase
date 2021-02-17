@@ -1,1 +1,1 @@
-{"callback":null,"headers":[],"id":"6","method":"getEventsOfDevice","params":["rules:eventdetector",0,1000]}
+{"callback":null,"headers":[],"id":"6","method":"getLatestEventsByLatLngAndDataType","params":[{"latitude":35.02740478515625,"longitude":135.7837737085017},1000,"temperature",1612839818325,1000]}

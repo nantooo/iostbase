@@ -1,0 +1,49 @@
+\hypertarget{_j_s_o_n_noise_sensor_service_8java}{\section{J\-S\-O\-N\-Noise\-Sensor\-Service.\-java}
+\label{_j_s_o_n_noise_sensor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-J\-S\-O\-N\-Noise\-Sensor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-J\-S\-O\-N\-Noise\-Sensor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} java.io.IOException;
+00004 \textcolor{keyword}{import} java.io.Reader;
+00005 \textcolor{keyword}{import} java.util.LinkedList;
+00006 \textcolor{keyword}{import} java.util.List;
+00007 \textcolor{keyword}{import} java.util.Map;
+00008 
+00009 \textcolor{keyword}{import} com.opencsv.exceptions.CsvValidationException;
+00010 
+00011 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_noise_sensor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.NoiseSensor}
+      ;
+00012 \textcolor{keyword}{import} jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
+00013 
+\hypertarget{_j_s_o_n_noise_sensor_service_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_j_s_o_n_noise_sensor_service}{00014} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_j_s_o_n_noise_sensor_service}{JSONNoiseSensorService}
+00015 \textcolor{keyword}{extends} AbstractSensorService<Integer>
+00016 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_noise_sensor}{NoiseSensor} \{
+00023     @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})
+\hypertarget{_j_s_o_n_noise_sensor_service_8java_source_l00024}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_j_s_o_n_noise_sensor_service_aac8c64887a58a3265f6fb1aa276f90dc}{00024}     public \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_j_s_o_n_noise_sensor_service}{JSONNoiseSensorService}(Reader reader) throws IOException, 
+      CsvValidationException \{
+00025         records = \textcolor{keyword}{new} LinkedList<>();
+00026         \textcolor{keywordflow}{for}(var e : (Map<String, Object>[])JSON.decode(reader)) \{
+00027             records.add(e);
+00028         \}
+00029         \textcolor{keywordflow}{if}(records.size() == 0) \{
+00030             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IOException(\textcolor{stringliteral}{"no elements."});
+00031         \}
+00032     \}
+00033     @Override
+\hypertarget{_j_s_o_n_noise_sensor_service_8java_source_l00034}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_j_s_o_n_noise_sensor_service_aeb60583425a5503985769cdca80d7f1c}{00034}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_j_s_o_n_noise_sensor_service_aeb60583425a5503985769cdca80d7f1c}{getNoise}() \{
+00035         Map<String, Object> val = null;
+00036         \textcolor{keywordflow}{if}(records.size() == 1) \{
+00037             val = records.get(0);
+00038         \} \textcolor{keywordflow}{else} \{
+00039             val = records.remove(0);
+00040         \}
+00041         Integer ret = ((Number)val.get(\textcolor{stringliteral}{"value"})).intValue();
+00042         notifyToSubscribers(ret);
+00043         \textcolor{keywordflow}{return} ret;
+00044     \}
+00045 
+00046     \textcolor{keyword}{private} List<Map<String, Object>> records;
+00047 \}
+\end{DoxyCode}

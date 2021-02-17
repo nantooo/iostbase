@@ -1,0 +1,29 @@
+\hypertarget{_heater_on_off_switch_actuator_service_8java}{\section{Heater\-On\-Off\-Switch\-Actuator\-Service.\-java}
+\label{_heater_on_off_switch_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Heater\-On\-Off\-Switch\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Heater\-On\-Off\-Switch\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_on_off_switch_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.OnOffSwitchActuator}
+      ;
+00004 
+\hypertarget{_heater_on_off_switch_actuator_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service}{HeaterOnOffSwitchActuatorService}
+00006 \textcolor{keyword}{extends} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService}
+00007 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_on_off_switch_actuator}{OnOffSwitchActuator} \{
+00008     @Override
+\hypertarget{_heater_on_off_switch_actuator_service_8java_source_l00009}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aa65e652502d5a12b045aa945736772ff}{00009}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aa65e652502d5a12b045aa945736772ff}{on}() \{
+00010         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aa65e652502d5a12b045aa945736772ff}{on} = \textcolor{keyword}{true};
+00011         notifyToSubscribers(\textcolor{stringliteral}{"heater"}, \textcolor{stringliteral}{"on"});
+00012     \}
+00013     @Override
+\hypertarget{_heater_on_off_switch_actuator_service_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_a3aedee5808796550e34f62331f5b16c0}{00014}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_a3aedee5808796550e34f62331f5b16c0}{off}() \{
+00015         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aa65e652502d5a12b045aa945736772ff}{on} = \textcolor{keyword}{false};
+00016         notifyToSubscribers(\textcolor{stringliteral}{"heater"}, \textcolor{stringliteral}{"off"});
+00017     \}
+\hypertarget{_heater_on_off_switch_actuator_service_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aee741a44ea64ef328ea051b4b8d0ebfe}{00018}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aee741a44ea64ef328ea051b4b8d0ebfe}{isOn}() \{
+00019         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aa65e652502d5a12b045aa945736772ff}{on};
+00020     \}
+00021     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service_aa65e652502d5a12b045aa945736772ff}{on};
+00022 \}
+\end{DoxyCode}

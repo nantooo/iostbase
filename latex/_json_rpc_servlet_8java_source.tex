@@ -1,0 +1,22 @@
+\hypertarget{_json_rpc_servlet_8java}{\section{Json\-Rpc\-Servlet.\-java}
+\label{_json_rpc_servlet_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/servlet/\-Json\-Rpc\-Servlet.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/servlet/\-Json\-Rpc\-Servlet.\-java}}
+}
+
+\begin{DoxyCode}
+\hypertarget{_json_rpc_servlet_8java_source_l00001}{}\hyperlink{namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet}{00001} \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.servlet;
+00002 
+00003 \textcolor{keyword}{import} javax.servlet.annotation.WebServlet;
+00004 
+00005 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.EventManagement}
+      ;
+00006 \textcolor{keyword}{import} jp.go.nict.langrid.servicecontainer.handler.annotation.Service;
+00007 \textcolor{keyword}{import} jp.go.nict.langrid.servicecontainer.handler.annotation.Services;
+00008 
+00009 @WebServlet(\textcolor{stringliteral}{"/jsServices/*"})
+00010 @Services(\{
+00011     @Service(name=\textcolor{stringliteral}{"EventManagement"}, impl=\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}{EventManagement}.class)
+00012 \})
+\hypertarget{_json_rpc_servlet_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_json_rpc_servlet}{00013} \textcolor{keyword}{public} \textcolor{keyword}{class} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_json_rpc_servlet}{JsonRpcServlet} extends \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet}{SpringJsonRpcServlet}\{
+00014     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{long} serialVersionUID = 7707078352790036143L;
+00015 \}
+\end{DoxyCode}

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.5"/>
+<title>対話エージェントのためのIoTサービス基盤の構築: src/main/java/jp/ac/kyoto_u/i/soc/ai/iostbase/WebSecurityConfig.java ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">対話エージェントのためのIoTサービス基盤の構築
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 作成： Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ee1d8ebc9f7d8c4b1cc8d85b0408c0e3.html">src</a></li><li class="navelem"><a class="el" href="dir_a1f21ea0de496ed8f5f17b6b8f78035e.html">main</a></li><li class="navelem"><a class="el" href="dir_cae01800642792b6cb36bad5a98cdb57.html">java</a></li><li class="navelem"><a class="el" href="dir_0217b56c3313871d83519dab21e33b69.html">jp</a></li><li class="navelem"><a class="el" href="dir_dc7870c083c31d295ec1974b62f5546e.html">ac</a></li><li class="navelem"><a class="el" href="dir_944efb519bc83881e6d5bb09f78fc1e7.html">kyoto_u</a></li><li class="navelem"><a class="el" href="dir_4a190480fdf6358a078ddde6d17c1770.html">i</a></li><li class="navelem"><a class="el" href="dir_3c41b4102dbafffeadd9705e06e88b06.html">soc</a></li><li class="navelem"><a class="el" href="dir_829411d838d42be470425a7531b7fe33.html">ai</a></li><li class="navelem"><a class="el" href="dir_b4b0781cc310a729168398f1289a7169.html">iostbase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">WebSecurityConfig.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_web_security_config_8java.html">説明を見る。</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>jp.ac.kyoto_u.i.soc.ai.iostbase;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> org.springframework.context.annotation.Bean;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> org.springframework.security.authentication.AuthenticationProvider;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> org.springframework.security.authentication.UsernamePasswordAuthenticationToken;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.WebSecurity;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> org.springframework.security.core.Authentication;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> org.springframework.security.core.AuthenticationException;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> org.springframework.security.core.userdetails.User;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetails;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetailsService;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> org.springframework.security.crypto.factory.PasswordEncoderFactories;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> org.springframework.security.provisioning.InMemoryUserDetailsManager;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;@EnableWebSecurity</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html">   23</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html">WebSecurityConfig</a> <span class="keyword">extends</span> WebSecurityConfigurerAdapter {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">// アカウント登録時のパスワードエンコードで利用するためDI管理する。</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  @Bean</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  PasswordEncoder passwordEncoder() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> PasswordEncoderFactories.createDelegatingPasswordEncoder();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  @Override</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#ab4b1f5d8f510f2a79eed113b2349a05d">   32</a></span>&#160;  <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#ab4b1f5d8f510f2a79eed113b2349a05d">configure</a>(WebSecurity web) <span class="keywordflow">throws</span> Exception {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// @formatter:off</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    web</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      .debug(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      .ignoring()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      .antMatchers(<span class="stringliteral">&quot;/images/**&quot;</span>, <span class="stringliteral">&quot;/js/**&quot;</span>, <span class="stringliteral">&quot;/css/**&quot;</span>, <span class="stringliteral">&quot;/jsServices/**&quot;</span>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// @formatter:on</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  @Override</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#a0c4a8d1719d084f5bd40e51d40ebe7af">   43</a></span>&#160;  <span class="keyword">protected</span> <span class="keywordtype">void</span> <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#a0c4a8d1719d084f5bd40e51d40ebe7af">configure</a>(HttpSecurity http) <span class="keywordflow">throws</span> Exception {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// @formatter:off</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    http</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      .authorizeRequests()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        .mvcMatchers(<span class="stringliteral">&quot;/&quot;</span>, <span class="stringliteral">&quot;/signup&quot;</span>, <span class="stringliteral">&quot;/jsServices/**&quot;</span>, <span class="stringliteral">&quot;/h2-console/**&quot;</span>).permitAll()</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        .mvcMatchers(<span class="stringliteral">&quot;/members/user/**&quot;</span>).hasRole(<span class="stringliteral">&quot;USER&quot;</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        .mvcMatchers(<span class="stringliteral">&quot;/members/admin/**&quot;</span>).hasRole(<span class="stringliteral">&quot;ADMIN&quot;</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        .anyRequest().authenticated()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      .and()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      .formLogin()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        .defaultSuccessUrl(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      .and()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      .logout()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        .invalidateHttpSession(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        .deleteCookies(<span class="stringliteral">&quot;JSESSIONID&quot;</span>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        .logoutSuccessUrl(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// @formatter:on</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    http.headers().frameOptions().disable();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    http.csrf().disable();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    @Bean</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    @Override</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#ad70bfccaf9abf03eeaee7b7dc4fcec79">   67</a></span>&#160;    <span class="keyword">public</span> UserDetailsService <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#ad70bfccaf9abf03eeaee7b7dc4fcec79">userDetailsService</a>() {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        UserDetails user =</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;             User.withDefaultPasswordEncoder()</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                .username(<span class="stringliteral">&quot;user&quot;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                .password(<span class="stringliteral">&quot;password&quot;</span>)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                .roles(<span class="stringliteral">&quot;USER&quot;</span>)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                .build();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> InMemoryUserDetailsManager(user);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    @Override</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#a4fcaa8831614f824a4ab0629e6bd8037">   79</a></span>&#160;    <span class="keyword">protected</span> <span class="keywordtype">void</span> <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#a4fcaa8831614f824a4ab0629e6bd8037">configure</a>(AuthenticationManagerBuilder auth) <span class="keywordflow">throws</span> Exception {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// (7) Basic認証の実装を指定</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        auth.authenticationProvider(<span class="keyword">new</span> <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html">BasicAuthenticationProvider</a>());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// (8) 認証処理の実装クラス</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html">   85</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html">BasicAuthenticationProvider</a> <span class="keyword">implements</span> AuthenticationProvider {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// (9) 認証チェック</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        @Override</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html#abd72fb0a43b3f714b1cb77a5bba4d325">   89</a></span>&#160;        <span class="keyword">public</span> Authentication <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html#abd72fb0a43b3f714b1cb77a5bba4d325">authenticate</a>(Authentication authentication) <span class="keywordflow">throws</span> AuthenticationException {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            String name = authentication.getName();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            String password = authentication.getCredentials().toString();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="comment">//  入力された name / password をチェックする</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span>( name.equals(<span class="stringliteral">&quot;user&quot;</span>) &amp;&amp; password.equals(<span class="stringliteral">&quot;password&quot;</span>) ){</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;               <span class="keywordflow">return</span> <span class="keyword">new</span> UsernamePasswordAuthenticationToken(name,password,authentication.getAuthorities());</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> AuthenticationCredentialsNotFoundException(<span class="stringliteral">&quot;basic auth error&quot;</span>);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// (10) 処理すべきAuthenticationクラスのチェック</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        @Override</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html#a3dbe290e14048fd0161507c956fe4289">  104</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html#a3dbe290e14048fd0161507c956fe4289">supports</a>(Class&lt;?&gt; authentication) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">return</span> UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_html_a0c4a8d1719d084f5bd40e51d40ebe7af"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#a0c4a8d1719d084f5bd40e51d40ebe7af">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.configure</a></div><div class="ttdeci">void configure(HttpSecurity http)</div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00043">WebSecurityConfig.java:43</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_html"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.BasicAuthenticationProvider</a></div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00085">WebSecurityConfig.java:85</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_html"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00023">WebSecurityConfig.java:23</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_html_abd72fb0a43b3f714b1cb77a5bba4d325"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html#abd72fb0a43b3f714b1cb77a5bba4d325">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.BasicAuthenticationProvider.authenticate</a></div><div class="ttdeci">Authentication authenticate(Authentication authentication)</div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00089">WebSecurityConfig.java:89</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_html_a4fcaa8831614f824a4ab0629e6bd8037"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#a4fcaa8831614f824a4ab0629e6bd8037">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.configure</a></div><div class="ttdeci">void configure(AuthenticationManagerBuilder auth)</div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00079">WebSecurityConfig.java:79</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_html_ab4b1f5d8f510f2a79eed113b2349a05d"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#ab4b1f5d8f510f2a79eed113b2349a05d">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.configure</a></div><div class="ttdeci">void configure(WebSecurity web)</div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00032">WebSecurityConfig.java:32</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_html_ad70bfccaf9abf03eeaee7b7dc4fcec79"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config.html#ad70bfccaf9abf03eeaee7b7dc4fcec79">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.userDetailsService</a></div><div class="ttdeci">UserDetailsService userDetailsService()</div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00067">WebSecurityConfig.java:67</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider_html_a3dbe290e14048fd0161507c956fe4289"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_web_security_config_1_1_basic_authentication_provider.html#a3dbe290e14048fd0161507c956fe4289">jp.ac.kyoto_u.i.soc.ai.iostbase.WebSecurityConfig.BasicAuthenticationProvider.supports</a></div><div class="ttdeci">boolean supports(Class&lt;?&gt; authentication)</div><div class="ttdef"><b>Definition:</b> <a href="_web_security_config_8java_source.html#l00104">WebSecurityConfig.java:104</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+作成： &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.5
+</small></address>
+</body>
+</html>

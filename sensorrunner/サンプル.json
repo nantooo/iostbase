@@ -1,0 +1,42 @@
+{
+	"intervalMillis": 10000,
+	"sensors": [
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.CSVTemperatureSensorService",
+			"deviceId": "device1",
+			"placeTag": "room1",
+			"file": "sensorrunner/kyoto_weather_20210101.csv",
+			"headerRows": 4,
+			"valueColumn": 4,
+			"dataType": "temperature"
+		},
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.WeatherMapSensor",
+			"deviceId": "weathermap",
+			"placeTag": "kyoto",
+			"latLng": {"latitude": 35.0116, "longitude": 135.7681},
+			"dataType": "temperature",
+			"host": "community-open-weather-map.p.rapidapi.com",
+			"key": "a6b5e41dbemsh64fdd31e6faed32p1fb68ajsn21b32340e75e"
+		},
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.WeatherforcastService",
+			"deviceId": "lifesocket",
+			"placeTag": "kyoto",	
+			"latLng": {"latitude": 35.0116, "longitude": 135.7681},
+			"dataType": "RainChance",
+			"conf": "RainPercentage",//TemperatureMin,TemperatureMax,RainPercentage,RainQuantity,WindSpeed
+			"key": "87624c64-9ce8-46c2-aa23-e912c7ad7b94"
+		},
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.WeatherMapSensor",
+			"deviceId": "weathermap",
+			"placeTag": "kyoto",
+			"latLng": {"latitude": 35.0116, "longitude": 135.7681},
+			"dataType": "humidity",
+			"conf": "humidity",//feels_like":269.21,"temp_min":273.71,"temp_max":275.37,"pressure":1028
+			"host": "community-open-weather-map.p.rapidapi.com",
+			"key": "a6b5e41dbemsh64fdd31e6faed32p1fb68ajsn21b32340e75e"
+		}
+	]
+}

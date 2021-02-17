@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.5"/>
+<title>対話エージェントのためのIoTサービス基盤の構築: クラス jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">対話エージェントのためのIoTサービス基盤の構築
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 作成： Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacejp.html">jp</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac.html">ac</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u.html">kyoto_u</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i.html">i</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc.html">soc</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai.html">ai</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase.html">iostbase</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service.html">service</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot.html">iot</a></li><li class="navelem"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html">AbstractSensorService< T ></a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4-members.html">すべてのメンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;に対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.png" usemap="#jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;_map" alt=""/>
+  <map id="jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;_map" name="jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr class="memitem:a200e3480e54ee67e4189452c7159fa03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a200e3480e54ee67e4189452c7159fa03">AbstractSensorService</a> ()</td></tr>
+<tr class="separator:a200e3480e54ee67e4189452c7159fa03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0385f2bf2aebdfdc9e6b6a60c4eafd0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a0385f2bf2aebdfdc9e6b6a60c4eafd0e">AbstractSensorService</a> (String deviceId, String dataType, String placeTag, <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a> latLng)</td></tr>
+<tr class="separator:a0385f2bf2aebdfdc9e6b6a60c4eafd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dd536fe22336d489f47e47fb602c246"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a4dd536fe22336d489f47e47fb602c246">getDeviceId</a> ()</td></tr>
+<tr class="separator:a4dd536fe22336d489f47e47fb602c246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad559c9b13050847b99d80fe2e9bcaa3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#ad559c9b13050847b99d80fe2e9bcaa3e">setDeviceId</a> (String deviceId)</td></tr>
+<tr class="separator:ad559c9b13050847b99d80fe2e9bcaa3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedf9ca99aed3619dd7b9a0a5e2e3423"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#adedf9ca99aed3619dd7b9a0a5e2e3423">getDataType</a> ()</td></tr>
+<tr class="separator:adedf9ca99aed3619dd7b9a0a5e2e3423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9168167300b4626837fcfb6329688c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a4f9168167300b4626837fcfb6329688c">setDataType</a> (String dataType)</td></tr>
+<tr class="separator:a4f9168167300b4626837fcfb6329688c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab97f6413ae27d8256dd71a2104207872"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#ab97f6413ae27d8256dd71a2104207872">getPlaceTag</a> ()</td></tr>
+<tr class="separator:ab97f6413ae27d8256dd71a2104207872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec50072ef28869ac98fa9f2d9a21e10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a1ec50072ef28869ac98fa9f2d9a21e10">setPlaceTag</a> (String placeTag)</td></tr>
+<tr class="separator:a1ec50072ef28869ac98fa9f2d9a21e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f70a4ce63265412ac7684d5e899d354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a0f70a4ce63265412ac7684d5e899d354">getLatLng</a> ()</td></tr>
+<tr class="separator:a0f70a4ce63265412ac7684d5e899d354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2207577d097d0647e7762240102fb387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a2207577d097d0647e7762240102fb387">setLatLng</a> (<a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a> latLng)</td></tr>
+<tr class="separator:a2207577d097d0647e7762240102fb387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33308b2c4808c4d19ea1c3347821c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#ae33308b2c4808c4d19ea1c3347821c46">subscribe</a> (String uri)  throws URISyntaxException </td></tr>
+<tr class="separator:ae33308b2c4808c4d19ea1c3347821c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dfb830f1e18d663e93072ae301eed05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#a4dfb830f1e18d663e93072ae301eed05">unsubscribe</a> (String uri)</td></tr>
+<tr class="separator:a4dfb830f1e18d663e93072ae301eed05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr class="memitem:ae78894908f05db2479808c955c88a554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_sensor_service_3_01_t_01_4.html#ae78894908f05db2479808c955c88a554">notifyToSubscribers</a> (T value)</td></tr>
+<tr class="separator:ae78894908f05db2479808c955c88a554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">説明</h2>
+<div class="textblock">
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00015">15</a> 行で定義されています。</p>
+</div><h2 class="groupheader">コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a200e3480e54ee67e4189452c7159fa03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.AbstractSensorService </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00016">16</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a0385f2bf2aebdfdc9e6b6a60c4eafd0e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.AbstractSensorService </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>deviceId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>dataType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>placeTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a>&#160;</td>
+          <td class="paramname"><em>latLng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00019">19</a> 行で定義されています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メソッド</h2>
+<a class="anchor" id="adedf9ca99aed3619dd7b9a0a5e2e3423"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.getDataType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00037">37</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dd536fe22336d489f47e47fb602c246"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.getDeviceId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00028">28</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f70a4ce63265412ac7684d5e899d354"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a> jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.getLatLng </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00055">55</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ab97f6413ae27d8256dd71a2104207872"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.getPlaceTag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00046">46</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ae78894908f05db2479808c955c88a554"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.notifyToSubscribers </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00075">75</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f9168167300b4626837fcfb6329688c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.setDataType </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>dataType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00041">41</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ad559c9b13050847b99d80fe2e9bcaa3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.setDeviceId </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>deviceId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00032">32</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a2207577d097d0647e7762240102fb387"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.setLatLng </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a>&#160;</td>
+          <td class="paramname"><em>latLng</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00059">59</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ec50072ef28869ac98fa9f2d9a21e10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.setPlaceTag </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>placeTag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00050">50</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ae33308b2c4808c4d19ea1c3347821c46"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.subscribe </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>uri</em></td><td>)</td>
+          <td> throws URISyntaxException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00064">64</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dfb830f1e18d663e93072ae301eed05"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.AbstractSensorService&lt; T &gt;.unsubscribe </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>uri</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a> の <a class="el" href="_abstract_sensor_service_8java_source.html#l00068">68</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>src/main/java/jp/ac/kyoto_u/i/soc/ai/iostbase/service/iot/<a class="el" href="_abstract_sensor_service_8java_source.html">AbstractSensorService.java</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+作成： &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.5
+</small></address>
+</body>
+</html>

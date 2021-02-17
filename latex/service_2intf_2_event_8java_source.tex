@@ -1,0 +1,38 @@
+\hypertarget{service_2intf_2_event_8java}{\section{Event.\-java}
+\label{service_2intf_2_event_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\-Event.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\-Event.\-java}}
+}
+
+\begin{DoxyCode}
+\hypertarget{service_2intf_2_event_8java_source_l00001}{}\hyperlink{namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf}{00001} \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf;
+00002 
+00003 \textcolor{keyword}{import} java.util.Date;
+00004 
+00005 \textcolor{keyword}{import} lombok.AllArgsConstructor;
+00006 \textcolor{keyword}{import} lombok.Data;
+00007 \textcolor{keyword}{import} lombok.NoArgsConstructor;
+00008 
+00009 @Data
+00010 @NoArgsConstructor
+00011 @AllArgsConstructor
+\hypertarget{service_2intf_2_event_8java_source_l00012}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{00012} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} \{
+\hypertarget{service_2intf_2_event_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_af1952997bd14dda9be4cae0fb33f3288}{00013}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_af1952997bd14dda9be4cae0fb33f3288}{Event}(String deviceId, String dataType,
+00014             String placeTag, Double latitide, Double longitude,
+00015             Object value) \{
+00016         this.deviceId = deviceId;
+00017         this.dataType = dataType;
+00018         this.placeTag = placeTag;
+00019         this.latitude = latitide;
+00020         this.longitude = longitude;
+00021         this.value = value;
+00022         this.created = \textcolor{keyword}{new} Date();
+00023     \}
+00024 
+00025     \textcolor{keyword}{private} String deviceId;
+00026     \textcolor{keyword}{private} String dataType;
+00027     \textcolor{keyword}{private} String placeTag;
+00028     \textcolor{keyword}{private} Double latitude;
+00029     \textcolor{keyword}{private} Double longitude;
+00030     \textcolor{keyword}{private} Object value;
+00031     \textcolor{keyword}{private} Date created;
+00032 \}
+\end{DoxyCode}

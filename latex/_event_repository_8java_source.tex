@@ -1,0 +1,26 @@
+\hypertarget{_event_repository_8java}{\section{Event\-Repository.\-java}
+\label{_event_repository_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/\-Event\-Repository.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/\-Event\-Repository.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.dao;
+00002 
+00003 \textcolor{keyword}{import} java.util.Date;
+00004 \textcolor{keyword}{import} java.util.List;
+00005 
+00006 \textcolor{keyword}{import} org.springframework.data.jpa.repository.JpaRepository;
+00007 
+00008 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity.Event};
+00009 
+\hypertarget{_event_repository_8java_source_l00010}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository}{00010} \textcolor{keyword}{public} \textcolor{keyword}{interface }\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository}{EventRepository} \textcolor{keyword}{extends} JpaRepository<Event, Long> \{
+00011     List<Event> \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository_a591381b29b497aaa27b41dab0abb83e3}{findAllByCreatedGreaterThanOrderByCreated}(Date 
+      time);
+00012     List<Event> \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository_a611822bba416d0cfc0dbc9fbba374b5d}{findAllByDeviceIdEqualsAndCreatedGreaterThanOrderByCreated}
+      (String deviceId, Date time);
+00013     List<Event> 
+      \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository_a67ed1dd2d154496490cc7fd497d2591c}{findAllByPlaceTagStartingWithAndDataTypeEqualsAndCreatedGreaterThanOrderByCreated}
+      (String placeTagPrefix, String dataType, Date time);
+00014     List<Event> \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository_ac61ad3f1e33d148ab3b6409388cb1a2f}{findAllByDataTypeEqualsAndCreatedGreaterThanOrderByCreated}
+      (String dataType, Date time);
+00015 \}
+\end{DoxyCode}

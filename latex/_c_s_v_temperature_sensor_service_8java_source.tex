@@ -1,0 +1,90 @@
+\hypertarget{_c_s_v_temperature_sensor_service_8java}{\section{C\-S\-V\-Temperature\-Sensor\-Service.\-java}
+\label{_c_s_v_temperature_sensor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-C\-S\-V\-Temperature\-Sensor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-C\-S\-V\-Temperature\-Sensor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} java.io.IOException;
+00004 \textcolor{keyword}{import} java.nio.file.Files;
+00005 \textcolor{keyword}{import} java.nio.file.Paths;
+00006 \textcolor{keyword}{import} java.util.ArrayList;
+00007 \textcolor{keyword}{import} java.util.LinkedList;
+00008 \textcolor{keyword}{import} java.util.List;
+00009 
+00010 \textcolor{keyword}{import} com.opencsv.CSVReader;
+00011 \textcolor{keyword}{import} com.opencsv.exceptions.CsvValidationException;
+00012 
+00013 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.TemperatureSensor}
+      ;
+00014 
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00015}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service}{00015} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service}{CSVTemperatureSensorService}
+00016 \textcolor{keyword}{extends} AbstractSensorService<Double>
+00017 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor}{TemperatureSensor} \{
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00024}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a53aeff3df2bce1ee564ced8bc24da8c1}{00024}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a53aeff3df2bce1ee564ced8bc24da8c1}{CSVTemperatureSensorService}() \{
+00025         
+00026     \}
+00027     
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00028}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_acafc73661c25a24a59c112dc3b218f31}{00028}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_acafc73661c25a24a59c112dc3b218f31}{getFile}() \{
+00029         \textcolor{keywordflow}{return} file;
+00030     \}
+00031 
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00032}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a75669134fceb6ce08eda479beb2abd99}{00032}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a75669134fceb6ce08eda479beb2abd99}{setFile}(String file) \{
+00033         this.file = file;
+00034     \}
+00035 
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00036}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_afcaf58b6b77051b9c71743466c9328e0}{00036}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_afcaf58b6b77051b9c71743466c9328e0}{getHeaderRows}() \{
+00037         \textcolor{keywordflow}{return} headerRows;
+00038     \}
+00039 
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00040}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a02b74257d9f9e98d64ea237a1e2d6d53}{00040}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a02b74257d9f9e98d64ea237a1e2d6d53}{setHeaderRows}(\textcolor{keywordtype}{int} headerRows) \{
+00041         this.headerRows = headerRows;
+00042     \}
+00043 
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00044}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_aba6de5632671e02754266c926d4e6a0b}{00044}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_aba6de5632671e02754266c926d4e6a0b}{getValueColumn}() \{
+00045         \textcolor{keywordflow}{return} valueColumn;
+00046     \}
+00047 
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00048}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a9cec7baf2db12e29ec6a64d1ce3c404c}{00048}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a9cec7baf2db12e29ec6a64d1ce3c404c}{setValueColumn}(\textcolor{keywordtype}{int} valueColumn) \{
+00049         this.valueColumn = valueColumn;
+00050     \}
+00051 
+00052     \textcolor{keyword}{private} \textcolor{keywordtype}{void} readRows() \{
+00053         \textcolor{keywordflow}{try} \{
+00054             records = \textcolor{keyword}{new} LinkedList<>();
+00055             \textcolor{keywordflow}{try}(CSVReader cr = \textcolor{keyword}{new} CSVReader(Files.newBufferedReader(Paths.get(file))))\{
+00056                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < headerRows; i++) \{
+00057                     cr.readNext();
+00058                 \}
+00059                 records.addAll(cr.readAll());
+00060             \}
+00061             \textcolor{keywordflow}{if}(records.size() == 0) \{
+00062                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IOException(\textcolor{stringliteral}{"no records."});
+00063             \}
+00064         \} \textcolor{keywordflow}{catch}(Exception e) \{
+00065             records = \textcolor{keyword}{new} ArrayList<>();
+00066         \}
+00067     \}
+00068 
+00069     @Override
+\hypertarget{_c_s_v_temperature_sensor_service_8java_source_l00070}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a08855bdae62e7ae4d23380116c462135}{00070}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_temperature_sensor_service_a08855bdae62e7ae4d23380116c462135}{getTemperature}()\{
+00071         \textcolor{keywordflow}{if}(records == null) readRows();
+00072         String[] row = null;
+00073         \textcolor{keywordflow}{if}(records.size() == 1) \{
+00074             row = records.get(0);
+00075         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(records.size() == 0)\{
+00076             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException();
+00077         \} \textcolor{keywordflow}{else} \{
+00078             row = records.remove(0);
+00079         \}
+00080         Double ret = Double.parseDouble(row[valueColumn]);
+00081         notifyToSubscribers(ret);
+00082         \textcolor{keywordflow}{return} ret;
+00083     \}
+00084 
+00085     \textcolor{keyword}{private} String file;
+00086     \textcolor{keyword}{private} \textcolor{keywordtype}{int} headerRows;
+00087     \textcolor{keyword}{private} \textcolor{keywordtype}{int} valueColumn;
+00088     \textcolor{keyword}{private} List<String[]> records;
+00089 \}
+\end{DoxyCode}

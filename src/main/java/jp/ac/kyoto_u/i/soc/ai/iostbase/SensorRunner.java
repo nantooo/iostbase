@@ -106,9 +106,15 @@ public class SensorRunner {
 			long start = System.nanoTime();
 			for(Sensor<?> s : sensors) {
 				Object value = s.getValue();
+				Double lat = s.getLatLng().getLatitude();
+				Double lon = s.getLatLng().getLongitude();
+				if(s.getPlaceTag()=="outside"){
+					lat = null;
+					lon = null;
+				}
 				Event e = new Event(s.getDeviceId(), s.getDataType(), s.getPlaceTag(),
-						s.getLatLng() != null ? s.getLatLng().getLatitude() : null,
-						s.getLatLng() != null ? s.getLatLng().getLongitude() : null,
+						lat,
+						lon,
 						value);
 				service.notifyEvent(e);
 			}
@@ -137,6 +143,7 @@ public class SensorRunner {
 				setter.invoke(s, c.convert(som.getObject(name), setter.getParameterTypes()[0]));
 			}
 			sensors.add(s);
+			System.out.println(s);
 		}
 		r.setSensors(sensors);
 		r.run();

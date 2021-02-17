@@ -1,0 +1,120 @@
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{\section{インタフェース jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service}
+\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}\index{jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service@{jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service}}
+}
+jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Serviceに対する継承グラフ\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}
+\end{center}
+\end{figure}
+\subsection*{Public メソッド}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a829b12a486f5e521e14ddf23d9c93ba7}{notify\-Event} (@Parameter(name=\char`\"{}event\char`\"{}, sample=\char`\"{}\{\textbackslash{}\char`\"{}device\-Id\textbackslash{}\char`\"{}\-: \textbackslash{}\char`\"{}user\-:gps\-:1\textbackslash{}\char`\"{},\textbackslash{}\char`\"{}data\-Type\textbackslash{}\char`\"{}\-: \textbackslash{}\char`\"{}Lat\-Lng\textbackslash{}\char`\"{},\textbackslash{}\char`\"{}value\textbackslash{}\char`\"{}\-: \{\textbackslash{}\char`\"{}latitude\textbackslash{}\char`\"{}\-:35.\-0261389,  \textbackslash{}\char`\"{}longitude\textbackslash{}\char`\"{}\-: 135.\-7806666\}\}\char`\"{}) \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} event)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a4151a56ca77f1c5d9c985b5be55e35b2}{get\-Events} (@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date last\-Event\-Millis,@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a8b88c46f46145ab5c8ddf33631c56c22}{get\-Events\-Of\-Device} (@Parameter(name=\char`\"{}device\-Id\char`\"{}) String device\-Id,@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date last\-Event\-Millis,@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adfcffbb38a4756b18bee3a22c9dbd0fe}{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type} (@Parameter(name=\char`\"{}place\-Tag\-Prefix\char`\"{}) String place\-Tag\-Prefix,@Parameter(name=\char`\"{}data\-Type\char`\"{}) String data\-Type,@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date last\-Event\-Millis,@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_aeff776e7cc93b1321d7869d6602fea5d}{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type} (@Parameter(name=\char`\"{}lat\-Lng\char`\"{}) Lat\-Lng lat\-Lng,@Parameter(name=\char`\"{}r\char`\"{}) double r,@Parameter(name=\char`\"{}data\-Type\char`\"{}) String data\-Type,@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date last\-Event\-Millis,@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long timeout\-Millis)
+\item 
+\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}\mbox{[}$\,$\mbox{]} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_ad2d72f8be42d38450a68c644226ed220}{list\-Events} (@Parameter(name=\char`\"{}page\char`\"{}, sample=\char`\"{}0\char`\"{}) int page,@Parameter(name=\char`\"{}size\char`\"{}, sample=\char`\"{}10\char`\"{}) int size)
+\item 
+void \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adb32b9ef6fa58fbef094d62834dce19f}{update\-Rule} (@Parameter(name=\char`\"{}rule\-Id\char`\"{}) String rule\-Id,@Parameter(name=\char`\"{}body\char`\"{}) String body)
+\item 
+void \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a0effe63c1f32145090730a6cdf09f62e}{activate\-Rule} (@Parameter(name=\char`\"{}rule\-Id\char`\"{}) String rule\-Id)
+\item 
+void \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a989f340ce1813adba306577617cf19e6}{deactivate\-Rule} (@Parameter(name=\char`\"{}rule\-Id\char`\"{}) String rule\-Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{説明}
+
+
+ \hyperlink{_event_management_service_8java_source}{Event\-Management\-Service.\-java} の  行で定義されています。
+
+
+
+\subsection{メソッド}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a0effe63c1f32145090730a6cdf09f62e}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!activate\-Rule@{activate\-Rule}}
+\index{activate\-Rule@{activate\-Rule}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{activate\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-activate\-Rule (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}rule\-Id\char`\"{}) String}]{rule\-Id}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a0effe63c1f32145090730a6cdf09f62e}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a989f340ce1813adba306577617cf19e6}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!deactivate\-Rule@{deactivate\-Rule}}
+\index{deactivate\-Rule@{deactivate\-Rule}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{deactivate\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-deactivate\-Rule (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}rule\-Id\char`\"{}) String}]{rule\-Id}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a989f340ce1813adba306577617cf19e6}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a4151a56ca77f1c5d9c985b5be55e35b2}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!get\-Events@{get\-Events}}
+\index{get\-Events@{get\-Events}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{get\-Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-get\-Events (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date}]{last\-Event\-Millis, }
+\item[{@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a4151a56ca77f1c5d9c985b5be55e35b2}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a8b88c46f46145ab5c8ddf33631c56c22}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!get\-Events\-Of\-Device@{get\-Events\-Of\-Device}}
+\index{get\-Events\-Of\-Device@{get\-Events\-Of\-Device}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{get\-Events\-Of\-Device}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-get\-Events\-Of\-Device (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}device\-Id\char`\"{}) String}]{device\-Id, }
+\item[{@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date}]{last\-Event\-Millis, }
+\item[{@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a8b88c46f46145ab5c8ddf33631c56c22}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_aeff776e7cc93b1321d7869d6602fea5d}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type@{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type}}
+\index{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type@{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-get\-Latest\-Events\-By\-Lat\-Lng\-And\-Data\-Type (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}lat\-Lng\char`\"{}) Lat\-Lng}]{lat\-Lng, }
+\item[{@Parameter(name=\char`\"{}r\char`\"{}) double}]{r, }
+\item[{@Parameter(name=\char`\"{}data\-Type\char`\"{}) String}]{data\-Type, }
+\item[{@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date}]{last\-Event\-Millis, }
+\item[{@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_aeff776e7cc93b1321d7869d6602fea5d}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adfcffbb38a4756b18bee3a22c9dbd0fe}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type@{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type}}
+\index{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type@{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-get\-Latest\-Events\-By\-Place\-Tag\-And\-Data\-Type (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}place\-Tag\-Prefix\char`\"{}) String}]{place\-Tag\-Prefix, }
+\item[{@Parameter(name=\char`\"{}data\-Type\char`\"{}) String}]{data\-Type, }
+\item[{@Parameter(name=\char`\"{}last\-Event\-Millis\char`\"{}) Date}]{last\-Event\-Millis, }
+\item[{@Parameter(name=\char`\"{}timeout\-Millis\char`\"{}) long}]{timeout\-Millis}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adfcffbb38a4756b18bee3a22c9dbd0fe}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_ad2d72f8be42d38450a68c644226ed220}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!list\-Events@{list\-Events}}
+\index{list\-Events@{list\-Events}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{list\-Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} \mbox{[}$\,$\mbox{]} jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-list\-Events (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}page\char`\"{}, sample=\char`\"{}0\char`\"{}) int}]{page, }
+\item[{@Parameter(name=\char`\"{}size\char`\"{}, sample=\char`\"{}10\char`\"{}) int}]{size}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_ad2d72f8be42d38450a68c644226ed220}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a829b12a486f5e521e14ddf23d9c93ba7}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!notify\-Event@{notify\-Event}}
+\index{notify\-Event@{notify\-Event}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{notify\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-notify\-Event (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}event\char`\"{}, sample=\char`\"{}\{\textbackslash{}\char`\"{}device\-Id\textbackslash{}\char`\"{}\-: \textbackslash{}\char`\"{}user\-:gps\-:1\textbackslash{}\char`\"{},\textbackslash{}\char`\"{}data\-Type\textbackslash{}\char`\"{}\-: \textbackslash{}\char`\"{}Lat\-Lng\textbackslash{}\char`\"{},\textbackslash{}\char`\"{}value\textbackslash{}\char`\"{}\-: \{\textbackslash{}\char`\"{}latitude\textbackslash{}\char`\"{}\-:35.\-0261389,  \textbackslash{}\char`\"{}longitude\textbackslash{}\char`\"{}\-: 135.\-7806666\}\}\char`\"{}) {\bf Event}}]{event}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a829b12a486f5e521e14ddf23d9c93ba7}
+\hypertarget{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adb32b9ef6fa58fbef094d62834dce19f}{\index{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}!update\-Rule@{update\-Rule}}
+\index{update\-Rule@{update\-Rule}!jp::ac::kyoto_u::i::soc::ai::iostbase::service::intf::EventManagementService@{jp\-::ac\-::kyoto\-\_\-u\-::i\-::soc\-::ai\-::iostbase\-::service\-::intf\-::\-Event\-Management\-Service}}
+\subsubsection[{update\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void jp.\-ac.\-kyoto\-\_\-u.\-i.\-soc.\-ai.\-iostbase.\-service.\-intf.\-Event\-Management\-Service.\-update\-Rule (
+\begin{DoxyParamCaption}
+\item[{@Parameter(name=\char`\"{}rule\-Id\char`\"{}) String}]{rule\-Id, }
+\item[{@Parameter(name=\char`\"{}body\char`\"{}) String}]{body}
+\end{DoxyParamCaption}
+)}}\label{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adb32b9ef6fa58fbef094d62834dce19f}
+
+
+このインタフェースの説明は次のファイルから生成されました\-:\begin{DoxyCompactItemize}
+\item 
+src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\hyperlink{_event_management_service_8java}{Event\-Management\-Service.\-java}\end{DoxyCompactItemize}

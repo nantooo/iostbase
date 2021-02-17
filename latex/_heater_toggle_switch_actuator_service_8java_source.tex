@@ -1,0 +1,24 @@
+\hypertarget{_heater_toggle_switch_actuator_service_8java}{\section{Heater\-Toggle\-Switch\-Actuator\-Service.\-java}
+\label{_heater_toggle_switch_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Heater\-Toggle\-Switch\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Heater\-Toggle\-Switch\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_toggle_switch_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.ToggleSwitchActuator}
+      ;
+00004 
+\hypertarget{_heater_toggle_switch_actuator_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_toggle_switch_actuator_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_toggle_switch_actuator_service}{HeaterToggleSwitchActuatorService}
+00006 \textcolor{keyword}{extends} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService}
+00007 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_toggle_switch_actuator}{ToggleSwitchActuator} \{
+00008     @Override
+\hypertarget{_heater_toggle_switch_actuator_service_8java_source_l00009}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_toggle_switch_actuator_service_adffcf65040837298a560a912758f8cb4}{00009}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_toggle_switch_actuator_service_adffcf65040837298a560a912758f8cb4}{toggle}() \{
+00010         on = !on;
+00011         notifyToSubscribers(\textcolor{stringliteral}{"heater"}, \textcolor{stringliteral}{"toggle"});
+00012     \}
+\hypertarget{_heater_toggle_switch_actuator_service_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_toggle_switch_actuator_service_a6722ed3b9d14f2e3588b917883c51988}{00013}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_toggle_switch_actuator_service_a6722ed3b9d14f2e3588b917883c51988}{isOn}() \{
+00014         \textcolor{keywordflow}{return} on;
+00015     \}
+00016     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} on;
+00017 \}
+\end{DoxyCode}

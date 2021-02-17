@@ -1,0 +1,46 @@
+\hypertarget{_abstract_actuator_service_8java}{\section{Abstract\-Actuator\-Service.\-java}
+\label{_abstract_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Abstract\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Abstract\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+\hypertarget{_abstract_actuator_service_8java_source_l00001}{}\hyperlink{namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot}{00001} \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} java.net.MalformedURLException;
+00004 \textcolor{keyword}{import} java.net.URI;
+00005 \textcolor{keyword}{import} java.net.URISyntaxException;
+00006 \textcolor{keyword}{import} java.net.URL;
+00007 \textcolor{keyword}{import} java.util.LinkedHashSet;
+00008 \textcolor{keyword}{import} java.util.Set;
+00009 
+00010 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.Actuator};
+00011 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_actuator_subscriber}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.ActuatorSubscriber}
+      ;
+00012 \textcolor{keyword}{import} jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
+00013 
+\hypertarget{_abstract_actuator_service_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{00014} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService} \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_actuator}{Actuator}\{
+00015     @Override
+\hypertarget{_abstract_actuator_service_8java_source_l00016}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service_a97e707eb018bce03deb6021e3d14a0d6}{00016}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service_a97e707eb018bce03deb6021e3d14a0d6}{subscribe}(String uri) \textcolor{keywordflow}{throws} URISyntaxException \{
+00017         subscribers.add(\textcolor{keyword}{new} URI(uri));
+00018     \}
+00019     @Override
+\hypertarget{_abstract_actuator_service_8java_source_l00020}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service_aff3f640398c019fb1a715b2edd0dd07a}{00020}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service_aff3f640398c019fb1a715b2edd0dd07a}{unsubscribe}(String uri) \{
+00021         \textcolor{keywordflow}{try} \{
+00022             subscribers.remove(\textcolor{keyword}{new} URI(uri));
+00023         \} \textcolor{keywordflow}{catch}(URISyntaxException e) \{
+00024             e.printStackTrace();
+00025         \}
+00026     \}
+00027     protected <T> \textcolor{keywordtype}{void} notifyToSubscribers(String type, String notificationName, Object... parameters) \{
+00028         \textcolor{keywordflow}{for}(URI uri : subscribers) \{
+00029             \textcolor{keywordflow}{try}\{
+00030                 URL url = uri.toURL();
+00031                 \textcolor{keyword}{new} JsonRpcClientFactory().create(ActuatorSubscriber.class, url).accept(type, 
+      notificationName, parameters);
+00032             \} \textcolor{keywordflow}{catch}(MalformedURLException e) \{
+00033             \}
+00034         \}
+00035     \}
+00036 
+00037     \textcolor{keyword}{private} Set<URI> subscribers = \textcolor{keyword}{new} LinkedHashSet<>();
+00038 \}
+\end{DoxyCode}

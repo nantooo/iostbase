@@ -1,0 +1,69 @@
+\hypertarget{_dump_requests_8java}{\section{Dump\-Requests.\-java}
+\label{_dump_requests_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Dump\-Requests.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Dump\-Requests.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase;
+00002 
+00003 \textcolor{keyword}{import} java.io.FileInputStream;
+00004 \textcolor{keyword}{import} java.io.FileOutputStream;
+00005 \textcolor{keyword}{import} java.net.URL;
+00006 \textcolor{keyword}{import} java.text.SimpleDateFormat;
+00007 \textcolor{keyword}{import} java.util.Calendar;
+00008 \textcolor{keyword}{import} java.util.Date;
+00009 
+00010 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.Event}
+      ;
+00011 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.EventManagementService}
+      ;
+00012 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{jp.ac.kyoto\_u.i.soc.ai.iostbase.util.SOM};
+00013 \textcolor{keyword}{import} jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
+00014 \textcolor{keyword}{import} jp.go.nict.langrid.commons.io.StreamUtil;
+00015 \textcolor{keyword}{import} jp.go.nict.langrid.commons.util.CalendarUtil;
+00016 \textcolor{keyword}{import} jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
+00017 
+\hypertarget{_dump_requests_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_dump_requests}{00018} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_dump_requests}{DumpRequests} \{
+\hypertarget{_dump_requests_8java_source_l00019}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_dump_requests_a8062f944cdba7318c326c787f2f3c242}{00019}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_dump_requests_a8062f944cdba7318c326c787f2f3c242}{main}(String[] args) \textcolor{keywordflow}{throws} Throwable\{
+00020         var df = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"yyyy-MM-dd HH:mm:ss.SSS"});
+00021         var cf = \textcolor{keyword}{new} JsonRpcClientFactory();
+00022         var s = cf.create(
+00023                 EventManagementService.class,
+00024                 \textcolor{keyword}{new} URL(\textcolor{stringliteral}{"http://localhost:8080/jsServices/EventManagement"}));
+00025         
+00026         \textcolor{comment}{// update rule}
+00027         \textcolor{keywordflow}{try}(var os = \textcolor{keyword}{new} FileOutputStream(\textcolor{stringliteral}{"requests/01\_updateRule.json"});
+00028                 var is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/sample.drl"}))\{
+00029             cf.setRequestDumpStream(os);
+00030             s.updateRule(\textcolor{stringliteral}{"rule1"}, StreamUtil.readAsString(is, \textcolor{stringliteral}{"UTF-8"}));
+00031         \}
+00032         \textcolor{keywordflow}{try}(var os = \textcolor{keyword}{new} FileOutputStream(\textcolor{stringliteral}{"requests/02\_activateRule.json"}))\{
+00033             cf.setRequestDumpStream(os);
+00034             s.activateRule(\textcolor{stringliteral}{"rule1"});
+00035         \}
+00036         \textcolor{keywordflow}{try}(var os = \textcolor{keyword}{new} FileOutputStream(\textcolor{stringliteral}{"requests/03\_addEvent.json"});
+00037                 var is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/event1.json"}))\{
+00038             cf.setRequestDumpStream(os);
+00039             var now = Calendar.getInstance();
+00040             var ev = JSON.decode(is, Event.class);
+00041             SOM.set(ev.getValue(), \textcolor{stringliteral}{"targetTime"}, df.format(CalendarUtil.cloneAndAdd(now, Calendar.MINUTE, 3
+      0).getTime()));
+00042             s.notifyEvent(ev);
+00043         \}
+00044         \textcolor{keywordflow}{try}(var os = \textcolor{keyword}{new} FileOutputStream(\textcolor{stringliteral}{"requests/04\_addEvent.json"});
+00045                 var is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/event2.json"}))\{
+00046             cf.setRequestDumpStream(os);
+00047             s.notifyEvent(JSON.decode(is, Event.class));
+00048         \}
+00049         \textcolor{keywordflow}{try}(var os = \textcolor{keyword}{new} FileOutputStream(\textcolor{stringliteral}{"requests/05\_addEvent.json"});
+00050                 var is = \textcolor{keyword}{new} FileInputStream(\textcolor{stringliteral}{"./rules/event3.json"}))\{
+00051             cf.setRequestDumpStream(os);
+00052             s.notifyEvent(JSON.decode(is, Event.class));
+00053         \}
+00054         \textcolor{keywordflow}{try}(var os = \textcolor{keyword}{new} FileOutputStream(\textcolor{stringliteral}{"requests/06\_getEventsOfDevice.json"}))\{
+00055             cf.setRequestDumpStream(os);
+00056             cf.setResponseDumpStream(System.out);
+00057             s.getEventsOfDevice(\textcolor{stringliteral}{"rules:eventdetector"}, \textcolor{keyword}{new} Date(0), 1000);
+00058         \}
+00059     \}
+00060 \}
+\end{DoxyCode}

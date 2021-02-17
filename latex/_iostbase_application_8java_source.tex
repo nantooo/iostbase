@@ -1,0 +1,26 @@
+\hypertarget{_iostbase_application_8java}{\section{Iostbase\-Application.\-java}
+\label{_iostbase_application_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Iostbase\-Application.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Iostbase\-Application.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase;
+00002 
+00003 \textcolor{keyword}{import} org.springframework.beans.factory.annotation.Autowired;
+00004 \textcolor{keyword}{import} org.springframework.boot.SpringApplication;
+00005 \textcolor{keyword}{import} org.springframework.boot.autoconfigure.SpringBootApplication;
+00006 \textcolor{keyword}{import} org.springframework.boot.web.servlet.ServletComponentScan;
+00007 \textcolor{keyword}{import} org.springframework.scheduling.annotation.EnableScheduling;
+00008 
+00009 @SpringBootApplication
+00010 @ServletComponentScan
+00011 @EnableScheduling
+\hypertarget{_iostbase_application_8java_source_l00012}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_iostbase_application}{00012} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_iostbase_application}{IostbaseApplication} \{
+00013     @SuppressWarnings(\textcolor{stringliteral}{"unused"})
+00014     @Autowired
+00015     \textcolor{keyword}{private} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions}{Sessions} sessions;
+00016 
+\hypertarget{_iostbase_application_8java_source_l00017}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_iostbase_application_a2d658eb12bb6a86e66537bf8155849cf}{00017}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_iostbase_application_a2d658eb12bb6a86e66537bf8155849cf}{main}(String[] args) \{
+00018         SpringApplication.run(IostbaseApplication.class, args);
+00019     \}
+00020 \}
+\end{DoxyCode}

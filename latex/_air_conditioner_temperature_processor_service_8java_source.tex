@@ -1,0 +1,35 @@
+\hypertarget{_air_conditioner_temperature_processor_service_8java}{\section{Air\-Conditioner\-Temperature\-Processor\-Service.\-java}
+\label{_air_conditioner_temperature_processor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Air\-Conditioner\-Temperature\-Processor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Air\-Conditioner\-Temperature\-Processor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_temperature_processor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.processor.TemperatureProcessor}
+      ;
+00004 
+\hypertarget{_air_conditioner_temperature_processor_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_temperature_processor_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_temperature_processor_service}{AirConditionerTemperatureProcessorService}
+00006 \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_temperature_processor}{TemperatureProcessor} \{
+\hypertarget{_air_conditioner_temperature_processor_service_8java_source_l00007}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_temperature_processor_service_a988335d54b252c8372674d22a333b913}{00007}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_temperature_processor_service_a988335d54b252c8372674d22a333b913}{AirConditionerTemperatureProcessorService}(
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service}{AirConditionerOnOffSwitchActuatorService} act,
+00008             \textcolor{keywordtype}{double} lowerThreashold, \textcolor{keywordtype}{double} upperThreashold) \{
+00009         this.act = act;
+00010         this.lowerThreashold = lowerThreashold;
+00011         this.upperThreashold = upperThreashold;
+00012     \}
+00013     @Override
+00014     public <T> T processTemperature(\textcolor{keywordtype}{double} value) \{
+00015         \textcolor{keywordflow}{if}(value < lowerThreashold) \{
+00016             act.on();
+00017         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(upperThreashold < value) \{
+00018             act.on();
+00019         \} \textcolor{keywordflow}{else} \{
+00020             act.off();
+00021         \}
+00022         \textcolor{keywordflow}{return} null;
+00023     \}
+00024     \textcolor{keyword}{private} AirConditionerOnOffSwitchActuatorService act;
+00025     \textcolor{keyword}{private} \textcolor{keywordtype}{double} lowerThreashold;
+00026     \textcolor{keyword}{private} \textcolor{keywordtype}{double} upperThreashold;
+00027 \}
+\end{DoxyCode}

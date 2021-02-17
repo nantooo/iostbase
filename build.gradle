@@ -16,6 +16,8 @@ configurations {
 }
 
 repositories {
+	maven { url 'https://repo.osgeo.org/repository/release/' }
+	jcenter()
 //	mavenCentral()
 	maven {
 		url "https://repo1.maven.org/maven2/"

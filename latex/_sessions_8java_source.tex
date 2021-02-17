@@ -1,0 +1,135 @@
+\hypertarget{_sessions_8java}{\section{Sessions.\-java}
+\label{_sessions_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Sessions.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Sessions.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase;
+00002 
+00003 \textcolor{keyword}{import} java.io.ByteArrayInputStream;
+00004 \textcolor{keyword}{import} java.io.IOException;
+00005 \textcolor{keyword}{import} java.util.Date;
+00006 \textcolor{keyword}{import} java.util.HashMap;
+00007 \textcolor{keyword}{import} java.util.Map;
+00008 
+00009 \textcolor{keyword}{import} org.kie.api.runtime.KieSession;
+00010 \textcolor{keyword}{import} org.springframework.beans.factory.annotation.Autowired;
+00011 \textcolor{keyword}{import} org.springframework.scheduling.annotation.Scheduled;
+00012 \textcolor{keyword}{import} org.springframework.stereotype.Component;
+00013 
+00014 \textcolor{keyword}{import} com.fasterxml.jackson.core.JsonProcessingException;
+00015 \textcolor{keyword}{import} com.fasterxml.jackson.databind.ObjectMapper;
+00016 
+00017 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.EventRepository}
+      ;
+00018 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.event.TimerEvent};
+00019 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.Event}
+      ;
+00020 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_drools_util}{jp.ac.kyoto\_u.i.soc.ai.iostbase.util.DroolsUtil};
+00021 \textcolor{keyword}{import} jp.go.nict.langrid.commons.beanutils.Converter;
+00022 \textcolor{keyword}{import} lombok.AllArgsConstructor;
+00023 \textcolor{keyword}{import} lombok.Data;
+00024 \textcolor{keyword}{import} lombok.NoArgsConstructor;
+00025 
+00026 @Component
+\hypertarget{_sessions_8java_source_l00027}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions}{00027} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions}{Sessions} \{
+00028     @Data
+00029     @NoArgsConstructor
+00030     @AllArgsConstructor
+00031     \textcolor{keyword}{class }RuleSession\{
+00032         \textcolor{keyword}{public} \textcolor{keywordtype}{void} activate() \{
+00033             \textcolor{keywordflow}{if}(session != null) active = \textcolor{keyword}{true};
+00034         \}
+00035         \textcolor{keyword}{public} \textcolor{keywordtype}{void} deactivate() \{
+00036             \textcolor{keywordflow}{if}(session != null) active = \textcolor{keyword}{false};
+00037         \}
+00038         \textcolor{keyword}{public} \textcolor{keywordtype}{void} recreate(String ruleId, String body) \{
+00039             \textcolor{keywordflow}{if}(session != null) \{
+00040                 session.destroy();
+00041             \}
+00042             \textcolor{keywordflow}{try} \{
+00043                 \textcolor{keywordflow}{if}(!ruleId.endsWith(\textcolor{stringliteral}{".drl"})) ruleId += \textcolor{stringliteral}{".drl"};
+00044                 session = DroolsUtil.createSessionFromResource(\textcolor{keyword}{new} ByteArrayInputStream(body.getBytes(\textcolor{stringliteral}{"
+      UTF-8"})), ruleId);
+00045                 session.setGlobal(\textcolor{stringliteral}{"eventStore"}, es);
+00046             \} \textcolor{keywordflow}{catch} (IOException e) \{
+00047                 e.printStackTrace();
+00048             \}
+00049         \}
+00050         \textcolor{keyword}{public} \textcolor{keywordtype}{void} insert(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} e) \{
+00051             \textcolor{keywordflow}{if}(session != null && active) \{
+00052                 session.insert(e);
+00053                 session.fireAllRules();
+00054             \}
+00055         \}
+00056         \textcolor{keyword}{public} \textcolor{keywordtype}{void} insert(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{TimerEvent} e) \{
+00057             \textcolor{keywordflow}{if}(session != null && active) \{
+00058                 session.insert(e);
+00059                 session.fireAllRules();
+00060             \}
+00061         \}
+00062         \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} active;
+00063         \textcolor{keyword}{private} KieSession session;
+00064     \}
+00065 
+\hypertarget{_sessions_8java_source_l00066}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_ae2333821be9a62bb3449aca768a03990}{00066}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_ae2333821be9a62bb3449aca768a03990}{updateRule}(String ruleId, String body) \{
+00067         sessions.computeIfAbsent(ruleId, rid -> \textcolor{keyword}{new} RuleSession()).recreate(ruleId, body);;
+00068     \}
+00069     
+\hypertarget{_sessions_8java_source_l00070}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a311c43a15e75745acd6fb821937c5c76}{00070}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a311c43a15e75745acd6fb821937c5c76}{activateRule}(String ruleId) \{
+00071         sessions.getOrDefault(ruleId, \textcolor{keyword}{new} RuleSession()).activate();
+00072     \}
+00073 
+\hypertarget{_sessions_8java_source_l00074}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a1cefce9b9131c04c95b5c8ec1b2922d1}{00074}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a1cefce9b9131c04c95b5c8ec1b2922d1}{deactivateRule}(String ruleId) \{
+00075         sessions.getOrDefault(ruleId, \textcolor{keyword}{new} RuleSession()).deactivate();
+00076     \}
+00077 
+00078     @Autowired
+00079     \textcolor{keyword}{private} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository}{EventRepository} er;
+00080 
+00081     @Scheduled(initialDelay = 10000, fixedRate = 10000)
+\hypertarget{_sessions_8java_source_l00082}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_ade4d92ad38185a5cc7b44f0aca7cf28a}{00082}     public \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_ade4d92ad38185a5cc7b44f0aca7cf28a}{insertTimerEvent}() \{
+00083         es.insert(\textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{TimerEvent}(\textcolor{keyword}{new} Date().getTime()));
+00084     \}
+00085 
+00086     \textcolor{keyword}{private} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_event_store}{EventStore} es = e -> \{
+00087         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a18128a1575d002037ee7dc74da94815b}{insertEvent}(e);
+00088     \};
+00089 
+\hypertarget{_sessions_8java_source_l00090}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a18128a1575d002037ee7dc74da94815b}{00090}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a18128a1575d002037ee7dc74da94815b}{insertEvent}(Object event) \{
+00091         Converter c = \textcolor{keyword}{new} Converter();
+00092         \textcolor{keywordflow}{if}(event instanceof \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}) \{
+00093             var ev = \textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity.Event}
+      ();
+00094             c.copyProperties(ev, event);
+00095             \textcolor{keywordflow}{if}(ev.getCreated() == null) \{
+00096                 ev.setCreated(\textcolor{keyword}{new} Date());
+00097             \}
+00098             Object v = ((Event)event).getValue();
+00099             ObjectMapper m = \textcolor{keyword}{new} ObjectMapper();
+00100             \textcolor{keywordflow}{try} \{
+00101                 ev.setValue(m.writeValueAsString(v));
+00102             \} \textcolor{keywordflow}{catch} (JsonProcessingException e) \{
+00103                 \textcolor{comment}{// TODO Auto-generated catch block}
+00104                 e.printStackTrace();
+00105             \}
+00106             er.save(ev);
+00107             sessions.values().forEach(s -> s.insert((Event)event));
+00108         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(event instanceof \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1event_1_1_timer_event}{TimerEvent}) \{
+00109             sessions.values().forEach(s -> s.insert((TimerEvent)event));
+00110         \} \textcolor{keywordflow}{else} \{
+00111             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"unknown type of event: "} + event.getClass());
+00112         \}
+00113     \}
+00114 
+\hypertarget{_sessions_8java_source_l00115}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a4cff05f3811f4d2f2feaaa7224e7e966}{00115}     \textcolor{keyword}{public} \textcolor{keyword}{static} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions}{Sessions} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a4cff05f3811f4d2f2feaaa7224e7e966}{instance}() \{
+00116         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a4cff05f3811f4d2f2feaaa7224e7e966}{instance};
+00117     \}
+00118     
+\hypertarget{_sessions_8java_source_l00119}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a12ed2608c67def8c652ad4cb4ec17c0b}{00119}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a12ed2608c67def8c652ad4cb4ec17c0b}{Sessions}() \{
+00120         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a4cff05f3811f4d2f2feaaa7224e7e966}{instance} = \textcolor{keyword}{this};
+00121     \}
+00122 
+00123     \textcolor{keyword}{private} \textcolor{keyword}{static} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions}{Sessions} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions_a4cff05f3811f4d2f2feaaa7224e7e966}{instance};
+00124     \textcolor{keyword}{private} Map<String, RuleSession> sessions = \textcolor{keyword}{new} HashMap<>();
+00125 \}
+\end{DoxyCode}

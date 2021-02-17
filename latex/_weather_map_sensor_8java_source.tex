@@ -1,0 +1,82 @@
+\hypertarget{_weather_map_sensor_8java}{\section{Weather\-Map\-Sensor.\-java}
+\label{_weather_map_sensor_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Weather\-Map\-Sensor.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Weather\-Map\-Sensor.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} java.io.IOException;
+00004 \textcolor{keyword}{import} java.net.URI;
+00005 \textcolor{keyword}{import} java.net.URISyntaxException;
+00006 \textcolor{keyword}{import} java.net.http.HttpClient;
+00007 \textcolor{keyword}{import} java.net.http.HttpRequest;
+00008 \textcolor{keyword}{import} java.net.http.HttpResponse;
+00009 \textcolor{keyword}{import} java.time.Duration;
+00010 
+00011 \textcolor{keyword}{import} com.fasterxml.jackson.databind.ObjectMapper;
+00012 
+00013 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.TemperatureSensor}
+      ;
+00014 
+\hypertarget{_weather_map_sensor_8java_source_l00015}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor}{00015} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor}{WeatherMapSensor}
+00016 \textcolor{keyword}{extends} AbstractSensorService<Double>
+00017 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor}{TemperatureSensor}\{
+\hypertarget{_weather_map_sensor_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a3b2f265285ef16a332d6808154b31b1a}{00018}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a3b2f265285ef16a332d6808154b31b1a}{getHost}() \{
+00019         \textcolor{keywordflow}{return} host;
+00020     \}
+00021     
+\hypertarget{_weather_map_sensor_8java_source_l00022}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_af841fc2b91d50d3cb2673f6b13985218}{00022}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_af841fc2b91d50d3cb2673f6b13985218}{setHost}(String host) \{
+00023         this.host = host;
+00024     \}
+00025     
+\hypertarget{_weather_map_sensor_8java_source_l00026}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a7e8fed21e3bd64a438c6a129cc61ad5d}{00026}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a7e8fed21e3bd64a438c6a129cc61ad5d}{getKey}() \{
+00027         \textcolor{keywordflow}{return} key;
+00028     \}
+00029     
+\hypertarget{_weather_map_sensor_8java_source_l00030}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_aadfdba07f0258a0ffd3746eb8ccb7450}{00030}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_aadfdba07f0258a0ffd3746eb8ccb7450}{setKey}(String key) \{
+00031         this.key = key;
+00032     \}
+\hypertarget{_weather_map_sensor_8java_source_l00033}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a2f15e17345643547087029ae018c5e89}{00033}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a2f15e17345643547087029ae018c5e89}{getConf}() \{
+00034         \textcolor{keywordflow}{return} conf;
+00035     \}
+00036     
+\hypertarget{_weather_map_sensor_8java_source_l00037}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a4db26f50004870433afdb12947eff55c}{00037}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_a4db26f50004870433afdb12947eff55c}{setConf}(String conf) \{
+00038         this.conf = conf;
+00039     \}
+00040     
+00041     
+00042     @Override
+\hypertarget{_weather_map_sensor_8java_source_l00043}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_ac5c5f9f4b9507dff165829a748ccfa32}{00043}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_weather_map_sensor_ac5c5f9f4b9507dff165829a748ccfa32}{getTemperature}() \{
+00044         \textcolor{keywordflow}{return} getTemp();
+00045     \}
+00046     
+00047     \textcolor{keyword}{private} \textcolor{keywordtype}{double} getTemp() \{
+00048         \textcolor{keywordflow}{try} \{
+00049             HttpRequest req = HttpRequest.newBuilder(\textcolor{keyword}{new} URI(
+00050                     String.format(\textcolor{stringliteral}{"
+      https://community-open-weather-map.p.rapidapi.com/weather?lat=%f&lon=%f&units=metric&mode=json"},
+00051                             getLatLng().getLatitude(), getLatLng().getLongitude())))
+00052                     .GET()
+00053                     .setHeader(\textcolor{stringliteral}{"x-rapidapi-host"}, host)
+00054                     .setHeader(\textcolor{stringliteral}{"x-rapidapi-key"}, key)
+00055                     .setHeader(\textcolor{stringliteral}{"useQueryString"}, \textcolor{stringliteral}{"true"})
+00056                     .timeout(Duration.ofSeconds(10))
+00057                     .build();
+00058             HttpClient client = HttpClient.newBuilder()
+00059                     .version(HttpClient.Version.HTTP\_1\_1)
+00060                     .followRedirects(HttpClient.Redirect.NORMAL)
+00061                     .connectTimeout(Duration.ofSeconds(10))
+00062                     .build();
+00063             HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
+00064             String body = res.body();
+00065             \textcolor{keywordflow}{return} \textcolor{keyword}{new} ObjectMapper().readTree(body).\textcolor{keyword}{get}(\textcolor{stringliteral}{"main"}).get(conf).asDouble();
+00066         \} \textcolor{keywordflow}{catch}(URISyntaxException | IOException | InterruptedException e) \{
+00067             e.printStackTrace();
+00068             \textcolor{keywordflow}{return} -1;
+00069         \}
+00070     \}
+00071     \textcolor{keyword}{private} String conf;
+00072     \textcolor{keyword}{private} String host;
+00073     \textcolor{keyword}{private} String key;
+00074 \}
+\end{DoxyCode}

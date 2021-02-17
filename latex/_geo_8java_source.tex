@@ -1,0 +1,27 @@
+\hypertarget{_geo_8java}{\section{Geo.\-java}
+\label{_geo_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/util/\-Geo.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/util/\-Geo.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.util;
+00002 
+00003 \textcolor{keyword}{import} org.geotools.referencing.GeodeticCalculator;
+00004 
+00005 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.LatLng}
+      ;
+00006 
+\hypertarget{_geo_8java_source_l00007}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo}{00007} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo}{Geo} \{
+\hypertarget{_geo_8java_source_l00008}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo_a4cfe7175a4a4cfcbe5ec79246fa7c876}{00008}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo_a4cfe7175a4a4cfcbe5ec79246fa7c876}{distMeter}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} loc1, \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} loc2) \{
+00009         GeodeticCalculator c = \textcolor{keyword}{new} GeodeticCalculator();
+00010         c.setStartingGeographicPoint(loc1.getLongitude(), loc1.getLatitude());
+00011         c.setDestinationGeographicPoint(loc2.getLongitude(), loc2.getLatitude());
+00012         \textcolor{keywordflow}{return} c.getOrthodromicDistance();
+00013     \}
+\hypertarget{_geo_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo_a38dc9a1019018864fbf9cadea5b3e50f}{00014}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo_a38dc9a1019018864fbf9cadea5b3e50f}{distMeter}(\textcolor{keywordtype}{double} lat1, \textcolor{keywordtype}{double} lng1, \textcolor{keywordtype}{double} lat2, \textcolor{keywordtype}{double} lng2) \{
+00015         GeodeticCalculator c = \textcolor{keyword}{new} GeodeticCalculator();
+00016         c.setStartingGeographicPoint(lng1, lat1);
+00017         c.setDestinationGeographicPoint(lng2, lat2);
+00018         \textcolor{keywordflow}{return} c.getOrthodromicDistance();
+00019     \}
+00020 \}
+\end{DoxyCode}

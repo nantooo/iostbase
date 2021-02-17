@@ -30,6 +30,14 @@ implements TemperatureSensor{
 	public void setKey(String key) {
 		this.key = key;
 	}
+	public String getConf() {
+		return conf;
+	}
+	
+	public void setConf(String conf) {
+		this.conf = conf;
+	}
+	
 	
 	@Override
 	public double getTemperature() {
@@ -54,13 +62,13 @@ implements TemperatureSensor{
 					.build();
 			HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
 			String body = res.body();
-			return new ObjectMapper().readTree(body).get("main").get("temp").asDouble();
+			return new ObjectMapper().readTree(body).get("main").get(conf).asDouble();
 		} catch(URISyntaxException | IOException | InterruptedException e) {
 			e.printStackTrace();
 			return -1;
 		}
 	}
-
+	private String conf;
 	private String host;
 	private String key;
 }

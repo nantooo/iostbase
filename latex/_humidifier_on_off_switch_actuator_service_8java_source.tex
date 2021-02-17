@@ -1,0 +1,29 @@
+\hypertarget{_humidifier_on_off_switch_actuator_service_8java}{\section{Humidifier\-On\-Off\-Switch\-Actuator\-Service.\-java}
+\label{_humidifier_on_off_switch_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Humidifier\-On\-Off\-Switch\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Humidifier\-On\-Off\-Switch\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_on_off_switch_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.OnOffSwitchActuator}
+      ;
+00004 
+\hypertarget{_humidifier_on_off_switch_actuator_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service}{HumidifierOnOffSwitchActuatorService}
+00006 \textcolor{keyword}{extends} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService}
+00007 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_on_off_switch_actuator}{OnOffSwitchActuator} \{
+00008     @Override
+\hypertarget{_humidifier_on_off_switch_actuator_service_8java_source_l00009}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a638b99c0e6c3fed473e8f4f82b81eed7}{00009}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a638b99c0e6c3fed473e8f4f82b81eed7}{on}() \{
+00010         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a638b99c0e6c3fed473e8f4f82b81eed7}{on} = \textcolor{keyword}{true};
+00011         notifyToSubscribers(\textcolor{stringliteral}{"humidifier"}, \textcolor{stringliteral}{"on"});
+00012     \}
+00013     @Override
+\hypertarget{_humidifier_on_off_switch_actuator_service_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_af54265f75391497751c345bd71146609}{00014}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_af54265f75391497751c345bd71146609}{off}() \{
+00015         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a638b99c0e6c3fed473e8f4f82b81eed7}{on} = \textcolor{keyword}{false};
+00016         notifyToSubscribers(\textcolor{stringliteral}{"humidifier"}, \textcolor{stringliteral}{"off"});
+00017     \}
+\hypertarget{_humidifier_on_off_switch_actuator_service_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a10ce05f89058cc3fbd55f07b5f142bdd}{00018}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a10ce05f89058cc3fbd55f07b5f142bdd}{isOn}() \{
+00019         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a638b99c0e6c3fed473e8f4f82b81eed7}{on};
+00020     \}
+00021     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_humidifier_on_off_switch_actuator_service_a638b99c0e6c3fed473e8f4f82b81eed7}{on};
+00022 \}
+\end{DoxyCode}

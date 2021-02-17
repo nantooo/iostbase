@@ -1,0 +1,27 @@
+\hypertarget{dao_2entity_2_lat_lng_8java}{\section{Lat\-Lng.\-java}
+\label{dao_2entity_2_lat_lng_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/entity/\-Lat\-Lng.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/entity/\-Lat\-Lng.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity;
+00002 
+00003 \textcolor{keyword}{import} javax.persistence.Embeddable;
+00004 
+00005 \textcolor{keyword}{import} lombok.AllArgsConstructor;
+00006 \textcolor{keyword}{import} lombok.Data;
+00007 \textcolor{keyword}{import} lombok.NoArgsConstructor;
+00008 
+00009 @Data
+00010 @NoArgsConstructor
+00011 @AllArgsConstructor
+00012 @Embeddable
+\hypertarget{dao_2entity_2_lat_lng_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_lat_lng}{00013} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_lat_lng}{LatLng} \{
+00014     \textcolor{keyword}{private} \textcolor{keywordtype}{double} latitude;
+00015     \textcolor{keyword}{private} \textcolor{keywordtype}{double} longitude;
+\hypertarget{dao_2entity_2_lat_lng_8java_source_l00016}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_lat_lng_a0639c6aca256f11f862f5ee527464a3e}{00016}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_lat_lng_a0639c6aca256f11f862f5ee527464a3e}{distance}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_lat_lng}{LatLng} target) \{
+00017         \textcolor{keywordflow}{return} Math.sqrt(
+00018                 Math.pow(latitude - target.latitude, 2) +
+00019                 Math.pow(longitude - target.longitude, 2));
+00020     \}
+00021 \}
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\hypertarget{_s_o_m_8java}{\section{S\-O\-M.\-java}
+\label{_s_o_m_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/util/\-S\-O\-M.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/util/\-S\-O\-M.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.util;
+00002 
+00003 \textcolor{keyword}{import} java.util.ArrayList;
+00004 \textcolor{keyword}{import} java.util.List;
+00005 \textcolor{keyword}{import} java.util.Map;
+00006 
+\hypertarget{_s_o_m_8java_source_l00012}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{00012} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM} \{
+00013     @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})
+\hypertarget{_s_o_m_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_abe0bc53ee7cf52615afe23c08c47895b}{00014}     public static \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_abe0bc53ee7cf52615afe23c08c47895b}{set}(Object som, String name, Object value) \{
+00015         ((Map<String, Object>)som).put(name, value);
+00016     \}
+00017 
+\hypertarget{_s_o_m_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_af55175ebf124c93d7a7045b344890cf9}{00018}     \textcolor{keyword}{public} \textcolor{keyword}{static} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_af55175ebf124c93d7a7045b344890cf9}{of}(Object som) \{
+00019         \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a729d87cf18ea83e7769f395468f86bc6}{SOM}(som);
+00020     \}
+00021 
+00022     @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})
+\hypertarget{_s_o_m_8java_source_l00023}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a729d87cf18ea83e7769f395468f86bc6}{00023}     public \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM}(Object som) \{
+00024         this.som = (Map<String, Object>)som;
+00025     \}
+00026 
+\hypertarget{_s_o_m_8java_source_l00027}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_adea2211bede7ee7b0fe434d510657f39}{00027}     \textcolor{keyword}{public} Iterable<String> \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_adea2211bede7ee7b0fe434d510657f39}{propertyNames}()\{
+00028         \textcolor{keywordflow}{return} som.keySet();
+00029     \}
+00030 
+\hypertarget{_s_o_m_8java_source_l00031}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_ae6824be861f5d408154cb80438dc5212}{00031}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_ae6824be861f5d408154cb80438dc5212}{getSOM}(String name) \{
+00032         \textcolor{keywordflow}{return} SOM.of(som.get(name));
+00033     \}
+00034     
+\hypertarget{_s_o_m_8java_source_l00035}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_acd1e140ba4ad34b466b648567840a3b7}{00035}     \textcolor{keyword}{public} Map<String, Object> \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_acd1e140ba4ad34b466b648567840a3b7}{getMap}()\{
+00036         \textcolor{keywordflow}{return} som;
+00037     \}
+00038 
+00039     @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})
+\hypertarget{_s_o_m_8java_source_l00040}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a3423c860c488261ae9bc8f37d666f775}{00040}     public List<\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM}> \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a3423c860c488261ae9bc8f37d666f775}{getSOMList}(String name) \{
+00041         List<SOM> ret = \textcolor{keyword}{new} ArrayList<>();
+00042         \textcolor{keywordflow}{for}(Object o : (List<Map<String, Object>>)som.get(name)) \{
+00043             ret.add(SOM.of(o));
+00044         \}
+00045         \textcolor{keywordflow}{return} ret;
+00046     \}
+00047 
+\hypertarget{_s_o_m_8java_source_l00048}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_ad37441cf5c05da7d1dc514241eafcac6}{00048}     \textcolor{keyword}{public} Object \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_ad37441cf5c05da7d1dc514241eafcac6}{getObject}(String name) \{
+00049         \textcolor{keywordflow}{return} som.get(name);
+00050     \}
+00051 
+\hypertarget{_s_o_m_8java_source_l00052}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a8fa572b748ecaaa0c35b772fc0ec9a6b}{00052}     \textcolor{keyword}{public} Object \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a8fa572b748ecaaa0c35b772fc0ec9a6b}{putObject}(String name, Object value) \{
+00053         \textcolor{keywordflow}{return} som.put(name, value);
+00054     \}
+00055 
+\hypertarget{_s_o_m_8java_source_l00056}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a5aaad7227dde59ea22b739636bf17786}{00056}     \textcolor{keyword}{public} Object \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a5aaad7227dde59ea22b739636bf17786}{removeObject}(String name) \{
+00057         \textcolor{keywordflow}{return} som.remove(name);
+00058     \}
+00059 
+\hypertarget{_s_o_m_8java_source_l00060}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a50cd7d862c4389cf99e9e4c5d10013cc}{00060}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a50cd7d862c4389cf99e9e4c5d10013cc}{getString}(String name) \{
+00061         \textcolor{keywordflow}{return} (String)som.get(name);
+00062     \}
+00063 
+\hypertarget{_s_o_m_8java_source_l00064}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a56b029e86eb59870fc20e98f731097fe}{00064}     \textcolor{keyword}{public} String \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a56b029e86eb59870fc20e98f731097fe}{removeString}(String name) \{
+00065         \textcolor{keywordflow}{return} (String)som.remove(name);
+00066     \}
+00067 
+\hypertarget{_s_o_m_8java_source_l00068}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a7ae268d78de9c1a2b6bb919bd5f44797}{00068}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a7ae268d78de9c1a2b6bb919bd5f44797}{getInt}(String name, \textcolor{keywordtype}{int} defaultValue) \{
+00069         Number n = (Number)som.get(name);
+00070         \textcolor{keywordflow}{if}(n == null) \textcolor{keywordflow}{return} defaultValue;
+00071         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} n.intValue();
+00072     \}
+00073 
+00074     \textcolor{keyword}{private} Map<String, Object> som;
+00075 \}
+\end{DoxyCode}

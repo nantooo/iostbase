@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.5"/>
+<title>対話エージェントのためのIoTサービス基盤の構築: src/main/java/jp/ac/kyoto_u/i/soc/ai/iostbase/service/intf/EventManagementService.java ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">対話エージェントのためのIoTサービス基盤の構築
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 作成： Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ee1d8ebc9f7d8c4b1cc8d85b0408c0e3.html">src</a></li><li class="navelem"><a class="el" href="dir_a1f21ea0de496ed8f5f17b6b8f78035e.html">main</a></li><li class="navelem"><a class="el" href="dir_cae01800642792b6cb36bad5a98cdb57.html">java</a></li><li class="navelem"><a class="el" href="dir_0217b56c3313871d83519dab21e33b69.html">jp</a></li><li class="navelem"><a class="el" href="dir_dc7870c083c31d295ec1974b62f5546e.html">ac</a></li><li class="navelem"><a class="el" href="dir_944efb519bc83881e6d5bb09f78fc1e7.html">kyoto_u</a></li><li class="navelem"><a class="el" href="dir_4a190480fdf6358a078ddde6d17c1770.html">i</a></li><li class="navelem"><a class="el" href="dir_3c41b4102dbafffeadd9705e06e88b06.html">soc</a></li><li class="navelem"><a class="el" href="dir_829411d838d42be470425a7531b7fe33.html">ai</a></li><li class="navelem"><a class="el" href="dir_b4b0781cc310a729168398f1289a7169.html">iostbase</a></li><li class="navelem"><a class="el" href="dir_9f29e1e1a5094dc86fe3d9ff7be80e12.html">service</a></li><li class="navelem"><a class="el" href="dir_989a0aad96502d270639282a6e44a3dc.html">intf</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">EventManagementService.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_event_management_service_8java.html">説明を見る。</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.Date;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> jp.go.nict.langrid.commons.rpc.intf.Parameter;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html">    7</a></span>&#160;<span class="keyword">public</span> <span class="keyword">interface </span><a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html">EventManagementService</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a829b12a486f5e521e14ddf23d9c93ba7">notifyEvent</a>(</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;event&quot;</span>, sample=<span class="stringliteral">&quot;{\&quot;deviceId\&quot;: \&quot;user:gps:1\&quot;,\&quot;dataType\&quot;: \&quot;LatLng\&quot;,\&quot;value\&quot;: {\&quot;latitude\&quot;:35.0261389,  \&quot;longitude\&quot;: 135.7806666}}&quot;</span>)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;            <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a> event);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[] <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a4151a56ca77f1c5d9c985b5be55e35b2">getEvents</a>(</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;lastEventMillis&quot;</span>) Date lastEventMillis,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;timeoutMillis&quot;</span>) <span class="keywordtype">long</span> timeoutMillis);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[] <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a8b88c46f46145ab5c8ddf33631c56c22">getEventsOfDevice</a>(</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;deviceId&quot;</span>) String deviceId,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;lastEventMillis&quot;</span>) Date lastEventMillis,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;timeoutMillis&quot;</span>) <span class="keywordtype">long</span> timeoutMillis);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[] <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#adfcffbb38a4756b18bee3a22c9dbd0fe">getLatestEventsByPlaceTagAndDataType</a>(</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;placeTagPrefix&quot;</span>) String placeTagPrefix,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;dataType&quot;</span>) String dataType,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;lastEventMillis&quot;</span>) Date lastEventMillis,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;timeoutMillis&quot;</span>) <span class="keywordtype">long</span> timeoutMillis);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[] <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#aeff776e7cc93b1321d7869d6602fea5d">getLatestEventsByLatLngAndDataType</a>(</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;latLng&quot;</span>) <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">LatLng</a> latLng,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;r&quot;</span>) <span class="keywordtype">double</span> r,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;dataType&quot;</span>) String dataType,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;lastEventMillis&quot;</span>) Date lastEventMillis,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;timeoutMillis&quot;</span>) <span class="keywordtype">long</span> timeoutMillis);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">Event</a>[] <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#ad2d72f8be42d38450a68c644226ed220">listEvents</a>(</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;page&quot;</span>, sample=<span class="stringliteral">&quot;0&quot;</span>) <span class="keywordtype">int</span> page,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;size&quot;</span>, sample=<span class="stringliteral">&quot;10&quot;</span>) <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#adb32b9ef6fa58fbef094d62834dce19f">updateRule</a>(</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;ruleId&quot;</span>) String ruleId,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;body&quot;</span>) String body);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a0effe63c1f32145090730a6cdf09f62e">activateRule</a>(</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;ruleId&quot;</span>) String ruleId);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a989f340ce1813adba306577617cf19e6">deactivateRule</a>(</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            @Parameter(name=<span class="stringliteral">&quot;ruleId&quot;</span>) String ruleId);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_a4151a56ca77f1c5d9c985b5be55e35b2"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a4151a56ca77f1c5d9c985b5be55e35b2">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.getEvents</a></div><div class="ttdeci">Event[] getEvents(@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_aeff776e7cc93b1321d7869d6602fea5d"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#aeff776e7cc93b1321d7869d6602fea5d">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.getLatestEventsByLatLngAndDataType</a></div><div class="ttdeci">Event[] getLatestEventsByLatLngAndDataType(@Parameter(name=&quot;latLng&quot;) LatLng latLng,@Parameter(name=&quot;r&quot;) double r,@Parameter(name=&quot;dataType&quot;) String dataType,@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_adb32b9ef6fa58fbef094d62834dce19f"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#adb32b9ef6fa58fbef094d62834dce19f">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.updateRule</a></div><div class="ttdeci">void updateRule(@Parameter(name=&quot;ruleId&quot;) String ruleId,@Parameter(name=&quot;body&quot;) String body)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_adfcffbb38a4756b18bee3a22c9dbd0fe"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#adfcffbb38a4756b18bee3a22c9dbd0fe">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.getLatestEventsByPlaceTagAndDataType</a></div><div class="ttdeci">Event[] getLatestEventsByPlaceTagAndDataType(@Parameter(name=&quot;placeTagPrefix&quot;) String placeTagPrefix,@Parameter(name=&quot;dataType&quot;) String dataType,@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_ad2d72f8be42d38450a68c644226ed220"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#ad2d72f8be42d38450a68c644226ed220">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.listEvents</a></div><div class="ttdeci">Event[] listEvents(@Parameter(name=&quot;page&quot;, sample=&quot;0&quot;) int page,@Parameter(name=&quot;size&quot;, sample=&quot;10&quot;) int size)</div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng_html"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng.html">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.LatLng</a></div><div class="ttdef"><b>Definition:</b> <a href="service_2intf_2_lat_lng_8java_source.html#l00010">LatLng.java:10</a></div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService</a></div><div class="ttdef"><b>Definition:</b> <a href="_event_management_service_8java_source.html#l00007">EventManagementService.java:7</a></div></div>
+<div class="ttc" id="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_html"><div class="ttname"><a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event.html">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.Event</a></div><div class="ttdef"><b>Definition:</b> <a href="service_2intf_2_event_8java_source.html#l00012">Event.java:12</a></div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_a8b88c46f46145ab5c8ddf33631c56c22"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a8b88c46f46145ab5c8ddf33631c56c22">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.getEventsOfDevice</a></div><div class="ttdeci">Event[] getEventsOfDevice(@Parameter(name=&quot;deviceId&quot;) String deviceId,@Parameter(name=&quot;lastEventMillis&quot;) Date lastEventMillis,@Parameter(name=&quot;timeoutMillis&quot;) long timeoutMillis)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_a989f340ce1813adba306577617cf19e6"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a989f340ce1813adba306577617cf19e6">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.deactivateRule</a></div><div class="ttdeci">void deactivateRule(@Parameter(name=&quot;ruleId&quot;) String ruleId)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_a0effe63c1f32145090730a6cdf09f62e"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a0effe63c1f32145090730a6cdf09f62e">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.activateRule</a></div><div class="ttdeci">void activateRule(@Parameter(name=&quot;ruleId&quot;) String ruleId)</div></div>
+<div class="ttc" id="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_html_a829b12a486f5e521e14ddf23d9c93ba7"><div class="ttname"><a href="interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service.html#a829b12a486f5e521e14ddf23d9c93ba7">jp.ac.kyoto_u.i.soc.ai.iostbase.service.intf.EventManagementService.notifyEvent</a></div><div class="ttdeci">void notifyEvent(@Parameter(name=&quot;event&quot;, sample=&quot;{\&quot;deviceId\&quot;: \&quot;user:gps:1\&quot;,\&quot;dataType\&quot;: \&quot;LatLng\&quot;,\&quot;value\&quot;: {\&quot;latitude\&quot;:35.0261389,  \&quot;longitude\&quot;: 135.7806666}}&quot;) Event event)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+作成： &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.5
+</small></address>
+</body>
+</html>

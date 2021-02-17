@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.5"/>
+<title>対話エージェントのためのIoTサービス基盤の構築: クラス jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">対話エージェントのためのIoTサービス基盤の構築
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 作成： Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacejp.html">jp</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac.html">ac</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u.html">kyoto_u</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i.html">i</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc.html">soc</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai.html">ai</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase.html">iostbase</a></li><li class="navelem"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html">Sessions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a> &#124;
+<a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions-members.html">すべてのメンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>RuleSession</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr class="memitem:ae2333821be9a62bb3449aca768a03990"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#ae2333821be9a62bb3449aca768a03990">updateRule</a> (String ruleId, String body)</td></tr>
+<tr class="separator:ae2333821be9a62bb3449aca768a03990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311c43a15e75745acd6fb821937c5c76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#a311c43a15e75745acd6fb821937c5c76">activateRule</a> (String ruleId)</td></tr>
+<tr class="separator:a311c43a15e75745acd6fb821937c5c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cefce9b9131c04c95b5c8ec1b2922d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#a1cefce9b9131c04c95b5c8ec1b2922d1">deactivateRule</a> (String ruleId)</td></tr>
+<tr class="separator:a1cefce9b9131c04c95b5c8ec1b2922d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4d92ad38185a5cc7b44f0aca7cf28a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#ade4d92ad38185a5cc7b44f0aca7cf28a">insertTimerEvent</a> ()</td></tr>
+<tr class="separator:ade4d92ad38185a5cc7b44f0aca7cf28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18128a1575d002037ee7dc74da94815b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#a18128a1575d002037ee7dc74da94815b">insertEvent</a> (Object event)</td></tr>
+<tr class="separator:a18128a1575d002037ee7dc74da94815b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ed2608c67def8c652ad4cb4ec17c0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#a12ed2608c67def8c652ad4cb4ec17c0b">Sessions</a> ()</td></tr>
+<tr class="separator:a12ed2608c67def8c652ad4cb4ec17c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr class="memitem:a4cff05f3811f4d2f2feaaa7224e7e966"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html">Sessions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html#a4cff05f3811f4d2f2feaaa7224e7e966">instance</a> ()</td></tr>
+<tr class="separator:a4cff05f3811f4d2f2feaaa7224e7e966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">説明</h2>
+<div class="textblock">
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00027">27</a> 行で定義されています。</p>
+</div><h2 class="groupheader">コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a12ed2608c67def8c652ad4cb4ec17c0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.Sessions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00119">119</a> 行で定義されています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メソッド</h2>
+<a class="anchor" id="a311c43a15e75745acd6fb821937c5c76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.activateRule </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruleId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00070">70</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a1cefce9b9131c04c95b5c8ec1b2922d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.deactivateRule </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruleId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00074">74</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a18128a1575d002037ee7dc74da94815b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.insertEvent </td>
+          <td>(</td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00090">90</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ade4d92ad38185a5cc7b44f0aca7cf28a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.insertTimerEvent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00082">82</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cff05f3811f4d2f2feaaa7224e7e966"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions.html">Sessions</a> jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00115">115</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2333821be9a62bb3449aca768a03990"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jp.ac.kyoto_u.i.soc.ai.iostbase.Sessions.updateRule </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruleId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>body</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_sessions_8java_source.html">Sessions.java</a> の <a class="el" href="_sessions_8java_source.html#l00066">66</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>src/main/java/jp/ac/kyoto_u/i/soc/ai/iostbase/<a class="el" href="_sessions_8java_source.html">Sessions.java</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+作成： &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.5
+</small></address>
+</body>
+</html>

@@ -1,0 +1,31 @@
+\hypertarget{_micoff_noise_processor_service_8java}{\section{Micoff\-Noise\-Processor\-Service.\-java}
+\label{_micoff_noise_processor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Micoff\-Noise\-Processor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Micoff\-Noise\-Processor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_noise_processor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.processor.NoiseProcessor}
+      ;
+00004 
+\hypertarget{_micoff_noise_processor_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_micoff_noise_processor_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_micoff_noise_processor_service}{MicoffNoiseProcessorService}
+00006 \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_noise_processor}{NoiseProcessor} \{
+\hypertarget{_micoff_noise_processor_service_8java_source_l00007}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_micoff_noise_processor_service_ac2f31be2590f187aa779e8dfb38b867b}{00007}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_micoff_noise_processor_service_ac2f31be2590f187aa779e8dfb38b867b}{MicoffNoiseProcessorService}(
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_mic_on_off_switch_actuator_service}{MicOnOffSwitchActuatorService} act,
+00008             \textcolor{keywordtype}{int} upperThreashold) \{
+00009         this.act = act;
+00010         this.upperThreashold = upperThreashold;
+00011     \}
+00012     @Override
+00013     public <T> T processNoise(\textcolor{keywordtype}{int} db) \{
+00014         \textcolor{keywordflow}{if}(upperThreashold < db) \{
+00015             act.off();
+00016         \} \textcolor{keywordflow}{else} \{
+00017             act.on();
+00018         \}
+00019         \textcolor{keywordflow}{return} null;
+00020     \}
+00021     \textcolor{keyword}{private} MicOnOffSwitchActuatorService act;
+00022     \textcolor{keyword}{private} \textcolor{keywordtype}{int} upperThreashold;
+00023 \}
+\end{DoxyCode}

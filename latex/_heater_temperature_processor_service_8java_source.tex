@@ -1,0 +1,30 @@
+\hypertarget{_heater_temperature_processor_service_8java}{\section{Heater\-Temperature\-Processor\-Service.\-java}
+\label{_heater_temperature_processor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Heater\-Temperature\-Processor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Heater\-Temperature\-Processor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_temperature_processor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.processor.TemperatureProcessor}
+      ;
+00004 
+\hypertarget{_heater_temperature_processor_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_temperature_processor_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_temperature_processor_service}{HeaterTemperatureProcessorService}
+00006 \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_temperature_processor}{TemperatureProcessor} \{
+\hypertarget{_heater_temperature_processor_service_8java_source_l00007}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_temperature_processor_service_aa54f6203ff10390b5e4e012012e5cfb3}{00007}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_temperature_processor_service_aa54f6203ff10390b5e4e012012e5cfb3}{HeaterTemperatureProcessorService}(
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_heater_on_off_switch_actuator_service}{HeaterOnOffSwitchActuatorService} act, \textcolor{keywordtype}{double} threashold) \{
+00008         this.act = act;
+00009         this.threashold = threashold;
+00010     \}
+00011     @Override
+00012     public <T> T processTemperature(\textcolor{keywordtype}{double} value) \{
+00013         \textcolor{keywordflow}{if}(value < threashold) \{
+00014             act.on();
+00015         \} \textcolor{keywordflow}{else} \{
+00016             act.off();
+00017         \}
+00018         \textcolor{keywordflow}{return} null;
+00019     \}
+00020     \textcolor{keyword}{private} HeaterOnOffSwitchActuatorService act;
+00021     \textcolor{keyword}{private} \textcolor{keywordtype}{double} threashold;
+00022 \}
+\end{DoxyCode}

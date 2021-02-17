@@ -1,0 +1,68 @@
+\hypertarget{_spring_json_rpc_servlet_8java}{\section{Spring\-Json\-Rpc\-Servlet.\-java}
+\label{_spring_json_rpc_servlet_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/servlet/\-Spring\-Json\-Rpc\-Servlet.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/servlet/\-Spring\-Json\-Rpc\-Servlet.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.servlet;
+00002 
+00003 \textcolor{keyword}{import} java.io.IOException;
+00004 
+00005 \textcolor{keyword}{import} javax.servlet.ServletException;
+00006 \textcolor{keyword}{import} javax.servlet.http.HttpServletRequest;
+00007 \textcolor{keyword}{import} javax.servlet.http.HttpServletResponse;
+00008 
+00009 \textcolor{keyword}{import} org.springframework.beans.factory.annotation.Autowired;
+00010 \textcolor{keyword}{import} org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+00011 \textcolor{keyword}{import} org.springframework.transaction.PlatformTransactionManager;
+00012 \textcolor{keyword}{import} org.springframework.transaction.support.TransactionTemplate;
+00013 
+00014 \textcolor{keyword}{import} jp.go.nict.langrid.commons.lang.function.SoftException;
+00015 \textcolor{keyword}{import} jp.go.nict.langrid.servicecontainer.handler.jsonrpc.JsonRpcDynamicHandler;
+00016 \textcolor{keyword}{import} jp.go.nict.langrid.servicecontainer.handler.jsonrpc.JsonRpcHandler;
+00017 
+\hypertarget{_spring_json_rpc_servlet_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet}{00018} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet}{SpringJsonRpcServlet} \textcolor{keyword}{extends} jp.go.nict.langrid.servicecontainer.handler.
+      jsonrpc.servlet.\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_json_rpc_servlet}{JsonRpcServlet} \{
+00019     @Autowired
+00020     \textcolor{keyword}{private} AutowireCapableBeanFactory bf; 
+00021 
+00022     @Autowired
+00023     \textcolor{keyword}{private} PlatformTransactionManager txm;
+00024 
+00025     @Override
+\hypertarget{_spring_json_rpc_servlet_8java_source_l00026}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_ab618113d6c0b85afff29ccbea8a7efde}{00026}     \textcolor{keyword}{protected} JsonRpcHandler \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_ab618113d6c0b85afff29ccbea8a7efde}{createDefaultHandler}() \{
+00027         \textcolor{keywordflow}{return} \textcolor{keyword}{new} JsonRpcDynamicHandler() \{
+00028             @Override
+00029             \textcolor{keyword}{protected} \textcolor{keywordtype}{void} initialize(String serviceName, Object \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_a241e28b984c3c6937d5e19dfa83c73f4}{service}) \{
+00030                 bf.autowireBean(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_a241e28b984c3c6937d5e19dfa83c73f4}{service});
+00031                 bf.initializeBean(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_a241e28b984c3c6937d5e19dfa83c73f4}{service}, serviceName);
+00032             \}
+00033         \};
+00034     \}
+00035 
+00036     @Override
+\hypertarget{_spring_json_rpc_servlet_8java_source_l00037}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_a241e28b984c3c6937d5e19dfa83c73f4}{00037}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1servlet_1_1_spring_json_rpc_servlet_a241e28b984c3c6937d5e19dfa83c73f4}{service}(HttpServletRequest req, HttpServletResponse res) \textcolor{keywordflow}{throws} ServletException,
+       IOException \{
+00038         \textcolor{keywordflow}{try} \{
+00039             \textcolor{keyword}{new} TransactionTemplate(txm).execute(s -> \{
+00040                 \textcolor{keywordflow}{try}\{
+00041                     super.service(req, res);
+00042                     \textcolor{keywordflow}{return} null;
+00043                 \} \textcolor{keywordflow}{catch}(IOException | ServletException e) \{
+00044                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} SoftException(e);
+00045                 \}
+00046             \});
+00047         \} \textcolor{keywordflow}{catch}(SoftException e) \{
+00048             Throwable t = e.getCause();
+00049             \textcolor{keywordflow}{if}(t instanceof IOException)\{
+00050                 \textcolor{keywordflow}{throw} (IOException)t;
+00051             \}
+00052             \textcolor{keywordflow}{if}(t instanceof ServletException)\{
+00053                 \textcolor{keywordflow}{throw} (ServletException)t;
+00054             \}
+00055             \textcolor{keywordflow}{throw} e;
+00056         \}
+00057     \}
+00058 
+00059     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{long} serialVersionUID = -6359200620349218955L;
+00060 \}
+\end{DoxyCode}

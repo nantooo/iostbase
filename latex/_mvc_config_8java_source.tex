@@ -1,0 +1,37 @@
+\hypertarget{_mvc_config_8java}{\section{Mvc\-Config.\-java}
+\label{_mvc_config_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Mvc\-Config.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Mvc\-Config.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase;
+00002 
+00003 \textcolor{keyword}{import} java.util.List;
+00004 
+00005 \textcolor{keyword}{import} org.springframework.context.annotation.Configuration;
+00006 \textcolor{keyword}{import} org.springframework.http.MediaType;
+00007 \textcolor{keyword}{import} org.springframework.http.converter.HttpMessageConverter;
+00008 \textcolor{keyword}{import} org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+00009 \textcolor{keyword}{import} org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+00010 \textcolor{keyword}{import} org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+00011 
+00012 @Configuration
+\hypertarget{_mvc_config_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config}{00013} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config}{MvcConfig} \textcolor{keyword}{implements} WebMvcConfigurer \{
+\hypertarget{_mvc_config_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config_a4bf26f64510d0be575861423e815026e}{00014}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config_a4bf26f64510d0be575861423e815026e}{addViewControllers}(ViewControllerRegistry registry) \{
+00015         registry.addViewController(\textcolor{stringliteral}{"/home"}).setViewName(\textcolor{stringliteral}{"home"});
+00016         registry.addViewController(\textcolor{stringliteral}{"/"}).setViewName(\textcolor{stringliteral}{"home"});
+00017         registry.addViewController(\textcolor{stringliteral}{"/hello"}).setViewName(\textcolor{stringliteral}{"hello"});
+00018         registry.addViewController(\textcolor{stringliteral}{"/login"}).setViewName(\textcolor{stringliteral}{"login"});
+00019     \}
+00020     
+00021     @Override
+\hypertarget{_mvc_config_8java_source_l00022}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config_a4f59ec97341809f0c204c30910157283}{00022}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config_a4f59ec97341809f0c204c30910157283}{configureContentNegotiation}(ContentNegotiationConfigurer 
+      configurer) \{
+00023         configurer.favorPathExtension(\textcolor{keyword}{false});
+00024     \}
+00025 
+00026     @Override
+\hypertarget{_mvc_config_8java_source_l00027}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config_a3443a38580a15bbc511338ab65ed6c1d}{00027}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_mvc_config_a3443a38580a15bbc511338ab65ed6c1d}{extendMessageConverters}(List<HttpMessageConverter<?>> converters) \{
+00028         WebMvcConfigurer.super.extendMessageConverters(converters);
+00029     \}
+00030 \}
+\end{DoxyCode}

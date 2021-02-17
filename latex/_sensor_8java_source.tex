@@ -1,0 +1,24 @@
+\hypertarget{_sensor_8java}{\section{Sensor.\-java}
+\label{_sensor_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/sensor/\-Sensor.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/sensor/\-Sensor.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor;
+00002 
+00003 \textcolor{keyword}{import} java.net.URISyntaxException;
+00004 
+00005 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.LatLng}
+      ;
+00006 
+\hypertarget{_sensor_8java_source_l00007}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_sensor_3_01_t_01_4}{00007} \textcolor{keyword}{public} \textcolor{keyword}{interface }Sensor<T> \{
+00008     String getDeviceId();
+00009     String getDataType();
+00010     String getPlaceTag();
+00011     \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} getLatLng();
+00012     T getValue();
+00013 
+00014     \textcolor{keywordtype}{void} subscribe(String URI) \textcolor{keywordflow}{throws} URISyntaxException;
+00015 
+00016     \textcolor{keywordtype}{void} unsubscribe(String URI);
+00017 \}
+\end{DoxyCode}

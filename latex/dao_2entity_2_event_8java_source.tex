@@ -1,0 +1,49 @@
+\hypertarget{dao_2entity_2_event_8java}{\section{Event.\-java}
+\label{dao_2entity_2_event_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/entity/\-Event.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/dao/entity/\-Event.\-java}}
+}
+
+\begin{DoxyCode}
+\hypertarget{dao_2entity_2_event_8java_source_l00001}{}\hyperlink{namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity}{00001} \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity;
+00002 
+00003 \textcolor{keyword}{import} java.util.Date;
+00004 
+00005 \textcolor{keyword}{import} javax.persistence.Entity;
+00006 \textcolor{keyword}{import} javax.persistence.GeneratedValue;
+00007 \textcolor{keyword}{import} javax.persistence.GenerationType;
+00008 \textcolor{keyword}{import} javax.persistence.Id;
+00009 \textcolor{keyword}{import} javax.persistence.Temporal;
+00010 \textcolor{keyword}{import} javax.persistence.TemporalType;
+00011 
+00012 \textcolor{keyword}{import} lombok.AllArgsConstructor;
+00013 \textcolor{keyword}{import} lombok.Data;
+00014 \textcolor{keyword}{import} lombok.NoArgsConstructor;
+00015 
+00016 @Entity
+00017 @Data
+00018 @NoArgsConstructor
+00019 @AllArgsConstructor
+\hypertarget{dao_2entity_2_event_8java_source_l00020}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event}{00020} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event}{Event} \{
+00021     @Id
+00022     @GeneratedValue(strategy = GenerationType.IDENTITY)
+00023     \textcolor{keyword}{private} \textcolor{keywordtype}{long} id;
+00024     \textcolor{keyword}{private} String deviceId;
+00025     \textcolor{keyword}{private} String dataType;
+00026     \textcolor{keyword}{private} String placeTag;
+00027     \textcolor{keyword}{private} Double latitude;
+00028     \textcolor{keyword}{private} Double longitude;
+00029     \textcolor{keyword}{private} String value;
+00030     @Temporal(TemporalType.TIMESTAMP)
+00031     \textcolor{keyword}{private} Date created;
+00032 
+\hypertarget{dao_2entity_2_event_8java_source_l00033}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event_aa9662bcc62b00ab7f1bb69a027a75c36}{00033}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event_aa9662bcc62b00ab7f1bb69a027a75c36}{Event}(String deviceId, String dataType,
+00034             String placeTag, Double latitude, Double longitude, String value) \{
+00035         this.deviceId = deviceId;
+00036         this.dataType = dataType;
+00037         this.placeTag = placeTag;
+00038         this.latitude = latitude;
+00039         this.longitude = longitude;
+00040         this.value = value;
+00041         this.created = \textcolor{keyword}{new} Date();
+00042     \}
+00043 \}
+\end{DoxyCode}

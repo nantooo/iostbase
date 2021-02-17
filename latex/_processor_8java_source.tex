@@ -1,0 +1,51 @@
+\hypertarget{_processor_8java}{\section{Processor.\-java}
+\label{_processor_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/processor/\-Processor.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/processor/\-Processor.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.processor;
+00002 
+00003 \textcolor{keyword}{import} java.lang.reflect.InvocationTargetException;
+00004 \textcolor{keyword}{import} java.lang.reflect.Method;
+00005 
+00006 \textcolor{keyword}{import} jp.go.nict.langrid.commons.beanutils.ConversionException;
+00007 \textcolor{keyword}{import} jp.go.nict.langrid.commons.beanutils.Converter;
+00008 
+\hypertarget{_processor_8java_source_l00009}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_processor}{00009} \textcolor{keyword}{public} \textcolor{keyword}{interface }\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_processor}{Processor} \{
+00010     @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})
+\hypertarget{_processor_8java_source_l00011}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_processor_a66086dbe725d172267c517aa15f2122e}{00011}     default <R> R \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_processor_a66086dbe725d172267c517aa15f2122e}{process}(String methodName, Object... parameters) \{
+00012         Converter c = \textcolor{keyword}{new} Converter();
+00013         Object[] params = \textcolor{keyword}{new} Object[parameters.length];
+00014         \textcolor{keywordflow}{for}(Method m : getClass().getMethods()) \{
+00015             \textcolor{keywordflow}{if}(m.getParameterCount() != parameters.length) \textcolor{keywordflow}{continue};
+00016             \textcolor{keywordflow}{if}(!m.getName().equals(methodName)) \textcolor{keywordflow}{continue};
+00017             \textcolor{keywordflow}{if}(m.getDeclaringClass().equals(Processor.class)) \textcolor{keywordflow}{continue};
+00018             \textcolor{keywordtype}{boolean} callable = \textcolor{keyword}{true};
+00019             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < parameters.length; i++) \{
+00020                 \textcolor{keywordflow}{if}(parameters[i] == null && m.getParameterTypes()[i].isPrimitive()) \{
+00021                     callable = \textcolor{keyword}{false};
+00022                     \textcolor{keywordflow}{break};
+00023                 \}
+00024                 params[i] = parameters[i];
+00025                 \textcolor{keywordflow}{if}(m.getParameterTypes()[i].isAssignableFrom(parameters[i].getClass())) \textcolor{keywordflow}{continue};
+00026                 \textcolor{keywordflow}{if}(parameters[i] == null) \textcolor{keywordflow}{continue};
+00027                 \textcolor{keywordflow}{try} \{
+00028                     params[i] = c.convert(parameters[i], m.getParameterTypes()[i]);
+00029                     \textcolor{keywordflow}{continue};
+00030                 \} \textcolor{keywordflow}{catch}(ConversionException e) \{
+00031                 \}
+00032                 callable = \textcolor{keyword}{false};
+00033                 \textcolor{keywordflow}{break};
+00034             \}
+00035             \textcolor{keywordflow}{if}(!callable) \textcolor{keywordflow}{continue};
+00036             \textcolor{keywordflow}{try} \{
+00037                 \textcolor{keywordflow}{return} (R)m.invoke(\textcolor{keyword}{this}, params);
+00038             \} \textcolor{keywordflow}{catch} (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) \{
+00039                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(e);
+00040             \}
+00041         \}
+00042         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"no suitable method to execute."});
+00043 
+00044     \}
+00045 \}
+\end{DoxyCode}

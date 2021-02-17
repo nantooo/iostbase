@@ -1,0 +1,29 @@
+\hypertarget{_air_conditioner_on_off_switch_actuator_service_8java}{\section{Air\-Conditioner\-On\-Off\-Switch\-Actuator\-Service.\-java}
+\label{_air_conditioner_on_off_switch_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Air\-Conditioner\-On\-Off\-Switch\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Air\-Conditioner\-On\-Off\-Switch\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_on_off_switch_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.OnOffSwitchActuator}
+      ;
+00004 
+\hypertarget{_air_conditioner_on_off_switch_actuator_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service}{AirConditionerOnOffSwitchActuatorService}
+00006 \textcolor{keyword}{extends} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService}
+00007 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_on_off_switch_actuator}{OnOffSwitchActuator} \{
+00008     @Override
+\hypertarget{_air_conditioner_on_off_switch_actuator_service_8java_source_l00009}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_ae439c71c4d6d3944e221579dd2ff2a0d}{00009}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_ae439c71c4d6d3944e221579dd2ff2a0d}{on}() \{
+00010         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_ae439c71c4d6d3944e221579dd2ff2a0d}{on} = \textcolor{keyword}{true};
+00011         notifyToSubscribers(\textcolor{stringliteral}{"airconditioner"}, \textcolor{stringliteral}{"on"});
+00012     \}
+00013     @Override
+\hypertarget{_air_conditioner_on_off_switch_actuator_service_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_a8834b7fe2f9bc02c4df6f79f5533cbde}{00014}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_a8834b7fe2f9bc02c4df6f79f5533cbde}{off}() \{
+00015         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_ae439c71c4d6d3944e221579dd2ff2a0d}{on} = \textcolor{keyword}{false};
+00016         notifyToSubscribers(\textcolor{stringliteral}{"airconditioner"}, \textcolor{stringliteral}{"off"});
+00017     \}
+\hypertarget{_air_conditioner_on_off_switch_actuator_service_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_a348cde087434890efb1aa8f19c0c47d1}{00018}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_a348cde087434890efb1aa8f19c0c47d1}{isOn}() \{
+00019         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_ae439c71c4d6d3944e221579dd2ff2a0d}{on};
+00020     \}
+00021     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_air_conditioner_on_off_switch_actuator_service_ae439c71c4d6d3944e221579dd2ff2a0d}{on};
+00022 \}
+\end{DoxyCode}

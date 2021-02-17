@@ -1,0 +1,46 @@
+\hypertarget{_event_management_service_8java}{\section{Event\-Management\-Service.\-java}
+\label{_event_management_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\-Event\-Management\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/intf/\-Event\-Management\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf;
+00002 
+00003 \textcolor{keyword}{import} java.util.Date;
+00004 
+00005 \textcolor{keyword}{import} jp.go.nict.langrid.commons.rpc.intf.Parameter;
+00006 
+\hypertarget{_event_management_service_8java_source_l00007}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{00007} \textcolor{keyword}{public} \textcolor{keyword}{interface }\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{EventManagementService} \{
+00008     \textcolor{keywordtype}{void} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a829b12a486f5e521e14ddf23d9c93ba7}{notifyEvent}(
+00009             @Parameter(name=\textcolor{stringliteral}{"event"}, sample=\textcolor{stringliteral}{"\{\(\backslash\)"deviceId\(\backslash\)": \(\backslash\)"user:gps:1\(\backslash\)",\(\backslash\)"dataType\(\backslash\)": \(\backslash\)"LatLng\(\backslash\)",\(\backslash\)"value
+      \(\backslash\)": \{\(\backslash\)"latitude\(\backslash\)":35.0261389,  \(\backslash\)"longitude\(\backslash\)": 135.7806666\}\}"})
+00010             \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} event);
+00011     \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a4151a56ca77f1c5d9c985b5be55e35b2}{getEvents}(
+00012             @Parameter(name=\textcolor{stringliteral}{"lastEventMillis"}) Date lastEventMillis,
+00013             @Parameter(name=\textcolor{stringliteral}{"timeoutMillis"}) \textcolor{keywordtype}{long} timeoutMillis);
+00014     \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a8b88c46f46145ab5c8ddf33631c56c22}{getEventsOfDevice}(
+00015             @Parameter(name=\textcolor{stringliteral}{"deviceId"}) String deviceId,
+00016             @Parameter(name=\textcolor{stringliteral}{"lastEventMillis"}) Date lastEventMillis,
+00017             @Parameter(name=\textcolor{stringliteral}{"timeoutMillis"}) \textcolor{keywordtype}{long} timeoutMillis);
+00018     \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adfcffbb38a4756b18bee3a22c9dbd0fe}{getLatestEventsByPlaceTagAndDataType}(
+00019             @Parameter(name=\textcolor{stringliteral}{"placeTagPrefix"}) String placeTagPrefix,
+00020             @Parameter(name=\textcolor{stringliteral}{"dataType"}) String dataType,
+00021             @Parameter(name=\textcolor{stringliteral}{"lastEventMillis"}) Date lastEventMillis,
+00022             @Parameter(name=\textcolor{stringliteral}{"timeoutMillis"}) \textcolor{keywordtype}{long} timeoutMillis);
+00023     \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_aeff776e7cc93b1321d7869d6602fea5d}{getLatestEventsByLatLngAndDataType}(
+00024             @Parameter(name=\textcolor{stringliteral}{"latLng"}) \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} latLng,
+00025             @Parameter(name=\textcolor{stringliteral}{"r"}) \textcolor{keywordtype}{double} r,
+00026             @Parameter(name=\textcolor{stringliteral}{"dataType"}) String dataType,
+00027             @Parameter(name=\textcolor{stringliteral}{"lastEventMillis"}) Date lastEventMillis,
+00028             @Parameter(name=\textcolor{stringliteral}{"timeoutMillis"}) \textcolor{keywordtype}{long} timeoutMillis);
+00029     \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_ad2d72f8be42d38450a68c644226ed220}{listEvents}(
+00030             @Parameter(name=\textcolor{stringliteral}{"page"}, sample=\textcolor{stringliteral}{"0"}) \textcolor{keywordtype}{int} page,
+00031             @Parameter(name=\textcolor{stringliteral}{"size"}, sample=\textcolor{stringliteral}{"10"}) \textcolor{keywordtype}{int} size);
+00032     \textcolor{keywordtype}{void} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_adb32b9ef6fa58fbef094d62834dce19f}{updateRule}(
+00033             @Parameter(name=\textcolor{stringliteral}{"ruleId"}) String ruleId,
+00034             @Parameter(name=\textcolor{stringliteral}{"body"}) String body);
+00035     \textcolor{keywordtype}{void} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a0effe63c1f32145090730a6cdf09f62e}{activateRule}(
+00036             @Parameter(name=\textcolor{stringliteral}{"ruleId"}) String ruleId);
+00037     \textcolor{keywordtype}{void} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service_a989f340ce1813adba306577617cf19e6}{deactivateRule}(
+00038             @Parameter(name=\textcolor{stringliteral}{"ruleId"}) String ruleId);
+00039 \}
+\end{DoxyCode}

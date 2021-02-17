@@ -1,0 +1,29 @@
+\hypertarget{_window_open_close_switch_actuator_service_8java}{\section{Window\-Open\-Close\-Switch\-Actuator\-Service.\-java}
+\label{_window_open_close_switch_actuator_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Window\-Open\-Close\-Switch\-Actuator\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Window\-Open\-Close\-Switch\-Actuator\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_open_close_switch_actuator}{jp.ac.kyoto\_u.i.soc.ai.iostbase.actuator.OpenCloseSwitchActuator}
+      ;
+00004 
+\hypertarget{_window_open_close_switch_actuator_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service}{WindowOpenCloseSwitchActuatorService}
+00006 \textcolor{keyword}{extends} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_abstract_actuator_service}{AbstractActuatorService}
+00007 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1actuator_1_1_open_close_switch_actuator}{OpenCloseSwitchActuator} \{
+00008     @Override
+\hypertarget{_window_open_close_switch_actuator_service_8java_source_l00009}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_af964501857a175cd4abf3e85bc904eff}{00009}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_af964501857a175cd4abf3e85bc904eff}{open}() \{
+00010         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_af964501857a175cd4abf3e85bc904eff}{open} = \textcolor{keyword}{true};
+00011         notifyToSubscribers(\textcolor{stringliteral}{"window"}, \textcolor{stringliteral}{"open"});
+00012     \}
+00013     @Override
+\hypertarget{_window_open_close_switch_actuator_service_8java_source_l00014}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_aabfd536f5e10eb391cdeaadc5f5cb72b}{00014}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_aabfd536f5e10eb391cdeaadc5f5cb72b}{close}() \{
+00015         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_af964501857a175cd4abf3e85bc904eff}{open} = \textcolor{keyword}{false};
+00016         notifyToSubscribers(\textcolor{stringliteral}{"window"}, \textcolor{stringliteral}{"close"});
+00017     \}
+\hypertarget{_window_open_close_switch_actuator_service_8java_source_l00018}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_ad93f1504bc235e878d350dfbc6ca1f8c}{00018}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_ad93f1504bc235e878d350dfbc6ca1f8c}{isOpen}() \{
+00019         \textcolor{keywordflow}{return} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_af964501857a175cd4abf3e85bc904eff}{open};
+00020     \}
+00021     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service_af964501857a175cd4abf3e85bc904eff}{open};
+00022 \}
+\end{DoxyCode}

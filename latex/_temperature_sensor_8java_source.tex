@@ -1,0 +1,20 @@
+\hypertarget{_temperature_sensor_8java}{\section{Temperature\-Sensor.\-java}
+\label{_temperature_sensor_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/sensor/\-Temperature\-Sensor.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/sensor/\-Temperature\-Sensor.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor;
+00002 
+\hypertarget{_temperature_sensor_8java_source_l00003}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor}{00003} \textcolor{keyword}{public} \textcolor{keyword}{interface }\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor}{TemperatureSensor} \textcolor{keyword}{extends} Sensor<Double>\{
+\hypertarget{_temperature_sensor_8java_source_l00004}{}\hyperlink{enumjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_1_1_type_a871402cbd503faa725f464f38d735955}{00004}     \textcolor{keyword}{enum} \hyperlink{enumjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_1_1_type}{Type}\{ CELCIUS, FAHRENHEIT\}
+00005 
+\hypertarget{_temperature_sensor_8java_source_l00006}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_adf6976369c86d133e233d2d352bf615e}{00006}     \textcolor{keywordflow}{default} \hyperlink{enumjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_1_1_type}{Type} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_adf6976369c86d133e233d2d352bf615e}{getType}() \{ \textcolor{keywordflow}{return} \hyperlink{enumjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_1_1_type_a773a60a751af4c5138634b8b2564de6c}{Type.CELCIUS};\}
+00007 
+00008     @Override
+\hypertarget{_temperature_sensor_8java_source_l00009}{}\hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_a7dc13ecf4cd15caff2063ef5649238b4}{00009}     \textcolor{keywordflow}{default} Double \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_a7dc13ecf4cd15caff2063ef5649238b4}{getValue}() \{
+00010         \textcolor{keywordflow}{return} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_a653eaf8ec7e267a3723d6ae0ec4669fb}{getTemperature}();
+00011     \}
+00012 
+00013     \textcolor{keywordtype}{double} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_temperature_sensor_a653eaf8ec7e267a3723d6ae0ec4669fb}{getTemperature}();
+00014 \}
+\end{DoxyCode}

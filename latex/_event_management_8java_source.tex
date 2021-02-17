@@ -1,0 +1,178 @@
+\hypertarget{_event_management_8java}{\section{Event\-Management.\-java}
+\label{_event_management_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/\-Event\-Management.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/\-Event\-Management.\-java}}
+}
+
+\begin{DoxyCode}
+\hypertarget{_event_management_8java_source_l00001}{}\hyperlink{namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service}{00001} \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service;
+00002 
+00003 \textcolor{keyword}{import} java.util.ArrayList;
+00004 \textcolor{keyword}{import} java.util.Date;
+00005 \textcolor{keyword}{import} java.util.LinkedHashMap;
+00006 
+00007 \textcolor{keyword}{import} org.springframework.beans.factory.annotation.Autowired;
+00008 \textcolor{keyword}{import} org.springframework.data.domain.PageRequest;
+00009 \textcolor{keyword}{import} org.springframework.stereotype.Component;
+00010 
+00011 \textcolor{keyword}{import} com.fasterxml.jackson.core.JsonProcessingException;
+00012 \textcolor{keyword}{import} com.fasterxml.jackson.databind.ObjectMapper;
+00013 
+00014 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sessions}{jp.ac.kyoto\_u.i.soc.ai.iostbase.Sessions};
+00015 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.EventRepository}
+      ;
+00016 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.Event}
+      ;
+00017 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.EventManagementService}
+      ;
+00018 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.LatLng}
+      ;
+00019 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo}{jp.ac.kyoto\_u.i.soc.ai.iostbase.util.Geo};
+00020 \textcolor{keyword}{import} jp.go.nict.langrid.commons.beanutils.Converter;
+00021 
+00022 @Component
+\hypertarget{_event_management_8java_source_l00023}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}{00023} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management}{EventManagement} \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{EventManagementService}\{
+00024     @Autowired
+00025     \textcolor{keyword}{private} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository}{EventRepository} er;
+00026 
+\hypertarget{_event_management_8java_source_l00027}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8c9377f214ae009b99593b50a61622e7}{00027}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8c9377f214ae009b99593b50a61622e7}{EventManagement}() \{
+00028     \}
+00029 
+00030     @Override
+\hypertarget{_event_management_8java_source_l00031}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8eec8a76c492bbb5d891b2ad842d3753}{00031}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a8eec8a76c492bbb5d891b2ad842d3753}{notifyEvent}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} event) \{
+00032         Sessions.instance().insertEvent(event);
+00033     \}
+00034 
+00035     @Override
+\hypertarget{_event_management_8java_source_l00036}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1d637ad8815fff35b303bc5a84072383}{00036}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1d637ad8815fff35b303bc5a84072383}{getEvents}(Date lastEventMillis, \textcolor{keywordtype}{long} timeoutMillis) \{
+00037         \textcolor{keywordtype}{long} start = System.currentTimeMillis();
+00038         \textcolor{keywordflow}{while}(\textcolor{keyword}{true}) \{
+00039             var ret = er.findAllByCreatedGreaterThanOrderByCreated(lastEventMillis);
+00040             \textcolor{keywordtype}{long} d = System.currentTimeMillis() - start;
+00041             \textcolor{keywordflow}{if}(ret.size() == 0 && d < timeoutMillis) \{
+00042                 \textcolor{keywordflow}{try} \{
+00043                     Thread.sleep(100);
+00044                     \textcolor{keywordflow}{continue};
+00045                 \} \textcolor{keywordflow}{catch} (InterruptedException e) \{
+00046                 \}
+00047             \}
+00048             \textcolor{keywordflow}{return} convert(ret);
+00049         \}
+00050     \}
+00051 
+00052     @Override
+\hypertarget{_event_management_8java_source_l00053}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a7513df51d5996fac8a57f6aa089895cd}{00053}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a7513df51d5996fac8a57f6aa089895cd}{getEventsOfDevice}(String deviceId, Date lastEventMillis, \textcolor{keywordtype}{long} 
+      timeoutMillis) \{
+00054         \textcolor{keywordtype}{long} start = System.currentTimeMillis();
+00055         \textcolor{keywordflow}{while}(\textcolor{keyword}{true}) \{
+00056             var ret = er.findAllByDeviceIdEqualsAndCreatedGreaterThanOrderByCreated(deviceId, 
+      lastEventMillis);
+00057             \textcolor{keywordtype}{long} d = System.currentTimeMillis() - start;
+00058             \textcolor{keywordflow}{if}(ret.size() == 0 && d < timeoutMillis) \{
+00059                 \textcolor{keywordflow}{try} \{
+00060                     Thread.sleep(100);
+00061                     \textcolor{keywordflow}{continue};
+00062                 \} \textcolor{keywordflow}{catch} (InterruptedException e) \{
+00063                 \}
+00064             \}
+00065             \textcolor{keywordflow}{return} convert(ret);
+00066         \}
+00067     \}
+00068     
+00069     @Override
+\hypertarget{_event_management_8java_source_l00070}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1fcaa80b727d7728b76d0dd4deeaaf17}{00070}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a1fcaa80b727d7728b76d0dd4deeaaf17}{getLatestEventsByPlaceTagAndDataType}(String 
+      placeTagPrefix, String dataType, Date lastEventMillis, \textcolor{keywordtype}{long} timeoutMillis) \{
+00071         \textcolor{keywordtype}{long} start = System.currentTimeMillis();
+00072         \textcolor{keywordflow}{while}(\textcolor{keyword}{true}) \{
+00073             var ret = \textcolor{keyword}{new} LinkedHashMap<String, 
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity.Event}>();
+00074             \textcolor{keywordflow}{for}(var ev : er.
+      \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository_ac61ad3f1e33d148ab3b6409388cb1a2f}{findAllByDataTypeEqualsAndCreatedGreaterThanOrderByCreated}
+      (dataType, lastEventMillis)) \{
+00075                 \textcolor{keywordflow}{if}(ev.getPlaceTag()!=\textcolor{stringliteral}{"outside"})\{
+00076                     \textcolor{keywordflow}{if}(!ev.getPlaceTag().contains(placeTagPrefix)) \textcolor{keywordflow}{continue};
+00077                 \}
+00078                 \textcolor{keywordflow}{if}(ret.containsKey(ev.getDeviceId()))\{
+00079                     ret.remove(ev.getDeviceId());
+00080                 \}
+00081                 ret.put(ev.getDeviceId(), ev);
+00082             \}
+00083             \textcolor{keywordtype}{long} d = System.currentTimeMillis() - start;
+00084             \textcolor{keywordflow}{if}(ret.size() == 0 && d < timeoutMillis) \{
+00085                 \textcolor{keywordflow}{try} \{
+00086                     Thread.sleep(100);
+00087                     \textcolor{keywordflow}{continue};
+00088                 \} \textcolor{keywordflow}{catch} (InterruptedException e) \{
+00089                 \}
+00090             \}
+00091             \textcolor{keywordflow}{return} convert(ret.values());
+00092         \}
+00093     \}
+00094 
+00095     @Override
+\hypertarget{_event_management_8java_source_l00096}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ababf0fd7241c3cfb1f1009e848eeb594}{00096}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ababf0fd7241c3cfb1f1009e848eeb594}{getLatestEventsByLatLngAndDataType}(
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} latLng, \textcolor{keywordtype}{double} r, String dataType, Date lastEventMillis,
+00097             \textcolor{keywordtype}{long} timeoutMillis) \{
+00098         var start = System.currentTimeMillis();
+00099         \textcolor{keywordflow}{while}(\textcolor{keyword}{true}) \{
+00100             var ret = \textcolor{keyword}{new} LinkedHashMap<String, 
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1entity_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity.Event}>();
+00101             \textcolor{keywordflow}{for}(var ev : er.
+      \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1dao_1_1_event_repository_ac61ad3f1e33d148ab3b6409388cb1a2f}{findAllByDataTypeEqualsAndCreatedGreaterThanOrderByCreated}
+      (dataType, lastEventMillis)) \{
+00102                 \textcolor{keywordflow}{if}(ev.getLatitude() != null && ev.getLongitude() != null) \{
+00103                     \textcolor{keywordflow}{if}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo}{Geo}.\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_geo_a4cfe7175a4a4cfcbe5ec79246fa7c876}{distMeter}(latLng.getLatitude(), latLng.getLongitude(), ev.
+      getLatitude(), ev.getLongitude()) > r) \textcolor{keywordflow}{continue};
+00104                 \}
+00105                 \textcolor{keywordflow}{if}(ret.containsKey(ev.getDeviceId()))\{
+00106                     ret.remove(ev.getDeviceId());
+00107                 \}
+00108                 ret.put(ev.getDeviceId(), ev);
+00109             \}
+00110             var d = System.currentTimeMillis() - start;
+00111             \textcolor{keywordflow}{if}(ret.size() == 0 && d < timeoutMillis) \{
+00112                 \textcolor{keywordflow}{try} \{
+00113                     Thread.sleep(100);
+00114                     \textcolor{keywordflow}{continue};
+00115                 \} \textcolor{keywordflow}{catch} (InterruptedException e) \{
+00116                 \}
+00117             \}
+00118             \textcolor{keywordflow}{return} convert(ret.values());
+00119         \}
+00120     \}
+00121 
+00122     @Override
+\hypertarget{_event_management_8java_source_l00123}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a235d15403651c1e09485c24aecf121f8}{00123}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a235d15403651c1e09485c24aecf121f8}{listEvents}(\textcolor{keywordtype}{int} page, \textcolor{keywordtype}{int} size) \{
+00124         \textcolor{keywordflow}{return} convert(er.findAll(PageRequest.of(page, size)).getContent());
+00125     \}
+00126 
+00127     @Override
+\hypertarget{_event_management_8java_source_l00128}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ae667f2520d18499d84e8625224e00d16}{00128}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ae667f2520d18499d84e8625224e00d16}{updateRule}(String ruleId, String body) \{
+00129         Sessions.instance().\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_ae667f2520d18499d84e8625224e00d16}{updateRule}(ruleId, body);
+00130     \}
+00131 
+00132     @Override
+\hypertarget{_event_management_8java_source_l00133}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_af255861f3894c53b1a51f5a59b87d3bc}{00133}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_af255861f3894c53b1a51f5a59b87d3bc}{activateRule}(String ruleId) \{
+00134         Sessions.instance().\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_af255861f3894c53b1a51f5a59b87d3bc}{activateRule}(ruleId);
+00135     \}
+00136 
+00137     @Override
+\hypertarget{_event_management_8java_source_l00138}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a40a1aeb4d5e3173834631604f6f2cd4b}{00138}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a40a1aeb4d5e3173834631604f6f2cd4b}{deactivateRule}(String ruleId) \{
+00139         Sessions.instance().\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1_event_management_a40a1aeb4d5e3173834631604f6f2cd4b}{deactivateRule}(ruleId);
+00140     \}
+00141 
+00142     \textcolor{keyword}{private} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] convert(Iterable<jp.ac.kyoto\_u.i.soc.ai.iostbase.dao.entity.Event> events) \{
+00143         ObjectMapper m = \textcolor{keyword}{new} ObjectMapper();
+00144         Converter c = \textcolor{keyword}{new} Converter();
+00145         var ret = \textcolor{keyword}{new} ArrayList<>();
+00146         \textcolor{keywordflow}{for}(var ev : events) \{
+00147             var e = c.convert(ev, Event.class);
+00148             \textcolor{keywordflow}{try} \{
+00149                 e.setValue(m.readValue(ev.getValue(), Object.class));
+00150             \} \textcolor{keywordflow}{catch} (JsonProcessingException e1) \{
+00151                 e1.printStackTrace();
+00152             \}
+00153             ret.add(e);
+00154         \}
+00155         \textcolor{keywordflow}{return} ret.toArray(\textcolor{keyword}{new} Event[] \{\});
+00156     \}
+00157 \}
+\end{DoxyCode}

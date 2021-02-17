@@ -71,7 +71,10 @@ public class EventManagement implements EventManagementService{
 		long start = System.currentTimeMillis();
 		while(true) {
 			var ret = new LinkedHashMap<String, jp.ac.kyoto_u.i.soc.ai.iostbase.dao.entity.Event>();
-			for(var ev : er.findAllByPlaceTagStartingWithAndDataTypeEqualsAndCreatedGreaterThanOrderByCreated(placeTagPrefix, dataType, lastEventMillis)) {
+			for(var ev : er.findAllByDataTypeEqualsAndCreatedGreaterThanOrderByCreated(dataType, lastEventMillis)) {
+				if(ev.getPlaceTag()!="outside"){
+					if(!ev.getPlaceTag().contains(placeTagPrefix)) continue;
+				}
 				if(ret.containsKey(ev.getDeviceId())){
 					ret.remove(ev.getDeviceId());
 				}

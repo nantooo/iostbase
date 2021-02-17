@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.5"/>
+<title>対話エージェントのためのIoTサービス基盤の構築: クラス jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">対話エージェントのためのIoTサービス基盤の構築
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 作成： Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacejp.html">jp</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac.html">ac</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u.html">kyoto_u</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i.html">i</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc.html">soc</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai.html">ai</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase.html">iostbase</a></li><li class="navelem"><a class="el" href="namespacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util.html">util</a></li><li class="navelem"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a> &#124;
+<a href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m-members.html">すべてのメンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr class="memitem:a729d87cf18ea83e7769f395468f86bc6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a729d87cf18ea83e7769f395468f86bc6">SOM</a> (Object som)</td></tr>
+<tr class="separator:a729d87cf18ea83e7769f395468f86bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea2211bede7ee7b0fe434d510657f39"><td class="memItemLeft" align="right" valign="top">Iterable&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#adea2211bede7ee7b0fe434d510657f39">propertyNames</a> ()</td></tr>
+<tr class="separator:adea2211bede7ee7b0fe434d510657f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6824be861f5d408154cb80438dc5212"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#ae6824be861f5d408154cb80438dc5212">getSOM</a> (String name)</td></tr>
+<tr class="separator:ae6824be861f5d408154cb80438dc5212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1e140ba4ad34b466b648567840a3b7"><td class="memItemLeft" align="right" valign="top">Map&lt; String, Object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#acd1e140ba4ad34b466b648567840a3b7">getMap</a> ()</td></tr>
+<tr class="separator:acd1e140ba4ad34b466b648567840a3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3423c860c488261ae9bc8f37d666f775"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a3423c860c488261ae9bc8f37d666f775">getSOMList</a> (String name)</td></tr>
+<tr class="separator:a3423c860c488261ae9bc8f37d666f775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad37441cf5c05da7d1dc514241eafcac6"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#ad37441cf5c05da7d1dc514241eafcac6">getObject</a> (String name)</td></tr>
+<tr class="separator:ad37441cf5c05da7d1dc514241eafcac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fa572b748ecaaa0c35b772fc0ec9a6b"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a8fa572b748ecaaa0c35b772fc0ec9a6b">putObject</a> (String name, Object value)</td></tr>
+<tr class="separator:a8fa572b748ecaaa0c35b772fc0ec9a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aaad7227dde59ea22b739636bf17786"><td class="memItemLeft" align="right" valign="top">Object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a5aaad7227dde59ea22b739636bf17786">removeObject</a> (String name)</td></tr>
+<tr class="separator:a5aaad7227dde59ea22b739636bf17786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50cd7d862c4389cf99e9e4c5d10013cc"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a50cd7d862c4389cf99e9e4c5d10013cc">getString</a> (String name)</td></tr>
+<tr class="separator:a50cd7d862c4389cf99e9e4c5d10013cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b029e86eb59870fc20e98f731097fe"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a56b029e86eb59870fc20e98f731097fe">removeString</a> (String name)</td></tr>
+<tr class="separator:a56b029e86eb59870fc20e98f731097fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ae268d78de9c1a2b6bb919bd5f44797"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#a7ae268d78de9c1a2b6bb919bd5f44797">getInt</a> (String name, int defaultValue)</td></tr>
+<tr class="separator:a7ae268d78de9c1a2b6bb919bd5f44797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr class="memitem:abe0bc53ee7cf52615afe23c08c47895b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#abe0bc53ee7cf52615afe23c08c47895b">set</a> (Object som, String name, Object value)</td></tr>
+<tr class="separator:abe0bc53ee7cf52615afe23c08c47895b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55175ebf124c93d7a7045b344890cf9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html#af55175ebf124c93d7a7045b344890cf9">of</a> (Object som)</td></tr>
+<tr class="separator:af55175ebf124c93d7a7045b344890cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">説明</h2>
+<div class="textblock"><p>Helper class for String to Object map. </p>
+<dl class="section author"><dt>作者</dt><dd>nakaguchi </dd></dl>
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00012">12</a> 行で定義されています。</p>
+</div><h2 class="groupheader">コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a729d87cf18ea83e7769f395468f86bc6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.SOM </td>
+          <td>(</td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>som</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00023">23</a> 行で定義されています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メソッド</h2>
+<a class="anchor" id="a7ae268d78de9c1a2b6bb919bd5f44797"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.getInt </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>defaultValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00068">68</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="acd1e140ba4ad34b466b648567840a3b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Map&lt;String, Object&gt; jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.getMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00035">35</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ad37441cf5c05da7d1dc514241eafcac6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Object jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.getObject </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00048">48</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6824be861f5d408154cb80438dc5212"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a> jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.getSOM </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00031">31</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a3423c860c488261ae9bc8f37d666f775"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a>&gt; jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.getSOMList </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00040">40</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a50cd7d862c4389cf99e9e4c5d10013cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.getString </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00060">60</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="af55175ebf124c93d7a7045b344890cf9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m.html">SOM</a> jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.of </td>
+          <td>(</td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>som</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00018">18</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="adea2211bede7ee7b0fe434d510657f39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Iterable&lt;String&gt; jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.propertyNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00027">27</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a8fa572b748ecaaa0c35b772fc0ec9a6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Object jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.putObject </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00052">52</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a5aaad7227dde59ea22b739636bf17786"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Object jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.removeObject </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00056">56</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a56b029e86eb59870fc20e98f731097fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.removeString </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00064">64</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="abe0bc53ee7cf52615afe23c08c47895b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void jp.ac.kyoto_u.i.soc.ai.iostbase.util.SOM.set </td>
+          <td>(</td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>som</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_s_o_m_8java_source.html">SOM.java</a> の <a class="el" href="_s_o_m_8java_source.html#l00014">14</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>src/main/java/jp/ac/kyoto_u/i/soc/ai/iostbase/util/<a class="el" href="_s_o_m_8java_source.html">SOM.java</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+作成： &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.5
+</small></address>
+</body>
+</html>

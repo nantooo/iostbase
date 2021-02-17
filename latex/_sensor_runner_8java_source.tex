@@ -1,0 +1,164 @@
+\hypertarget{_sensor_runner_8java}{\section{Sensor\-Runner.\-java}
+\label{_sensor_runner_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Sensor\-Runner.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/\-Sensor\-Runner.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase;
+00002 
+00003 \textcolor{keyword}{import} java.io.File;
+00004 \textcolor{keyword}{import} java.lang.reflect.Method;
+00005 \textcolor{keyword}{import} java.net.MalformedURLException;
+00006 \textcolor{keyword}{import} java.net.URL;
+00007 \textcolor{keyword}{import} java.util.ArrayList;
+00008 \textcolor{keyword}{import} java.util.Date;
+00009 \textcolor{keyword}{import} java.util.List;
+00010 \textcolor{keyword}{import} java.util.Map;
+00011 
+00012 \textcolor{keyword}{import} com.fasterxml.jackson.core.JsonProcessingException;
+00013 \textcolor{keyword}{import} com.fasterxml.jackson.databind.ObjectMapper;
+00014 
+00015 \textcolor{keyword}{import} jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.Sensor;
+00016 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.Event}
+      ;
+00017 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.EventManagementService}
+      ;
+00018 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{jp.ac.kyoto\_u.i.soc.ai.iostbase.service.intf.LatLng}
+      ;
+00019 \textcolor{keyword}{import} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{jp.ac.kyoto\_u.i.soc.ai.iostbase.util.SOM};
+00020 \textcolor{keyword}{import} jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
+00021 \textcolor{keyword}{import} jp.go.nict.langrid.commons.beanutils.Converter;
+00022 \textcolor{keyword}{import} jp.go.nict.langrid.commons.lang.ClassUtil;
+00023 
+\hypertarget{_sensor_runner_8java_source_l00024}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner}{00024} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner}{SensorRunner} \{
+00025     \textcolor{keyword}{private} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{EventManagementService} service;
+00026     \textcolor{keyword}{private} List<Sensor<?>> sensors;
+00027     \textcolor{keyword}{private} \textcolor{keywordtype}{int} intervalMillis = 10000;
+00028 
+\hypertarget{_sensor_runner_8java_source_l00029}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_af326f1a7ab525fb2874bb2c22faafde2}{00029}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_af326f1a7ab525fb2874bb2c22faafde2}{SensorRunner}(String url) \textcolor{keywordflow}{throws} MalformedURLException \{
+00030         \textcolor{keywordflow}{if}(url != null) \{
+00031             var cf = \textcolor{keyword}{new} JsonRpcClientFactory();
+00032             service = cf.create(
+00033                     EventManagementService.class,
+00034                     \textcolor{keyword}{new} URL(url));
+00035         \} \textcolor{keywordflow}{else} \{
+00036             service = \textcolor{keyword}{new} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event_management_service}{EventManagementService}() \{
+00037                 @Override
+00038                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} updateRule(String ruleId, String body) \{
+00039                 \}
+00040                 
+00041                 @Override
+00042                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} notifyEvent(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} event) \{
+00043                     \textcolor{keywordflow}{try} \{
+00044                         System.out.println(\textcolor{keyword}{new} ObjectMapper().writeValueAsString(event));
+00045                     \} \textcolor{keywordflow}{catch} (JsonProcessingException e) \{
+00046                         e.printStackTrace();
+00047                     \}
+00048                 \}
+00049                 
+00050                 @Override
+00051                 \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] listEvents(\textcolor{keywordtype}{int} page, \textcolor{keywordtype}{int} size) \{
+00052                     \textcolor{keywordflow}{return} null;
+00053                 \}
+00054                 
+00055                 @Override
+00056                 \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] getEventsOfDevice(String deviceId, Date lastEventMillis, \textcolor{keywordtype}{long} 
+      timeoutMillis) \{
+00057                     \textcolor{keywordflow}{return} null;
+00058                 \}
+00059                 
+00060                 @Override
+00061                 \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] getLatestEventsByLatLngAndDataType(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_lat_lng}{LatLng} latLng, \textcolor{keywordtype}{double} r, 
+      String dataType,
+00062                         Date lastEventMillis, \textcolor{keywordtype}{long} timeoutMillis) \{
+00063                     \textcolor{keywordflow}{return} null;
+00064                 \}
+00065                 
+00066                 @Override
+00067                 \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] getLatestEventsByPlaceTagAndDataType(String placeTagPrefix, String 
+      dataType,
+00068                         Date lastEventMillis, \textcolor{keywordtype}{long} timeoutMillis) \{
+00069                     \textcolor{keywordflow}{return} null;
+00070                 \}
+00071                 
+00072                 @Override
+00073                 \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}[] getEvents(Date lastEventMillis, \textcolor{keywordtype}{long} timeoutMillis) \{
+00074                     \textcolor{keywordflow}{return} null;
+00075                 \}
+00076                 
+00077                 @Override
+00078                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} deactivateRule(String ruleId) \{
+00079                 \}
+00080                 
+00081                 @Override
+00082                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} activateRule(String ruleId) \{
+00083                 \}
+00084             \};
+00085         \}
+00086     \}
+00087 
+\hypertarget{_sensor_runner_8java_source_l00088}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_a67d6a5d387438ea868cd821cd851b80f}{00088}     \textcolor{keyword}{public} List<Sensor<?>> \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_a67d6a5d387438ea868cd821cd851b80f}{getSensors}() \{
+00089         \textcolor{keywordflow}{return} sensors;
+00090     \}
+00091 
+\hypertarget{_sensor_runner_8java_source_l00092}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_ae6a7020f02f06fd83b2a1d6081ac687e}{00092}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_ae6a7020f02f06fd83b2a1d6081ac687e}{setSensors}(List<Sensor<?>> sensors) \{
+00093         this.sensors = sensors;
+00094     \}
+00095 
+\hypertarget{_sensor_runner_8java_source_l00096}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_a8355ed1ad8c26fb5fb878a2480038b82}{00096}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_a8355ed1ad8c26fb5fb878a2480038b82}{getIntervalMillis}() \{
+00097         \textcolor{keywordflow}{return} intervalMillis;
+00098     \}
+00099 
+\hypertarget{_sensor_runner_8java_source_l00100}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_aa955dcc8eae7e03a94849fefd1db5930}{00100}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_aa955dcc8eae7e03a94849fefd1db5930}{setIntervalMillis}(\textcolor{keywordtype}{int} intervalMillis) \{
+00101         this.intervalMillis = intervalMillis;
+00102     \}
+00103 
+\hypertarget{_sensor_runner_8java_source_l00104}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_ae24b5ec53f176390bdac0951a8bb230f}{00104}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_ae24b5ec53f176390bdac0951a8bb230f}{run}() throws InterruptedException \{
+00105         \textcolor{keywordflow}{while}(!Thread.interrupted()) \{
+00106             \textcolor{keywordtype}{long} start = System.nanoTime();
+00107             \textcolor{keywordflow}{for}(Sensor<?> s : sensors) \{
+00108                 Object value = s.getValue();
+00109                 Double lat = s.getLatLng().getLatitude();
+00110                 Double lon = s.getLatLng().getLongitude();
+00111                 \textcolor{keywordflow}{if}(s.getPlaceTag()==\textcolor{stringliteral}{"outside"})\{
+00112                     lat = null;
+00113                     lon = null;
+00114                 \}
+00115                 \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event} e = \textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1intf_1_1_event}{Event}(s.getDeviceId(), s.getDataType(), s.getPlaceTag(),
+00116                         lat,
+00117                         lon,
+00118                         value);
+00119                 service.notifyEvent(e);
+00120             \}
+00121             \textcolor{keywordtype}{long} d = System.nanoTime() - start;
+00122             \textcolor{keywordtype}{long} st = intervalMillis - (d / 1000000);
+00123             \textcolor{keywordflow}{if}(st > 0) \{
+00124                 Thread.sleep(st);
+00125             \}
+00126         \}
+00127     \}
+00128 
+\hypertarget{_sensor_runner_8java_source_l00129}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_a18c6d84e04f16cc5433b9d356dbf684f}{00129}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_a18c6d84e04f16cc5433b9d356dbf684f}{main}(String[] args) \textcolor{keywordflow}{throws} Throwable\{
+00130         \textcolor{keywordtype}{int} pi = 0;
+00131         String configFile = args.length > pi ? args[pi++] : \textcolor{stringliteral}{"./sensorrunner/config.json"};
+00132         String iostUrl = args.length > pi ? args[pi++] : null;
+00133         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner}{SensorRunner} r = \textcolor{keyword}{new} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1_sensor_runner_af326f1a7ab525fb2874bb2c22faafde2}{SensorRunner}(iostUrl);
+00134         ObjectMapper m = \textcolor{keyword}{new} ObjectMapper();
+00135         \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM} config = SOM.of(m.reader().readValue(\textcolor{keyword}{new} File(configFile), Map.class));
+00136         r.setIntervalMillis(config.getInt(\textcolor{stringliteral}{"intervalMillis"}, 10000));
+00137         List<Sensor<?>> sensors = \textcolor{keyword}{new} ArrayList<>();
+00138         Converter c = \textcolor{keyword}{new} Converter();
+00139         \textcolor{keywordflow}{for}(\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m}{SOM} som : config.\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1util_1_1_s_o_m_a3423c860c488261ae9bc8f37d666f775}{getSOMList}(\textcolor{stringliteral}{"sensors"})) \{
+00140             Sensor<?> s = (Sensor<?>)Class.forName(som.removeString(\textcolor{stringliteral}{"type"})).getConstructor().newInstance()
+      ;
+00141             \textcolor{keywordflow}{for}(String name : som.propertyNames()) \{
+00142                 Method setter = ClassUtil.findSetter(s.getClass(), name);
+00143                 setter.invoke(s, c.convert(som.getObject(name), setter.getParameterTypes()[0]));
+00144             \}
+00145             sensors.add(s);
+00146             System.out.println(s);
+00147         \}
+00148         r.setSensors(sensors);
+00149         r.run();
+00150     \}
+00151 \}
+\end{DoxyCode}

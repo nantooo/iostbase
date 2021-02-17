@@ -1,0 +1,29 @@
+\hypertarget{_windowclose_noise_processor_service_8java}{\section{Windowclose\-Noise\-Processor\-Service.\-java}
+\label{_windowclose_noise_processor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Windowclose\-Noise\-Processor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-Windowclose\-Noise\-Processor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_noise_processor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.processor.NoiseProcessor}
+      ;
+00004 
+\hypertarget{_windowclose_noise_processor_service_8java_source_l00005}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_windowclose_noise_processor_service}{00005} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_windowclose_noise_processor_service}{WindowcloseNoiseProcessorService}
+00006 \textcolor{keyword}{implements} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1processor_1_1_noise_processor}{NoiseProcessor} \{
+\hypertarget{_windowclose_noise_processor_service_8java_source_l00007}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_windowclose_noise_processor_service_a7e08397b1104738d5c68f7de19f53e9b}{00007}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_windowclose_noise_processor_service_a7e08397b1104738d5c68f7de19f53e9b}{WindowcloseNoiseProcessorService}(
+      \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_window_open_close_switch_actuator_service}{WindowOpenCloseSwitchActuatorService} act,
+00008             \textcolor{keywordtype}{int} upperThreashold) \{
+00009         this.act = act;
+00010         this.upperThreashold = upperThreashold;
+00011     \}
+00012     @Override
+00013     public <T> T processNoise(\textcolor{keywordtype}{int} db) \{
+00014         \textcolor{keywordflow}{if}(upperThreashold < db) \{
+00015             act.close();
+00016         \}
+00017         \textcolor{keywordflow}{return} null;
+00018     \}
+00019     \textcolor{keyword}{private} WindowOpenCloseSwitchActuatorService act;
+00020     \textcolor{keyword}{private} \textcolor{keywordtype}{int} upperThreashold;
+00021 \}
+\end{DoxyCode}

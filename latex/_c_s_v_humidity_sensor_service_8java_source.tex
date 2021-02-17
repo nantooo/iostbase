@@ -1,0 +1,48 @@
+\hypertarget{_c_s_v_humidity_sensor_service_8java}{\section{C\-S\-V\-Humidity\-Sensor\-Service.\-java}
+\label{_c_s_v_humidity_sensor_service_8java}\index{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-C\-S\-V\-Humidity\-Sensor\-Service.\-java@{src/main/java/jp/ac/kyoto\-\_\-u/i/soc/ai/iostbase/service/iot/\-C\-S\-V\-Humidity\-Sensor\-Service.\-java}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }jp.ac.kyoto\_u.i.soc.ai.iostbase.service.iot;
+00002 
+00003 \textcolor{keyword}{import} java.io.IOException;
+00004 \textcolor{keyword}{import} java.io.Reader;
+00005 \textcolor{keyword}{import} java.util.LinkedList;
+00006 \textcolor{keyword}{import} java.util.List;
+00007 
+00008 \textcolor{keyword}{import} com.opencsv.CSVReader;
+00009 \textcolor{keyword}{import} com.opencsv.exceptions.CsvValidationException;
+00010 
+00011 \textcolor{keyword}{import} \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_humidity_sensor}{jp.ac.kyoto\_u.i.soc.ai.iostbase.sensor.HumiditySensor}
+      ;
+00012 
+\hypertarget{_c_s_v_humidity_sensor_service_8java_source_l00013}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_humidity_sensor_service}{00013} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_humidity_sensor_service}{CSVHumiditySensorService}
+00014 \textcolor{keyword}{extends} AbstractSensorService<Double>
+00015 implements \hyperlink{interfacejp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1sensor_1_1_humidity_sensor}{HumiditySensor} \{
+\hypertarget{_c_s_v_humidity_sensor_service_8java_source_l00022}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_humidity_sensor_service_a1108aad7b41f7c6371261d14373f4404}{00022}     \textcolor{keyword}{public} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_humidity_sensor_service_a1108aad7b41f7c6371261d14373f4404}{CSVHumiditySensorService}(Reader reader) \textcolor{keywordflow}{throws} IOException, 
+      CsvValidationException \{
+00023         records = \textcolor{keyword}{new} LinkedList<>();
+00024         \textcolor{keywordflow}{try}(CSVReader cr = \textcolor{keyword}{new} CSVReader(reader))\{
+00025             records.add(cr.readNext());
+00026         \}
+00027         \textcolor{keywordflow}{if}(records.size() == 0) \{
+00028             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IOException(\textcolor{stringliteral}{"no records."});
+00029         \}
+00030     \}
+00031 
+00032     @Override
+\hypertarget{_c_s_v_humidity_sensor_service_8java_source_l00033}{}\hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_humidity_sensor_service_ab29f262805a0a16f1cdd585838f243f9}{00033}     \textcolor{keyword}{public} \textcolor{keywordtype}{double} \hyperlink{classjp_1_1ac_1_1kyoto__u_1_1i_1_1soc_1_1ai_1_1iostbase_1_1service_1_1iot_1_1_c_s_v_humidity_sensor_service_ab29f262805a0a16f1cdd585838f243f9}{getHumidity}() \{
+00034         String[] row = null;
+00035         \textcolor{keywordflow}{if}(records.size() == 1) \{
+00036             row = records.get(0);
+00037         \} \textcolor{keywordflow}{else} \{
+00038             row = records.remove(0);
+00039         \}
+00040         Double ret = Double.parseDouble(row[2]);
+00041         notifyToSubscribers(ret);
+00042         \textcolor{keywordflow}{return} ret;
+00043     \}
+00044 
+00045     \textcolor{keyword}{private} List<String[]> records;
+00046 \}
+\end{DoxyCode}
