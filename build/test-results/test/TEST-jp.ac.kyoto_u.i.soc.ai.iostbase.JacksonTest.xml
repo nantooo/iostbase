@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jp.ac.kyoto_u.i.soc.ai.iostbase.JacksonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-17T20:55:10" hostname="ip-172-31-36-38" time="0.424">
+  <properties/>
+  <testcase name="test()" classname="jp.ac.kyoto_u.i.soc.ai.iostbase.JacksonTest" time="0.424"/>
+  <system-out><![CDATA["hello"
+class java.lang.String
+hello
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

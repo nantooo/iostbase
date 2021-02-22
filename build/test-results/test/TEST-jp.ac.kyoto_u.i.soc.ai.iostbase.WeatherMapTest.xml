@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jp.ac.kyoto_u.i.soc.ai.iostbase.WeatherMapTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-17T20:55:28" hostname="ip-172-31-36-38" time="3.092">
+  <properties/>
+  <testcase name="test()" classname="jp.ac.kyoto_u.i.soc.ai.iostbase.WeatherMapTest" time="3.092"/>
+  <system-out><![CDATA[-1.13
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

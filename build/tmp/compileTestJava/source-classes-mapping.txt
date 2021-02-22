@@ -1,0 +1,8 @@
+jp/ac/kyoto_u/i/soc/ai/iostbase/JacksonTest.java
+ jp.ac.kyoto_u.i.soc.ai.iostbase.JacksonTest
+jp/ac/kyoto_u/i/soc/ai/iostbase/GPSSensorTest.java
+ jp.ac.kyoto_u.i.soc.ai.iostbase.GPSSensorTest
+jp/ac/kyoto_u/i/soc/ai/iostbase/EventManagementServiceTest.java
+ jp.ac.kyoto_u.i.soc.ai.iostbase.EventManagementServiceTest
+jp/ac/kyoto_u/i/soc/ai/iostbase/WeatherMapTest.java
+ jp.ac.kyoto_u.i.soc.ai.iostbase.WeatherMapTest
