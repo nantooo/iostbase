@@ -10,6 +10,26 @@
 			"headerRows": 4,
 			"valueColumn": 4,
 			"dataType": "humidity"
+		},
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.WeatherMapSensor",
+			"deviceId": "weathermap",
+			"latLng": {"latitude": 35.0116, "longitude": 135.7681},
+			"placeTag": "outside",
+			"dataType": "temperature",
+			"conf": "temp",
+			"host": "community-open-weather-map.p.rapidapi.com",
+			"key": "a6b5e41dbemsh64fdd31e6faed32p1fb68ajsn21b32340e75e"
+		},
+		{
+			"type": "jp.ac.kyoto_u.i.soc.ai.iostbase.service.iot.WeatherMapSensor",
+			"deviceId": "weathermap",
+			"latLng": {"latitude": 35.0116, "longitude": 135.7681},
+			"placeTag": "outside",
+			"dataType": "humidity",
+			"conf": "humidity",
+			"host": "community-open-weather-map.p.rapidapi.com",
+			"key": "a6b5e41dbemsh64fdd31e6faed32p1fb68ajsn21b32340e75e"
 		}
 	]
 }
